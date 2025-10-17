@@ -6,7 +6,7 @@ var current_level: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_level("res://assets/scenes/areas/node_2d_area_1.tscn")
+	load_level("res://assets/scenes/areas/node_2d_tamagotchi_room_1.tscn")
 
 func load_level(path: String) -> void:
 	if current_level:

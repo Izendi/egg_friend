@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://vjlscvgjc5x8"]
+
+[ext_resource type="Script" uid="uid://bvinaai877b0" path="res://assets/scenes/areas/node_animations.gd" id="1_ljk5m"]
+[ext_resource type="Texture2D" uid="uid://cqrjn6acifo56" path="res://assets/backgrounds/t_background_test.jpg" id="1_xxgjb"]
+[ext_resource type="Texture2D" uid="uid://dwfr07denmnyv" path="res://assets/sprites/mySprites/Egg_friend_1_pose2.png" id="2_v7syg"]
+[ext_resource type="Texture2D" uid="uid://dfbap383cfwsh" path="res://assets/sprites/mySprites/Egg_friend_1_pose1.png" id="3_ljk5m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8yru"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("2_v7syg")
+}, {
+"duration": 4.0,
+"texture": ExtResource("3_ljk5m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D_background" type="Sprite2D" parent="."]
+scale = Vector2(0.384673, 0.384673)
+texture = ExtResource("1_xxgjb")
+centered = false
+
+[node name="Node2D_Animations" type="Node2D" parent="."]
+script = ExtResource("1_ljk5m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_Animations"]
+position = Vector2(256, 256)
+scale = Vector2(0.0865834, 0.0865834)
+sprite_frames = SubResource("SpriteFrames_t8yru")
+animation = &"idle"
+frame = 1
+frame_progress = 0.0962861
