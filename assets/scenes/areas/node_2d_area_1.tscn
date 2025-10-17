@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://bturtvtskduo1"]
+[gd_scene load_steps=9 format=4 uid="uid://bturtvtskduo1"]
 
 [ext_resource type="Texture2D" uid="uid://ntb0befljsre" path="res://assets/sprites/tiles_1.png" id="1_xwd35"]
+[ext_resource type="Script" uid="uid://dqoi02613jx5j" path="res://assets/scenes/areas/node_2d_area_1.gd" id="1_yrthb"]
 [ext_resource type="Texture2D" uid="uid://cqrjn6acifo56" path="res://assets/backgrounds/t_background_test.jpg" id="3_bcwkr"]
+[ext_resource type="Texture2D" uid="uid://dwfr07denmnyv" path="res://assets/sprites/mySprites/Egg_friend_1_pose2.png" id="3_j3bwi"]
+[ext_resource type="Texture2D" uid="uid://dfbap383cfwsh" path="res://assets/sprites/mySprites/Egg_friend_1_pose1.png" id="4_yrthb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gb0c"]
 texture = ExtResource("1_xwd35")
@@ -90,7 +93,22 @@ texture = ExtResource("1_xwd35")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7gb0c")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7gb0c"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("3_j3bwi")
+}, {
+"duration": 4.0,
+"texture": ExtResource("4_yrthb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="Node2D_area1" type="Node2D"]
+script = ExtResource("1_yrthb")
 
 [node name="TileMap" type="Node" parent="."]
 
@@ -106,3 +124,11 @@ texture = ExtResource("3_bcwkr")
 
 [node name="Node2D_spawnPoint" type="Node2D" parent="."]
 position = Vector2(84, 272)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(190.778, 264.75)
+scale = Vector2(0.0234536, 0.0234536)
+sprite_frames = SubResource("SpriteFrames_7gb0c")
+animation = &"idle"
+frame = 1
+frame_progress = 0.859358
