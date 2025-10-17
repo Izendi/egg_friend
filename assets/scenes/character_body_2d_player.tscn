@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://xgurk1ylg30u"]
+
+[ext_resource type="Texture2D" uid="uid://d2twas6sbh6jg" path="res://assets/sprites/player.png" id="1_0nx04"]
+[ext_resource type="Script" uid="uid://db0j466xg3g0j" path="res://assets/scripts/character_body_2d_player.gd" id="1_jq623"]
+
+[sub_resource type="Animation" id="Animation_jq623"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpqhe"]
+_data = {
+&"idle": SubResource("Animation_jq623")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jq623"]
+radius = 6.0
+height = 14.0
+
+[node name="CharacterBody2D_Player" type="CharacterBody2D"]
+script = ExtResource("1_jq623")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -15)
+zoom = Vector2(6, 6)
+
+[node name="Node2D_AnimationShelf" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D_AnimationShelf"]
+root_node = NodePath("../../Camera2D")
+libraries = {
+&"": SubResource("AnimationLibrary_lpqhe")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D_AnimationShelf"]
+position = Vector2(0, -8)
+texture = ExtResource("1_0nx04")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_jq623")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://214ce7ai1vg3"]
+
+[ext_resource type="Script" uid="uid://bivcrv4c16j75" path="res://assets/scenes/areas/tamagotchi_global.gd" id="1_cxcdh"]
+[ext_resource type="PackedScene" uid="uid://xgurk1ylg30u" path="res://assets/scenes/character_body_2d_player.tscn" id="2_i6i21"]
+
+[node name="Node_tamagotchi_global" type="Node"]
+script = ExtResource("1_cxcdh")
+
+[node name="Node2D_world" type="Node2D" parent="."]
+
+[node name="Node_audioManager" type="Node" parent="."]
+
+[node name="CharacterBody2D_Player" parent="." instance=ExtResource("2_i6i21")]
