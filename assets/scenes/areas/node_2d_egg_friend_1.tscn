@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsbbkf3g2s4g5"]
+
+[ext_resource type="PackedScene" uid="uid://c31p6ld8s182" path="res://assets/scenes/areas/node_2d_i_egg_friend.tscn" id="1_gknuk"]
+[ext_resource type="Script" uid="uid://dhnctby0bk437" path="res://assets/scenes/areas/node_2d_egg_friend_1_child.gd" id="2_3b6g5"]
+[ext_resource type="SpriteFrames" uid="uid://duwu3stoxopji" path="res://assets/sprites/mySprites/egg_friend_1_animated_sprite.tres" id="3_3b6g5"]
+
+[node name="Node2D_egg_friend_1" instance=ExtResource("1_gknuk")]
+script = ExtResource("2_3b6g5")
+
+[node name="AnimatedSprite2D" parent="Node2D_Animations" index="0"]
+scale = Vector2(0.134144, 0.13346)
+sprite_frames = ExtResource("3_3b6g5")
+animation = &"idle"
+frame = 1
+frame_progress = 0.713258
