@@ -1,11 +1,21 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://duwu3stoxopji"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://duwu3stoxopji"]
 
+[ext_resource type="Texture2D" uid="uid://dq3uupjnql6a0" path="res://assets/sprites/mySprites/eating.png" id="1_majts"]
 [ext_resource type="Texture2D" uid="uid://dwfr07denmnyv" path="res://assets/sprites/mySprites/Egg_friend_1_pose2.png" id="1_q8qc0"]
 [ext_resource type="Texture2D" uid="uid://dfbap383cfwsh" path="res://assets/sprites/mySprites/Egg_friend_1_pose1.png" id="2_eg8cv"]
+[ext_resource type="Texture2D" uid="uid://7givmodnoxna" path="res://assets/sprites/mySprites/sad.png" id="4_xf3fk"]
 
 [resource]
 resource_name = "egg_friend_1"
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_majts")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 3.0,
 "texture": ExtResource("1_q8qc0")
@@ -15,5 +25,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xf3fk")
+}],
+"loop": true,
+"name": &"sad",
 "speed": 5.0
 }]

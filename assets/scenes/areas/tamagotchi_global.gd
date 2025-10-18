@@ -49,11 +49,13 @@ func _process(delta):
 func _on_button_feed_pressed():
 	if current_level:
 		print("Feed Button Pressed")
+		selected_egg_friend.setAnimation("eating")
 
 
 func _on_button_freeze_pressed():
 	if current_level:
 		print("Freeze Button Pressed")
+		selected_egg_friend.setAnimation("sad")
 
 
 func _on_button_room_1_pressed():
