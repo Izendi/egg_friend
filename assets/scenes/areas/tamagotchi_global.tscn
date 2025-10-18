@@ -29,6 +29,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button_feed" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
 text = "Feed"
 
 [node name="Button_freeze" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
@@ -48,8 +49,23 @@ layout_mode = 2
 text = "Room 3
 "
 
+[node name="Button_Egg_Friend_1" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Tamagotchi 1"
+
+[node name="Button_Egg_Friend_2" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Tamagotchi 2"
+
+[node name="Button_Egg_Friend_3" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Tamagotchi 3"
+
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_feed" to="." method="_on_button_feed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_freeze" to="." method="_on_button_freeze_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Room_1" to="." method="_on_button_room_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Room_2" to="." method="_on_button_room_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Room_3" to="." method="_on_button_room_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Egg_Friend_1" to="." method="_on_button_egg_friend_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Egg_Friend_2" to="." method="_on_button_egg_friend_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Egg_Friend_3" to="." method="_on_button_egg_friend_3_pressed"]

@@ -1,8 +1,10 @@
 extends Node
 
+const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
+
 @onready var world: Node2D = $Node2D_world
-@onready var player: CharacterBody2D = $CharacterBody2D_Player
-var current_level: Node = null
+var current_level: Node2D = null
+var selected_egg_friend: ef_interface = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,9 +21,25 @@ func load_level(path: String, level_num: int) -> void:
 	world.add_child(current_level)
 	current_level.set_background(level_num)
 	
-	var spawn = current_level.get_node_or_null("Node2D_spawnPoint")
-	if spawn:
-		player.global_position = spawn.global_position
+
+func load_egg_friend(path: String) -> void:
+	if selected_egg_friend:
+		selected_egg_friend.queue_free() #This queue_free func tells godot: Please remove this node (and all its children) safely at the end of the current frame.
+		selected_egg_friend = null
+	
+	#this should point to the child type, not the parent type
+	var scene: PackedScene = load(path)
+	#Path to default:
+	#"res://assets/scenes/areas/node_2d_egg_friend_1.tscn"
+	
+	var inst = scene.instantiate()
+	assert(inst is ef_interface) #type safety, ensures functional polymorphism
+	selected_egg_friend = inst as ef_interface
+	
+	#this "add_child" function call will add the node to the scene hierarchy and
+	#	will cause things like @onready and the _ready function to start running
+	add_child(selected_egg_friend)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,3 +66,15 @@ func _on_button_room_2_pressed():
 
 func _on_button_room_3_pressed():
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", 2)
+
+
+func _on_button_egg_friend_1_pressed():
+	load_egg_friend("res://assets/scenes/areas/node_2d_egg_friend_1.tscn")
+
+
+func _on_button_egg_friend_2_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_egg_friend_3_pressed():
+	pass # Replace with function body.

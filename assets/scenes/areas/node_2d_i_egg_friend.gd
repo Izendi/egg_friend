@@ -13,10 +13,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if _animated_sprite.sprite_frames:
-		print("Frames resource loaded!")
-	else:
-		print("No frames assigned yet.")
+	pass
+	#if _animated_sprite.sprite_frames:
+		#print("Frames resource loaded!")
+	#else:
+		#print("No frames assigned yet.")
 
 func setAnimation(new_anim: String):
 	if new_anim != current_anim:

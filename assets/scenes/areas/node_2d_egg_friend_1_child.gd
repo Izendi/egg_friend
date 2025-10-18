@@ -5,9 +5,8 @@ extends "res://assets/scenes/areas/node_2d_i_egg_friend.gd"
 func _ready():
 	#Call the parents version of ready
 	super._ready()
-	
-	_animated_sprite
-	
+	#setAnimation("idle")
+	animate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
