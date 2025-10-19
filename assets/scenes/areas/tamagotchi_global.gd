@@ -3,14 +3,33 @@ extends Node
 const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
 
 @onready var world: Node2D = $Node2D_world
+@onready var menuSystem: CanvasLayer = $CanvasLayer
 var current_level: Node2D = null
 var selected_egg_friend: ef_interface = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", 1)
+	# Connect signals from menu sytem that will interact with egg friend
+	menuSystem.pet_egg_friend.connect(_on_pet_egg_friend)
+	menuSystem.background_changed.connect(_on_background_changed)
+	menuSystem.egg_friend_changed.connect(_on_egg_friend_chosen)
+	# Set up level loading system
+	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", "field")
+	
 
-func load_level(path: String, level_num: int) -> void:
+func _on_pet_egg_friend() -> void:
+	print("you pet your egg friend!")
+
+func _on_background_changed(backgroundName: String) -> void:
+	print("background chosen is: ", backgroundName)
+	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", backgroundName)
+	
+
+func _on_egg_friend_chosen(friendName: String) -> void:
+	print("egg friend chosen is: ", friendName)
+	load_egg_friend("res://assets/scenes/areas/node_2d_egg_friend_1.tscn") #load cd by default for now
+
+func load_level(path: String, level_name: String) -> void:
 	if current_level:
 		current_level.queue_free()
 		current_level = null
@@ -19,7 +38,7 @@ func load_level(path: String, level_num: int) -> void:
 	var scene: PackedScene = load(path)
 	current_level = scene.instantiate()
 	world.add_child(current_level)
-	current_level.set_background(level_num)
+	current_level.set_background(level_name)
 	
 
 func load_egg_friend(path: String) -> void:
@@ -56,22 +75,6 @@ func _on_button_freeze_pressed():
 	if current_level:
 		print("Freeze Button Pressed")
 		selected_egg_friend.setAnimation("sad")
-
-
-func _on_button_room_1_pressed():
-	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", 0)
-
-
-func _on_button_room_2_pressed():
-	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", 1)
-
-
-func _on_button_room_3_pressed():
-	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", 2)
-
-
-func _on_button_egg_friend_1_pressed():
-	load_egg_friend("res://assets/scenes/areas/node_2d_egg_friend_1.tscn")
 
 
 func _on_button_egg_friend_2_pressed():
