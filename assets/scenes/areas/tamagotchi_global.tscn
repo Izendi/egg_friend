@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://214ce7ai1vg3"]
+[gd_scene load_steps=5 format=3 uid="uid://214ce7ai1vg3"]
 
 [ext_resource type="Script" uid="uid://bivcrv4c16j75" path="res://assets/scenes/areas/tamagotchi_global.gd" id="1_cxcdh"]
 [ext_resource type="Script" uid="uid://dqjsx45dg5ypi" path="res://assets/scenes/areas/menu_manager.gd" id="2_cxcdh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcdh"]
+bg_color = Color(0.233926, 0.233925, 0.233925, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6i21"]
+font_size = 26
 
 [node name="Node_tamagotchi_global" type="Node"]
 script = ExtResource("1_cxcdh")
@@ -12,6 +18,37 @@ script = ExtResource("1_cxcdh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_cxcdh")
+
+[node name="Control_info" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control_info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cxcdh")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control_info/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_i6i21")
+vertical_alignment = 1
+clip_text = true
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -65,18 +102,12 @@ layout_mode = 2
 text = "Tamagotchi 3"
 
 [node name="Main_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.791667
 anchor_bottom = 0.515
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
-
-[node name="Button_resume" type="Button" parent="CanvasLayer/Control/Main_menu"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
-text = "Resume"
 
 [node name="Button_actions" type="Button" parent="CanvasLayer/Control/Main_menu"]
 layout_mode = 2
@@ -207,6 +238,8 @@ text = "set ???"
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_options" to="CanvasLayer" method="_on_button_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_scold" to="CanvasLayer" method="_on_button_scold_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setBackground" to="CanvasLayer" method="_on_button_set_background_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setEggFriend" to="CanvasLayer" method="_on_button_set_egg_friend_pressed"]

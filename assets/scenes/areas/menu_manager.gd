@@ -9,6 +9,8 @@ extends CanvasLayer
 
 #Signals for global manager
 signal pet_egg_friend # no payload
+signal feed_egg_friend # no payload
+signal scold_egg_friend # no payload
 signal background_changed(backgroundName: String)
 signal egg_friend_changed(friendName: String)
 
@@ -27,10 +29,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_button_feed_pressed():
-	pass # Replace with function body.
 
 
 func _on_button_actions_pressed():
@@ -62,10 +60,6 @@ func _on_button_set_egg_friend_pressed():
 	menu_stack.back().visible = true
 
 
-func _on_button_pet_pressed():
-	pet_egg_friend.emit()
-
-
 func _on_button_set_background_1_pressed():
 	background_changed.emit("field")
 
@@ -80,3 +74,15 @@ func _on_button_set_background_3_pressed():
 
 func _on_button_set_egg_friend_1_pressed():
 	egg_friend_changed.emit("cd")
+
+
+func _on_button_scold_pressed():
+	scold_egg_friend.emit()
+
+
+func _on_button_feed_pressed():
+	feed_egg_friend.emit()
+
+
+func _on_button_pet_pressed():
+	pet_egg_friend.emit()

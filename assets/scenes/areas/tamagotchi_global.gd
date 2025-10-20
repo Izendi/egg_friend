@@ -2,23 +2,50 @@ extends Node
 
 const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
 
+const default_IdleCount = 0.0
+const default_ReturnBuffer = 2.0
+
 @onready var world: Node2D = $Node2D_world
 @onready var menuSystem: CanvasLayer = $CanvasLayer
+
+@onready var time_label: Label = $CanvasLayer/Control_info/Panel/Label
+
 var current_level: Node2D = null
 var selected_egg_friend: ef_interface = null
+
+var bool_needToResetToIdele = false
+var idleCount: float = default_IdleCount #second
+
+@export var idleReturnBuffer: float = default_ReturnBuffer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Connect signals from menu sytem that will interact with egg friend
 	menuSystem.pet_egg_friend.connect(_on_pet_egg_friend)
+	menuSystem.scold_egg_friend.connect(_on_scold_egg_friend)
+	menuSystem.feed_egg_friend.connect(_on_feed_egg_friend)
+	
 	menuSystem.background_changed.connect(_on_background_changed)
 	menuSystem.egg_friend_changed.connect(_on_egg_friend_chosen)
+	
 	# Set up level loading system
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", "field")
-	
+
 
 func _on_pet_egg_friend() -> void:
 	print("you pet your egg friend!")
+	set_current_egg_friend_animation("idle")
+	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
+
+func _on_scold_egg_friend() -> void:
+	print("you scold your egg friend!")
+	set_current_egg_friend_animation("sad")
+	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
+
+func _on_feed_egg_friend() -> void:
+	print("you feed your egg friend!")
+	set_current_egg_friend_animation("eating")
+	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
 
 func _on_background_changed(backgroundName: String) -> void:
 	print("background chosen is: ", backgroundName)
@@ -58,11 +85,10 @@ func load_egg_friend(path: String) -> void:
 	#this "add_child" function call will add the node to the scene hierarchy and
 	#	will cause things like @onready and the _ready function to start running
 	add_child(selected_egg_friend)
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
+func set_current_egg_friend_animation(animationName: String) -> void:
+	selected_egg_friend.setAnimation(animationName)
 
 
 func _on_button_feed_pressed():
@@ -76,10 +102,23 @@ func _on_button_freeze_pressed():
 		print("Freeze Button Pressed")
 		selected_egg_friend.setAnimation("sad")
 
+func need_to_reset_to_idle(newIdleCount: float, newIdleReturnBuffer: float) -> void:
+	bool_needToResetToIdele = true
+	idleCount = newIdleCount
+	idleReturnBuffer = newIdleReturnBuffer
 
-func _on_button_egg_friend_2_pressed():
-	pass # Replace with function body.
-
-
-func _on_button_egg_friend_3_pressed():
-	pass # Replace with function body.
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if bool_needToResetToIdele:
+		idleCount = idleCount + delta
+	
+		if idleCount >= idleReturnBuffer:
+			bool_needToResetToIdele = false #exit out of upper if statement in the process loop
+			set_current_egg_friend_animation("idle")
+			idleCount = 0.0
+	
+	var now = Time.get_datetime_dict_from_system()
+	var h = str(now.hour).pad_zeros(2)
+	var m = str(now.minute).pad_zeros(2)
+	var s = str(now.second).pad_zeros(2)
+	time_label.text = "%s:%s:%s" % [h, m, s]

@@ -21,8 +21,9 @@ func _process(delta):
 
 func setAnimation(new_anim: String):
 	if new_anim != current_anim:
-		_animated_sprite.play(new_anim)
-		current_anim = new_anim
+		if _animated_sprite.sprite_frames.has_animation(new_anim):
+			_animated_sprite.play(new_anim)
+			current_anim = new_anim
 
 func animate():
 	_animated_sprite.play(current_anim)
