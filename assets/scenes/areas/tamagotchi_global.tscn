@@ -121,6 +121,10 @@ text = "Options"
 layout_mode = 2
 text = "Save"
 
+[node name="Button_load" type="Button" parent="CanvasLayer/Control/Main_menu"]
+layout_mode = 2
+text = "Load"
+
 [node name="Button_quit" type="Button" parent="CanvasLayer/Control/Main_menu"]
 layout_mode = 2
 text = "Quit"
@@ -236,6 +240,8 @@ text = "set ???"
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Egg_Friend_3" to="." method="_on_button_egg_friend_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_actions" to="CanvasLayer" method="_on_button_actions_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_options" to="CanvasLayer" method="_on_button_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_save" to="CanvasLayer" method="_on_button_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_load" to="CanvasLayer" method="_on_button_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]

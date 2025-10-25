@@ -1,5 +1,13 @@
 extends Node
 
+var inventory: Array = ["apple", "banana", "cake"]
+
+var test_save_data = {
+		"player_level": 25,
+		"player_health": 10,
+		"inventory": inventory,  # can be an Array or Dictionary
+	}
+
 const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
 
 const default_IdleCount = 0.0
@@ -8,7 +16,9 @@ const default_ReturnBuffer = 2.0
 @onready var world: Node2D = $Node2D_world
 @onready var menuSystem: CanvasLayer = $CanvasLayer
 
-@onready var time_label: Label = $CanvasLayer/Control_info/Panel/Label
+#This topRight_label aquisition should be updated to be clearner!
+#	I should not reach down so many layers to interact with something
+@onready var topRight_label: Label = $CanvasLayer/Control_info/Panel/Label
 
 var current_level: Node2D = null
 var selected_egg_friend: ef_interface = null
@@ -20,6 +30,10 @@ var idleCount: float = default_IdleCount #second
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Connect to save game signal
+	menuSystem.save_game.connect(_on_save_game_request)
+	menuSystem.load_game.connect(_on_load_game_request)
+	
 	# Connect signals from menu sytem that will interact with egg friend
 	menuSystem.pet_egg_friend.connect(_on_pet_egg_friend)
 	menuSystem.scold_egg_friend.connect(_on_scold_egg_friend)
@@ -30,7 +44,41 @@ func _ready():
 	
 	# Set up level loading system
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", "field")
+	
+	#load default egg friend:
+	load_egg_friend("res://assets/scenes/areas/node_2d_egg_friend_1.tscn")
 
+func _on_save_game_request(profileName: String, saveSlotNum: int):
+	var save_path = "user://savegame_" + profileName + "_" + str(saveSlotNum) + ".json"
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	#file.store_string("hello world")
+	
+	var json_string = JSON.stringify(test_save_data, "\t")
+	file.store_string(json_string)
+	
+	file.close()
+	print(ProjectSettings.globalize_path(save_path))
+
+func _on_load_game_request(profileName: String, saveSlotNum: int):
+	var load_path = "user://savegame_" + profileName + "_" + str(saveSlotNum) + ".json"
+	
+	if not FileAccess.file_exists(load_path):
+		print("ERROR: No save file found.")
+		return
+	
+	#Get save file as variable in text format in gdscript
+	var file = FileAccess.open(load_path, FileAccess.READ)
+	var json_string = file.get_as_text()
+	file.close()
+	
+	var result = JSON.parse_string(json_string)
+	
+	if typeof(result) != TYPE_DICTIONARY:
+		print("ERROR: Save file is corrupted or invalid JSON.")
+		return
+	
+	print(result)
+	
 
 func _on_pet_egg_friend() -> void:
 	print("you pet your egg friend!")
@@ -121,4 +169,4 @@ func _process(delta):
 	var h = str(now.hour).pad_zeros(2)
 	var m = str(now.minute).pad_zeros(2)
 	var s = str(now.second).pad_zeros(2)
-	time_label.text = "%s:%s:%s" % [h, m, s]
+	topRight_label.text = "%s:%s:%s" % [h, m, s]
