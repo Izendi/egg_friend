@@ -28,8 +28,14 @@ var idleCount: float = default_IdleCount #second
 
 @export var idleReturnBuffer: float = default_ReturnBuffer
 
+@export var egg_Friend_Scale: Vector2 = Vector2(0.5, 0.5)
+
+var current_egg_Friend_Scale: Vector2 = Vector2(0.5, 0.5)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# NORMAL WORK:
+	
 	#Connect to save game signal
 	menuSystem.save_game.connect(_on_save_game_request)
 	menuSystem.load_game.connect(_on_load_game_request)
@@ -47,6 +53,12 @@ func _ready():
 	
 	#load default egg friend:
 	load_egg_friend("res://assets/scenes/areas/node_2d_egg_friend_1.tscn")
+	
+	
+	#For Debugging Purposes:
+	current_egg_Friend_Scale = egg_Friend_Scale
+	fit_egg_friend_to_viewport(current_egg_Friend_Scale)
+	
 
 func _on_save_game_request(profileName: String, saveSlotNum: int):
 	var save_path = "user://savegame_" + profileName + "_" + str(saveSlotNum) + ".json"
@@ -79,6 +91,13 @@ func _on_load_game_request(profileName: String, saveSlotNum: int):
 	
 	print(result)
 	
+
+func fit_egg_friend_to_viewport(scale_vector: Vector2) -> void:
+	if selected_egg_friend == null:
+		return
+	
+	var view_size: Vector2 = $Node2D_world.get_viewport_rect().size
+	selected_egg_friend.resize_and_centre_egg_friend_sprite(scale_vector)
 
 func _on_pet_egg_friend() -> void:
 	print("you pet your egg friend!")
@@ -142,13 +161,13 @@ func set_current_egg_friend_animation(animationName: String) -> void:
 func _on_button_feed_pressed():
 	if current_level:
 		print("Feed Button Pressed")
-		selected_egg_friend.setAnimation("eating")
+		set_current_egg_friend_animation("eating")
 
 
 func _on_button_freeze_pressed():
 	if current_level:
 		print("Freeze Button Pressed")
-		selected_egg_friend.setAnimation("sad")
+		set_current_egg_friend_animation("sad")
 
 func need_to_reset_to_idle(newIdleCount: float, newIdleReturnBuffer: float) -> void:
 	bool_needToResetToIdele = true
@@ -170,3 +189,9 @@ func _process(delta):
 	var m = str(now.minute).pad_zeros(2)
 	var s = str(now.second).pad_zeros(2)
 	topRight_label.text = "%s:%s:%s" % [h, m, s]
+	
+	
+	if current_egg_Friend_Scale != egg_Friend_Scale:
+		current_egg_Friend_Scale = egg_Friend_Scale
+		fit_egg_friend_to_viewport(current_egg_Friend_Scale)
+		
