@@ -58,6 +58,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1406.0
 offset_bottom = -1066.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
@@ -163,21 +165,25 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [node name="Button_pet" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Pet"
 
 [node name="Button_feed" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Feed"
 
 [node name="Button_scold" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Scold"
 
 [node name="Options_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
@@ -187,74 +193,111 @@ anchors_preset = -1
 anchor_left = 0.176
 anchor_top = 0.09
 anchor_right = 1.321
-anchor_bottom = 0.854
+anchor_bottom = 0.904
+offset_left = -0.112003
+offset_top = -0.18
+offset_right = -0.10199
+offset_bottom = -0.208008
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="Button_back" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [node name="Button_setBackground" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Background"
 
 [node name="Button_setEggFriend" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Egg Friend"
 
 [node name="Button_setTime" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Time"
 
 [node name="Options_subBackgroundMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.791667
-anchor_bottom = 0.515
+anchor_left = 0.176
+anchor_top = 0.09
+anchor_right = 1.321
+anchor_bottom = 0.904
+offset_left = -0.112003
+offset_top = -0.18
+offset_right = -0.10202
+offset_bottom = -0.208008
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="Button_back" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [node name="Button_setBackground_1" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Field"
 
 [node name="Button_setBackground_2" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Bedroom"
 
 [node name="Button_setBackground_3" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Bakery"
 
 [node name="Options_subEggFriendMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.791667
-anchor_bottom = 0.515
+anchor_left = 0.176
+anchor_top = 0.09
+anchor_right = 1.321
+anchor_bottom = 0.904
+offset_left = -0.112003
+offset_top = -0.18
+offset_right = -0.10202
+offset_bottom = -0.208008
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="Button_back" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [node name="Button_setEggFriend_1" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "set cd"
 
 [node name="Button_setEggFriend_2" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "set ???"
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_feed" to="." method="_on_button_feed_pressed"]

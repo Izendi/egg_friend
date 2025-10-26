@@ -152,6 +152,7 @@ func load_egg_friend(path: String) -> void:
 	#this "add_child" function call will add the node to the scene hierarchy and
 	#	will cause things like @onready and the _ready function to start running
 	add_child(selected_egg_friend)
+	fit_egg_friend_to_viewport(current_egg_Friend_Scale)
 
 
 func set_current_egg_friend_animation(animationName: String) -> void:
