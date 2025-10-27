@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://c177ytavgsgpq"]
+
+[ext_resource type="Texture2D" uid="uid://hkkmnor623ti" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_3-removebg-preview.png" id="1_3gfvv"]
+[ext_resource type="Texture2D" uid="uid://d27un8ujgoejn" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_6-removebg-preview.png" id="2_5aulu"]
+[ext_resource type="Texture2D" uid="uid://qd1lx45kmdpa" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_7-removebg-preview.png" id="3_m0kci"]
+[ext_resource type="Texture2D" uid="uid://b5lnelhioo6wg" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_1-removebg-preview (1).png" id="4_61f2g"]
+[ext_resource type="Texture2D" uid="uid://dts3odnhblnem" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_2-removebg-preview.png" id="5_ckvul"]
+[ext_resource type="Texture2D" uid="uid://jh0fq64ilu4" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_5-removebg-preview.png" id="6_rm7el"]
+[ext_resource type="Texture2D" uid="uid://b2wqn1jgr3txq" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_8-removebg-preview.png" id="7_lw7bp"]
+[ext_resource type="Texture2D" uid="uid://c6m0hpgboxtag" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_4-removebg-preview.png" id="8_tciv4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1iqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3gfvv")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5aulu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m0kci")
+}],
+"loop": true,
+"name": &"hungry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_61f2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ckvul")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rm7el")
+}],
+"loop": true,
+"name": &"misbehaving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_lw7bp")
+}],
+"loop": true,
+"name": &"scolded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_tciv4")
+}],
+"loop": true,
+"name": &"sleeping",
+"speed": 5.0
+}]
+
+[node name="Node2D_egg_friend_cd_goodTeen" type="Node2D"]
+
+[node name="Node2D_animations" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
+sprite_frames = SubResource("SpriteFrames_n1iqq")
+animation = &"sleeping"

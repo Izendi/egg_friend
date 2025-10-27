@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://byug7pxa4d4rs"]
+
+[ext_resource type="Script" uid="uid://d2qooxtrmrky4" path="res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.gd" id="1_lmmyp"]
+[ext_resource type="Texture2D" uid="uid://jyph77h1yrcc" path="res://assets/sprites/mySprites/CD/child_nobg/child_7-removebg-preview.png" id="1_swq8h"]
+[ext_resource type="Texture2D" uid="uid://dq5nwdbs6s4sc" path="res://assets/sprites/mySprites/CD/child_nobg/child_2-removebg-preview.png" id="2_lmmyp"]
+[ext_resource type="Texture2D" uid="uid://d0omcq6kqarqy" path="res://assets/sprites/mySprites/CD/child_nobg/child_3-removebg-preview.png" id="3_kc8iy"]
+[ext_resource type="Texture2D" uid="uid://b574vdmry5q4c" path="res://assets/sprites/mySprites/CD/child_nobg/child_5-removebg-preview.png" id="4_c0tss"]
+[ext_resource type="Texture2D" uid="uid://byv2f5j4huv8v" path="res://assets/sprites/mySprites/CD/child_nobg/child_6-removebg-preview.png" id="5_tbd7t"]
+[ext_resource type="Texture2D" uid="uid://djg0oiytxy2i4" path="res://assets/sprites/mySprites/CD/child_nobg/child_1.png" id="6_r1hq7"]
+[ext_resource type="Texture2D" uid="uid://e134il04n6x5" path="res://assets/sprites/mySprites/CD/child_nobg/child_4-removebg-preview.png" id="7_t4jq2"]
+[ext_resource type="Texture2D" uid="uid://7jsf2rmq6upp" path="res://assets/sprites/mySprites/CD/child_nobg/child_8-removebg-preview.png" id="8_0urob"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_voioc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_swq8h")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lmmyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kc8iy")
+}],
+"loop": true,
+"name": &"hungry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c0tss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tbd7t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_r1hq7")
+}],
+"loop": true,
+"name": &"misbehaving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_t4jq2")
+}],
+"loop": true,
+"name": &"scolded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0urob")
+}],
+"loop": true,
+"name": &"sleeping",
+"speed": 5.0
+}]
+
+[node name="Node2D_egg_friend_cd_baby" type="Node2D"]
+script = ExtResource("1_lmmyp")
+
+[node name="Node2D_animations" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
+sprite_frames = SubResource("SpriteFrames_voioc")
+animation = &"idle"

@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://c24raj2f5ik2a"]
+
+[ext_resource type="Texture2D" uid="uid://bgcr5tmlsyynm" path="res://assets/sprites/mySprites/CD/adult_nb_evil/adult_7-removebg-preview.png" id="1_7nu8c"]
+[ext_resource type="Texture2D" uid="uid://xfvxd2jlc5h6" path="res://assets/sprites/mySprites/CD/adult_nb_evil/ChatGPT_Image_Oct_26__2025__01_50_08_PM-0-2-removebg-preview.png" id="2_7fvbe"]
+[ext_resource type="Texture2D" uid="uid://v2ke4306woiu" path="res://assets/sprites/mySprites/CD/adult_nb_evil/ChatGPT_Image_Oct_26__2025__01_50_08_PM-1-0-removebg-preview.png" id="3_vnlnp"]
+[ext_resource type="Texture2D" uid="uid://8y828untplmb" path="res://assets/sprites/mySprites/CD/adult_nb_evil/adult_5-removebg-preview.png" id="4_kaisx"]
+[ext_resource type="Texture2D" uid="uid://do6bwhrbkb6e" path="res://assets/sprites/mySprites/CD/adult_nb_evil/adult_6-removebg-preview.png" id="5_pesra"]
+[ext_resource type="Texture2D" uid="uid://dqpkmi68appm8" path="res://assets/sprites/mySprites/CD/adult_nb_evil/ChatGPT_Image_Oct_26__2025__01_50_08_PM-0-0-removebg-preview.png" id="6_vjn1d"]
+[ext_resource type="Texture2D" uid="uid://ei42wcir0nlo" path="res://assets/sprites/mySprites/CD/adult_nb_evil/ChatGPT_Image_Oct_26__2025__01_50_08_PM-1-2-removebg-preview.png" id="7_skxqn"]
+[ext_resource type="Texture2D" uid="uid://df1cfl1hjnfag" path="res://assets/sprites/mySprites/CD/adult_nb_evil/adult_8-removebg-preview.png" id="8_32cvq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fmkel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7nu8c")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7fvbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vnlnp")
+}],
+"loop": true,
+"name": &"hungry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kaisx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pesra")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vjn1d")
+}],
+"loop": true,
+"name": &"misbehaving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_skxqn")
+}],
+"loop": true,
+"name": &"scolded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_32cvq")
+}],
+"loop": true,
+"name": &"sleeping",
+"speed": 5.0
+}]
+
+[node name="Node2D_egg_friend_cd_badAdult" type="Node2D"]
+
+[node name="Node2D_animations" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
+sprite_frames = SubResource("SpriteFrames_fmkel")
+animation = &"hungry"

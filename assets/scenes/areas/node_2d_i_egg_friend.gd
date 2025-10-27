@@ -2,7 +2,7 @@ extends Node2D
 
 #This is my Interface egg friend class that all other egg friends will inherit from
 
-@onready var _animated_sprite = $Node2D_Animations/AnimatedSprite2D
+@onready var _animated_sprite = $Node2D_animations/AnimatedSprite2D
 
 var current_anim = ""
 

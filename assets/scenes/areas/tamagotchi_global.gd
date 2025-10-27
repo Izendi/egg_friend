@@ -52,7 +52,7 @@ func _ready():
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", "field")
 	
 	#load default egg friend:
-	load_egg_friend("res://assets/scenes/areas/node_2d_egg_friend_1.tscn")
+	load_egg_friend("res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn")
 	
 	
 	#For Debugging Purposes:
