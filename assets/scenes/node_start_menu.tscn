@@ -1,0 +1,249 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4dgj3655x5f7"]
+
+[ext_resource type="Script" uid="uid://2nacpueghkay" path="res://assets/scripts/node_start_menu.gd" id="1_vftgg"]
+[ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="2_3xagg"]
+[ext_resource type="Texture2D" uid="uid://b3q2lrjhjwqyw" path="res://assets/backgrounds/start_menu/start_menu_background.png" id="3_xssu2"]
+[ext_resource type="Script" uid="uid://d1brgewa4o0hy" path="res://assets/scripts/start_menu_canvas_layer.gd" id="4_3xagg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5b70b"]
+shader = ExtResource("2_3xagg")
+shader_parameter/pixels_per_second = Vector2(0, 0)
+
+[node name="Node_start_menu" type="Node"]
+script = ExtResource("1_vftgg")
+
+[node name="Node2D_menu_world" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D_menu_world"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5b70b")
+position = Vector2(834, 834)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("3_xssu2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_3xagg")
+
+[node name="Control_base_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_base_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -50.0
+offset_right = -200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="Button_LoadGame" type="Button" parent="CanvasLayer/Control_base_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Load Game"
+
+[node name="Button_Options" type="Button" parent="CanvasLayer/Control_base_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -50.0
+offset_right = 400.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Options"
+
+[node name="Control_options_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_options_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -50.0
+offset_right = -200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="Button_LoadGame" type="Button" parent="CanvasLayer/Control_options_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Load Game"
+
+[node name="Button_Options" type="Button" parent="CanvasLayer/Control_options_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -50.0
+offset_right = 400.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Options"
+
+[node name="Control_new_game_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_new_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -50.0
+offset_right = -200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="Button_LoadGame" type="Button" parent="CanvasLayer/Control_new_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Load Game"
+
+[node name="Button_Options" type="Button" parent="CanvasLayer/Control_new_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -50.0
+offset_right = 400.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Options"
+
+[node name="Control_load_game_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_load_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -50.0
+offset_right = -200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="Button_LoadGame" type="Button" parent="CanvasLayer/Control_load_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Load Game"
+
+[node name="Button_Options" type="Button" parent="CanvasLayer/Control_load_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -50.0
+offset_right = 400.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Options"

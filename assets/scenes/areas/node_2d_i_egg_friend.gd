@@ -25,29 +25,12 @@ func resize_and_centre_egg_friend_sprite(size_vec: Vector2) -> void:
 		return
 	
 	var view_size: Vector2 = get_viewport_rect().size
-	var tex_size: Vector2 = _animated_sprite.sprite_frames.get_frame_texture(current_anim, 0).get_size()
+	#var tex_size: Vector2 = _animated_sprite.sprite_frames.get_frame_texture(current_anim, 0).get_size()
 	
-	var scale_factors := view_size / tex_size
-	var s : float = max(scale_factors.x, scale_factors.y)
+	#var scale_factors := view_size / tex_size
+	#var s : float = max(scale_factors.x, scale_factors.y)
 	_animated_sprite.scale = size_vec #Vector2(s, s)
 	_animated_sprite.position = view_size * 0.5
-	
-	#var animation_names = _animated_sprite.sprite_frames.get_animation_names()
-	
-	#if animation_names.size() == 0: #ensure there are animations to loop over
-		#return
-	#
-	#var frames: SpriteFrames = _animated_sprite.sprite_frames
-	#
-	#for anim_name in animation_names:
-		#var frame_count = frames.get_frame_count(anim_name)
-	#
-		#for i in range(frame_count):
-			#var tex: Texture2D = frames.get_frame_texture(anim_name, i)
-			#var size = tex.get_size()
-			
-			#tex.scale = size_vec
-			#tex.position = get_viewport_rect().size * 0.5
 	
 
 func setAnimation(new_anim: String):

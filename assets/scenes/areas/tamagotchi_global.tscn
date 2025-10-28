@@ -11,7 +11,6 @@ font_size = 26
 
 [node name="Node_tamagotchi_global" type="Node"]
 script = ExtResource("1_cxcdh")
-egg_Friend_Scale = Vector2(0.4, 0.4)
 
 [node name="Node2D_world" type="Node2D" parent="."]
 
@@ -307,6 +306,7 @@ text = "set ???"
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_options" to="CanvasLayer" method="_on_button_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_save" to="CanvasLayer" method="_on_button_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_load" to="CanvasLayer" method="_on_button_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_quit" to="CanvasLayer" method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]

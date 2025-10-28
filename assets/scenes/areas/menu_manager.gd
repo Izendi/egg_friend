@@ -16,6 +16,8 @@ signal load_game(profileName: String, saveSlotNum: int)
 signal background_changed(backgroundName: String)
 signal egg_friend_changed(friendName: String)
 
+signal quit_game # no payload
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -96,3 +98,7 @@ func _on_button_save_pressed():
 
 func _on_button_load_pressed():
 	load_game.emit("testProfile", 1)
+
+
+func _on_button_quit_pressed():
+	quit_game.emit()

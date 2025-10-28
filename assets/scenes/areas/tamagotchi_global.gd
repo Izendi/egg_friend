@@ -28,9 +28,9 @@ var idleCount: float = default_IdleCount #second
 
 @export var idleReturnBuffer: float = default_ReturnBuffer
 
-@export var egg_Friend_Scale: Vector2 = Vector2(0.5, 0.5)
+@export var egg_Friend_Scale: Vector2 = Vector2(1.0, 1.0)
 
-var current_egg_Friend_Scale: Vector2 = Vector2(0.5, 0.5)
+var current_egg_Friend_Scale: Vector2 = Vector2(1.0, 1.0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,6 +47,8 @@ func _ready():
 	
 	menuSystem.background_changed.connect(_on_background_changed)
 	menuSystem.egg_friend_changed.connect(_on_egg_friend_chosen)
+	
+	menuSystem.quit_game.connect(_on_quit_game)
 	
 	# Set up level loading system
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", "field")
@@ -106,7 +108,7 @@ func _on_pet_egg_friend() -> void:
 
 func _on_scold_egg_friend() -> void:
 	print("you scold your egg friend!")
-	set_current_egg_friend_animation("sad")
+	set_current_egg_friend_animation("scolded")
 	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
 
 func _on_feed_egg_friend() -> void:
@@ -196,3 +198,6 @@ func _process(delta):
 		current_egg_Friend_Scale = egg_Friend_Scale
 		fit_egg_friend_to_viewport(current_egg_Friend_Scale)
 		
+
+func _on_quit_game() -> void:
+	get_tree().quit()
