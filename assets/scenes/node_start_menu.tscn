@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4dgj3655x5f7"]
+[gd_scene load_steps=9 format=3 uid="uid://d4dgj3655x5f7"]
 
 [ext_resource type="Script" uid="uid://2nacpueghkay" path="res://assets/scripts/node_start_menu.gd" id="1_vftgg"]
 [ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="2_3xagg"]
 [ext_resource type="Texture2D" uid="uid://b3q2lrjhjwqyw" path="res://assets/backgrounds/start_menu/start_menu_background.png" id="3_xssu2"]
 [ext_resource type="Script" uid="uid://d1brgewa4o0hy" path="res://assets/scripts/start_menu_canvas_layer.gd" id="4_3xagg"]
+[ext_resource type="Texture2D" uid="uid://dj70fdjfy571y" path="res://assets/sprites/logos/egg_friend_logo-removebg-preview.png" id="5_xssu2"]
+[ext_resource type="AudioStream" uid="uid://btb7fgupl22yn" path="res://assets/sounds/start_menu_button.wav" id="5_y8jm2"]
+[ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="6_034c4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5b70b"]
 shader = ExtResource("2_3xagg")
@@ -23,6 +26,12 @@ texture = ExtResource("3_xssu2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_3xagg")
+
+[node name="AudioStreamPlayer_reg_button_pressed" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("5_y8jm2")
+
+[node name="AudioStreamPlayer_bad_input" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("6_034c4")
 
 [node name="Control_base_menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -81,6 +90,7 @@ theme_override_font_sizes/font_size = 30
 text = "Options"
 
 [node name="Control_options_menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,6 +147,7 @@ theme_override_font_sizes/font_size = 30
 text = "Options"
 
 [node name="Control_new_game_menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,7 +155,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_new_game_menu"]
+[node name="Button_New_Egg_1" type="Button" parent="CanvasLayer/Control_new_game_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -158,9 +169,9 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Game"
+text = "New Egg"
 
-[node name="Button_LoadGame" type="Button" parent="CanvasLayer/Control_new_game_menu"]
+[node name="Button_New_Egg_2" type="Button" parent="CanvasLayer/Control_new_game_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -174,9 +185,9 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Load Game"
+text = "New Egg"
 
-[node name="Button_Options" type="Button" parent="CanvasLayer/Control_new_game_menu"]
+[node name="Button_New_Egg_3" type="Button" parent="CanvasLayer/Control_new_game_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -190,9 +201,26 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "New Egg"
+
+[node name="Button_Back" type="Button" parent="CanvasLayer/Control_new_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 125.0
+offset_right = 100.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
 
 [node name="Control_load_game_menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -247,3 +275,93 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Options"
+
+[node name="Control_logo" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_top = 0.108
+anchor_right = 1.0
+anchor_bottom = 0.388
+offset_top = -0.143997
+offset_bottom = 0.815979
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect_logo" type="TextureRect" parent="CanvasLayer/Control_logo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_xssu2")
+
+[node name="Control_new_game_enter_name_menu" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit_name_input_box" type="LineEdit" parent="CanvasLayer/Control_new_game_enter_name_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Enter Name"
+
+[node name="Button_Back" type="Button" parent="CanvasLayer/Control_new_game_enter_name_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = 125.0
+offset_right = -150.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Button_Start_game" type="Button" parent="CanvasLayer/Control_new_game_enter_name_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = 125.0
+offset_right = 350.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Start Game"
+
+[connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_NewGame" to="CanvasLayer" method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_New_Egg_1" to="CanvasLayer" method="_on_button_new_egg_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_New_Egg_2" to="CanvasLayer" method="_on_button_new_egg_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_New_Egg_3" to="CanvasLayer" method="_on_button_new_egg_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Start_game" to="CanvasLayer" method="_on_button_start_game_pressed"]
