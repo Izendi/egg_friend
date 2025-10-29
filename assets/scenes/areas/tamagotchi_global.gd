@@ -16,6 +16,8 @@ const default_ReturnBuffer = 2.0
 @onready var world: Node2D = $Node2D_world
 @onready var menuSystem: CanvasLayer = $CanvasLayer
 
+@onready var GLOBAL_game_data: Dictionary = GLOBAL.current_game_data
+
 #This topRight_label aquisition should be updated to be clearner!
 #	I should not reach down so many layers to interact with something
 @onready var topRight_label: Label = $CanvasLayer/Control_info/Panel/Label
@@ -51,26 +53,28 @@ func _ready():
 	menuSystem.quit_game.connect(_on_quit_game)
 	
 	# Set up level loading system
-	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", "field")
+	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", GLOBAL_game_data["Current_background"])
 	
-	#load default egg friend:
-	load_egg_friend("res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn")
-	
+	#load egg friend:
+	load_egg_friend(GLOBAL_game_data["egg_friend_type"])
 	
 	#For Debugging Purposes:
 	current_egg_Friend_Scale = egg_Friend_Scale
 	fit_egg_friend_to_viewport(current_egg_Friend_Scale)
 	
 
-func _on_save_game_request(profileName: String, saveSlotNum: int):
-	var save_path = "user://savegame_" + profileName + "_" + str(saveSlotNum) + ".json"
+func _on_save_game_request():
+	var save_path = "user://savegame_data/" + str(GLOBAL_game_data["save_slot_num"]) + ".json"
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	#file.store_string("hello world")
 	
-	var json_string = JSON.stringify(test_save_data, "\t")
+	var json_string = JSON.stringify(GLOBAL_game_data, "\t")
 	file.store_string(json_string)
 	
 	file.close()
+	
+	GLOBAL.loaded_save_data = GLOBAL_game_data.duplicate()
+	
 	print(ProjectSettings.globalize_path(save_path))
 
 func _on_load_game_request(profileName: String, saveSlotNum: int):
@@ -137,7 +141,15 @@ func load_level(path: String, level_name: String) -> void:
 	current_level.set_background(level_name)
 	
 
-func load_egg_friend(path: String) -> void:
+func load_egg_friend(type_name: String) -> void:
+	var path: String = ""
+	if type_name == "cd":
+		path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn"
+	else:
+		path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn" # cd is the default
+		print("invalid name, using default egg friend (cd)")
+		
+		
 	if selected_egg_friend:
 		selected_egg_friend.queue_free() #This queue_free func tells godot: Please remove this node (and all its children) safely at the end of the current frame.
 		selected_egg_friend = null
@@ -191,8 +203,11 @@ func _process(delta):
 	var h = str(now.hour).pad_zeros(2)
 	var m = str(now.minute).pad_zeros(2)
 	var s = str(now.second).pad_zeros(2)
-	topRight_label.text = "%s:%s:%s" % [h, m, s]
 	
+	#SET UP TOP RIGHT DISPLAY PANEL
+	topRight_label.text = "%s:%s:%s" % [h, m, s] #Real World Time
+	
+	topRight_label.text = topRight_label.text + "\n\nDay: " + str(GLOBAL_game_data["Days"]) # In game day
 	
 	if current_egg_Friend_Scale != egg_Friend_Scale:
 		current_egg_Friend_Scale = egg_Friend_Scale

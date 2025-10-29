@@ -11,7 +11,7 @@ extends CanvasLayer
 signal pet_egg_friend # no payload
 signal feed_egg_friend # no payload
 signal scold_egg_friend # no payload
-signal save_game(profileName: String, saveSlotNum: int)
+signal save_game()
 signal load_game(profileName: String, saveSlotNum: int)
 signal background_changed(backgroundName: String)
 signal egg_friend_changed(friendName: String)
@@ -93,7 +93,7 @@ func _on_button_pet_pressed():
 
 
 func _on_button_save_pressed():
-	save_game.emit("testProfile", 1)
+	save_game.emit()
 
 
 func _on_button_load_pressed():

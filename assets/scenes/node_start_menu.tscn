@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5b70b"]
 shader = ExtResource("2_3xagg")
-shader_parameter/pixels_per_second = Vector2(0, 0)
+shader_parameter/pixels_per_second = Vector2(10, 10)
 
 [node name="Node_start_menu" type="Node"]
 script = ExtResource("1_vftgg")
@@ -34,6 +34,7 @@ stream = ExtResource("5_y8jm2")
 stream = ExtResource("6_034c4")
 
 [node name="Control_base_menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,6 +89,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Options"
+
+[node name="Button_Quit_game" type="Button" parent="CanvasLayer/Control_base_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 125.0
+offset_right = 100.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit Game"
 
 [node name="Control_options_menu" type="Control" parent="CanvasLayer"]
 visible = false
@@ -220,7 +237,6 @@ theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Control_load_game_menu" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -228,7 +244,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_load_game_menu"]
+[node name="Button_Load_file_1" type="Button" parent="CanvasLayer/Control_load_game_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -242,9 +258,9 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Game"
+text = "Slot 1"
 
-[node name="Button_LoadGame" type="Button" parent="CanvasLayer/Control_load_game_menu"]
+[node name="Button_Load_file_2" type="Button" parent="CanvasLayer/Control_load_game_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -258,9 +274,9 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Load Game"
+text = "Slot 2"
 
-[node name="Button_Options" type="Button" parent="CanvasLayer/Control_load_game_menu"]
+[node name="Button_Load_file_3" type="Button" parent="CanvasLayer/Control_load_game_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -274,7 +290,23 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "Slot 3"
+
+[node name="Button_Back" type="Button" parent="CanvasLayer/Control_load_game_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 125.0
+offset_right = 100.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
 
 [node name="Control_logo" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -359,9 +391,16 @@ theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
 [connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_NewGame" to="CanvasLayer" method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_LoadGame" to="CanvasLayer" method="_on_button_load_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_Options" to="CanvasLayer" method="_on_button_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_Quit_game" to="CanvasLayer" method="_on_button_quit_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_New_Egg_1" to="CanvasLayer" method="_on_button_new_egg_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_New_Egg_2" to="CanvasLayer" method="_on_button_new_egg_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_New_Egg_3" to="CanvasLayer" method="_on_button_new_egg_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_load_game_menu/Button_Load_file_1" to="CanvasLayer" method="_on_button_load_file_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_load_game_menu/Button_Load_file_2" to="CanvasLayer" method="_on_button_load_file_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_load_game_menu/Button_Load_file_3" to="CanvasLayer" method="_on_button_load_file_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_load_game_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Start_game" to="CanvasLayer" method="_on_button_start_game_pressed"]
