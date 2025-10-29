@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://214ce7ai1vg3"]
 
 [ext_resource type="Script" uid="uid://bivcrv4c16j75" path="res://assets/scenes/areas/tamagotchi_global.gd" id="1_cxcdh"]
-[ext_resource type="Script" uid="uid://dqjsx45dg5ypi" path="res://assets/scenes/areas/menu_manager.gd" id="2_cxcdh"]
+[ext_resource type="Script" path="res://assets/scenes/areas/menu_manager.gd" id="2_cxcdh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcdh"]
 bg_color = Color(0.233926, 0.233925, 0.233925, 1)

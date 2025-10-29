@@ -1,0 +1,14 @@
+AnimatedSprite2D
+Node2D
+Button
+AudioStreamPlayer
+AudioStreamPlayer2D
+LineEdit
+TextureRect
+Control
+Sprite2D
+CanvasLayer
+Node
+Label
+Panel
+VBoxContainer

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://sloe184fr37o"]
 
-[ext_resource type="Script" uid="uid://b5v7ak1ksfis0" path="res://assets/scripts/node_2d_egg_friend_cd_bad_teen.gd" id="1_ppblc"]
+[ext_resource type="Script" path="res://assets/scripts/node_2d_egg_friend_cd_bad_teen.gd" id="1_ppblc"]
 [ext_resource type="Texture2D" uid="uid://c87ql5grtejdt" path="res://assets/sprites/mySprites/CD/teenager_nobg/teen_3-removebg-preview.png" id="1_vsru4"]
 [ext_resource type="Texture2D" uid="uid://c67lhfrukvquq" path="res://assets/sprites/mySprites/CD/teenager_nobg/teen_6-removebg-preview.png" id="2_ppblc"]
 [ext_resource type="Texture2D" uid="uid://csbb1t1yj50ux" path="res://assets/sprites/mySprites/CD/teenager_nobg/teen_7-removebg-preview.png" id="3_8fbks"]

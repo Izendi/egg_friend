@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c177ytavgsgpq"]
 
 [ext_resource type="Texture2D" uid="uid://hkkmnor623ti" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_3-removebg-preview.png" id="1_3gfvv"]
-[ext_resource type="Script" uid="uid://0lrwhrvk2gcn" path="res://assets/scripts/node_2d_egg_friend_cd_good_teen.gd" id="1_5aulu"]
+[ext_resource type="Script" path="res://assets/scripts/node_2d_egg_friend_cd_good_teen.gd" id="1_5aulu"]
 [ext_resource type="Texture2D" uid="uid://d27un8ujgoejn" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_6-removebg-preview.png" id="2_5aulu"]
 [ext_resource type="Texture2D" uid="uid://qd1lx45kmdpa" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_7-removebg-preview.png" id="3_m0kci"]
 [ext_resource type="Texture2D" uid="uid://b5lnelhioo6wg" path="res://assets/sprites/mySprites/CD/teenager_b_nobg/teen_1-removebg-preview (1).png" id="4_61f2g"]

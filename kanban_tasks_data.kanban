@@ -1,0 +1,84 @@
+{
+	"categories": [
+		{
+			"uuid": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "2b56bcb8-a7a2-45c9-93a7-a1327bc119ed",
+			"title": "Todo",
+			"tasks": [
+				"77c6d2e4-7826-4895-b644-703cec6e9493",
+				"78224eb8-9428-4578-8ac5-c0633400ba8b"
+			]
+		},
+		{
+			"uuid": "8ebd51e7-5c70-457c-9db4-9deaa5c4d022",
+			"title": "Doing",
+			"tasks": [
+				"47d81da1-cee5-47a0-93be-fd57c2620aeb",
+				"8c2aa351-c889-481a-9cc2-aa6c7e889d3c"
+			]
+		},
+		{
+			"uuid": "f24cfa8c-0d13-4886-8ca0-ca8716476b82",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "77c6d2e4-7826-4895-b644-703cec6e9493",
+			"title": "Remove Kanban Addon before export or add it to the list of build exceptions",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "47d81da1-cee5-47a0-93be-fd57c2620aeb",
+			"title": "Finish Start Menu",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": [
+				{
+					"details": "Connect all menu layers",
+					"done": false
+				},
+				{
+					"details": "Make save and load work as intended",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "8c2aa351-c889-481a-9cc2-aa6c7e889d3c",
+			"title": "Add a time system that evolves the egg friend ",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "78224eb8-9428-4578-8ac5-c0633400ba8b",
+			"title": "CHANGE: _on_button_start_game_pressed to handle egg friend type selection, it is currently \"cd\" by default",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"2b56bcb8-a7a2-45c9-93a7-a1327bc119ed"
+			],
+			[
+				"8ebd51e7-5c70-457c-9db4-9deaa5c4d022"
+			],
+			[
+				"f24cfa8c-0d13-4886-8ca0-ca8716476b82"
+			]
+		]
+	}
+}

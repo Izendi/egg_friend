@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bidn0wtb75otw"]
 
 [ext_resource type="Texture2D" uid="uid://ceub4a2k0iip8" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_3-removebg-preview.png" id="1_hlnxc"]
-[ext_resource type="Script" uid="uid://cqicc8vawrdce" path="res://assets/scripts/node_2d_egg_friend_cd_good_adult.gd" id="1_r1xdj"]
+[ext_resource type="Script" path="res://assets/scripts/node_2d_egg_friend_cd_good_adult.gd" id="1_r1xdj"]
 [ext_resource type="Texture2D" uid="uid://b75mquf8orn5f" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_6-removebg-preview.png" id="2_r1xdj"]
 [ext_resource type="Texture2D" uid="uid://ck1h72wwgxpce" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_7-removebg-preview.png" id="3_dqqt3"]
 [ext_resource type="Texture2D" uid="uid://hu3elw7ffagj" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_1-removebg-preview.png" id="4_mubo1"]
