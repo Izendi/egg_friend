@@ -109,6 +109,7 @@ func _on_pet_egg_friend() -> void:
 	print("you pet your egg friend!")
 	set_current_egg_friend_animation("idle")
 	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
+	GLOBAL_game_data["No_Pets"] += 1 
 
 func _on_scold_egg_friend() -> void:
 	print("you scold your egg friend!")
@@ -123,6 +124,7 @@ func _on_feed_egg_friend() -> void:
 func _on_background_changed(backgroundName: String) -> void:
 	print("background chosen is: ", backgroundName)
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", backgroundName)
+	GLOBAL_game_data["Current_background"] = backgroundName 
 	
 
 func _on_egg_friend_chosen(friendName: String) -> void:
@@ -206,8 +208,18 @@ func _process(delta):
 	
 	#SET UP TOP RIGHT DISPLAY PANEL
 	topRight_label.text = "%s:%s:%s" % [h, m, s] #Real World Time
+	topRight_label.text = topRight_label.text + "\n\nEgg Friend Name: " + str(GLOBAL_game_data["egg_friend_name"])
+	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(GLOBAL_game_data["growth_stage"])
 	
 	topRight_label.text = topRight_label.text + "\n\nDay: " + str(GLOBAL_game_data["Days"]) # In game day
+	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(GLOBAL_game_data["growth_stage"])
+	topRight_label.text = topRight_label.text + "\nCurrent Location: " + str(GLOBAL_game_data["Current_background"])
+	topRight_label.text = topRight_label.text + "\nNo. Pets: " + str(GLOBAL_game_data["No_Pets"])
+	topRight_label.text = topRight_label.text + "\nNo. Good Scoldings: " + str(GLOBAL_game_data["No_just_scoldings"])
+	topRight_label.text = topRight_label.text + "\nNo. Bad Scoldings: " + str(GLOBAL_game_data["No_unjust_scoldings"])
+	topRight_label.text = topRight_label.text + "\nNo. Needed Snacks: " + str(GLOBAL_game_data["No_Needed_Snacks"])
+	topRight_label.text = topRight_label.text + "\nNo. Unneeded Snacks: " + str(GLOBAL_game_data["No_Unneeded_Snacks"])
+	
 	
 	if current_egg_Friend_Scale != egg_Friend_Scale:
 		current_egg_Friend_Scale = egg_Friend_Scale

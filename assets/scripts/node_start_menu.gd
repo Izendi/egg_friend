@@ -19,7 +19,7 @@ func _on_new_egg_friend_slot(save_slot_num: int, egg_friend_name: String, egg_fr
 	GLOBAL.loaded_save_data["save_slot_num"] = save_slot_num
 	GLOBAL.loaded_save_data["egg_friend_name"] = egg_friend_name
 	GLOBAL.loaded_save_data["egg_friend_type"] = egg_friend_type
-	
+	GLOBAL.loaded_save_data["Unloaded"] = false
 	GLOBAL.current_game_data = GLOBAL.loaded_save_data.duplicate() # make a deep copy for the current game data
 	
 	# now when we load our main scene, we can set up the character based on what is in "current_game_data" from global

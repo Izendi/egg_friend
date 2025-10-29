@@ -116,16 +116,24 @@ func _on_button_quit_game_pressed():
 
 
 func _on_button_load_file_1_pressed():
-	load_saved_file.emit(1)
+	if GLOBAL.saveData_1_dictionary["Unloaded"] == false:
+		load_saved_file.emit(1)
+	else:
+		play_bad_input_sound()
 
 
 func _on_button_load_file_2_pressed():
-	load_saved_file.emit(2)
+	if GLOBAL.saveData_2_dictionary["Unloaded"] == false:
+		load_saved_file.emit(2)
+	else:
+		play_bad_input_sound()
 
 
 func _on_button_load_file_3_pressed():
-	load_saved_file.emit(3)
-
+	if GLOBAL.saveData_2_dictionary["Unloaded"] == false:
+		load_saved_file.emit(3)
+	else:
+		play_bad_input_sound()
 
 func _on_button_load_game_pressed():
 	start_menu_stack.back().visible = false

@@ -33,10 +33,9 @@ grow_horizontal = 0
 [node name="Panel" type="Panel" parent="CanvasLayer/Control_info"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.835
+anchor_left = -0.965
 anchor_right = 1.0
-anchor_bottom = 5.617
-offset_bottom = -0.0200195
+anchor_bottom = 8.55
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cxcdh")
