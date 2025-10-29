@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://bidn0wtb75otw"]
+
+[ext_resource type="Texture2D" uid="uid://ceub4a2k0iip8" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_3-removebg-preview.png" id="1_hlnxc"]
+[ext_resource type="Script" uid="uid://cqicc8vawrdce" path="res://assets/scripts/node_2d_egg_friend_cd_good_adult.gd" id="1_r1xdj"]
+[ext_resource type="Texture2D" uid="uid://b75mquf8orn5f" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_6-removebg-preview.png" id="2_r1xdj"]
+[ext_resource type="Texture2D" uid="uid://ck1h72wwgxpce" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_7-removebg-preview.png" id="3_dqqt3"]
+[ext_resource type="Texture2D" uid="uid://hu3elw7ffagj" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_1-removebg-preview.png" id="4_mubo1"]
+[ext_resource type="Texture2D" uid="uid://bun7p8ks2hkjj" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_2-removebg-preview.png" id="5_rgtea"]
+[ext_resource type="Texture2D" uid="uid://cvfaodaypqdoi" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_8-removebg-preview.png" id="6_aa4xm"]
+[ext_resource type="Texture2D" uid="uid://dnhdxru21cjyd" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_5-removebg-preview.png" id="7_i56vc"]
+[ext_resource type="Texture2D" uid="uid://dnovhb1k7nrdc" path="res://assets/sprites/mySprites/CD/adult_good_nbg/adult_4-removebg-preview.png" id="8_a6dxe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cybjc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hlnxc")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r1xdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dqqt3")
+}],
+"loop": true,
+"name": &"hungry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mubo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rgtea")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_aa4xm")
+}],
+"loop": true,
+"name": &"misbehaving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_i56vc")
+}],
+"loop": true,
+"name": &"scolded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a6dxe")
+}],
+"loop": true,
+"name": &"sleeping",
+"speed": 5.0
+}]
+
+[node name="Node2D_egg_friend_cd_goodAdult" type="Node2D"]
+script = ExtResource("1_r1xdj")
+
+[node name="Node2D_animations" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
+sprite_frames = SubResource("SpriteFrames_cybjc")
+animation = &"eating"

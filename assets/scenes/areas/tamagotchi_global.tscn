@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://214ce7ai1vg3"]
+[gd_scene load_steps=5 format=3 uid="uid://214ce7ai1vg3"]
 
 [ext_resource type="Script" uid="uid://bivcrv4c16j75" path="res://assets/scenes/areas/tamagotchi_global.gd" id="1_cxcdh"]
+[ext_resource type="Script" uid="uid://dqjsx45dg5ypi" path="res://assets/scenes/areas/menu_manager.gd" id="2_cxcdh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcdh"]
+bg_color = Color(0.233926, 0.233925, 0.233925, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6i21"]
+font_size = 26
 
 [node name="Node_tamagotchi_global" type="Node"]
 script = ExtResource("1_cxcdh")
@@ -10,19 +17,55 @@ script = ExtResource("1_cxcdh")
 [node name="Node_audioManager" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_cxcdh")
+
+[node name="Control_info" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control_info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.965
+anchor_right = 1.0
+anchor_bottom = 8.55
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cxcdh")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control_info/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_i6i21")
+vertical_alignment = 1
+clip_text = true
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 150.0
-offset_bottom = 430.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1406.0
+offset_bottom = -1066.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.791667
+anchor_right = 0.963
 anchor_bottom = 0.515
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
@@ -61,11 +104,227 @@ text = "Tamagotchi 2"
 layout_mode = 2
 text = "Tamagotchi 3"
 
+[node name="Main_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.176
+anchor_top = 0.09
+anchor_right = 1.321
+anchor_bottom = 0.904
+offset_left = -0.112003
+offset_top = -0.18
+offset_right = -0.10202
+offset_bottom = -0.208008
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_actions" type="Button" parent="CanvasLayer/Control/Main_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Actions"
+
+[node name="Button_options" type="Button" parent="CanvasLayer/Control/Main_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Options"
+
+[node name="Button_save" type="Button" parent="CanvasLayer/Control/Main_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Save"
+
+[node name="Button_load" type="Button" parent="CanvasLayer/Control/Main_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Load"
+
+[node name="Button_quit" type="Button" parent="CanvasLayer/Control/Main_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Quit"
+
+[node name="Action_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.175573
+anchor_top = 0.089701
+anchor_right = 1.321
+anchor_bottom = 0.903668
+offset_right = -0.10202
+offset_bottom = -0.00802612
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_back" type="Button" parent="CanvasLayer/Control/Action_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[node name="Button_pet" type="Button" parent="CanvasLayer/Control/Action_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Pet"
+
+[node name="Button_feed" type="Button" parent="CanvasLayer/Control/Action_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Feed"
+
+[node name="Button_scold" type="Button" parent="CanvasLayer/Control/Action_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Scold"
+
+[node name="Button_timeSkip" type="Button" parent="CanvasLayer/Control/Action_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Time Jump ->"
+
+[node name="Options_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.176
+anchor_top = 0.09
+anchor_right = 1.321
+anchor_bottom = 0.904
+offset_left = -0.112003
+offset_top = -0.18
+offset_right = -0.10199
+offset_bottom = -0.208008
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_back" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[node name="Button_setBackground" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Background"
+
+[node name="Button_setEggFriend" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Egg Friend"
+
+[node name="Button_setTime" type="Button" parent="CanvasLayer/Control/Options_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Time"
+
+[node name="Options_subBackgroundMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.176
+anchor_top = 0.09
+anchor_right = 1.321
+anchor_bottom = 0.904
+offset_left = -0.112003
+offset_top = -0.18
+offset_right = -0.10202
+offset_bottom = -0.208008
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_back" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[node name="Button_setBackground_1" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Field"
+
+[node name="Button_setBackground_2" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Bedroom"
+
+[node name="Button_setBackground_3" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Bakery"
+
+[node name="Options_subEggFriendMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.176
+anchor_top = 0.09
+anchor_right = 1.321
+anchor_bottom = 0.904
+offset_left = -0.112003
+offset_top = -0.18
+offset_right = -0.10202
+offset_bottom = -0.208008
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_back" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[node name="Button_setEggFriend_1" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "set cd"
+
+[node name="Button_setEggFriend_2" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "set ???"
+
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_feed" to="." method="_on_button_feed_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_freeze" to="." method="_on_button_freeze_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Room_1" to="." method="_on_button_room_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Room_2" to="." method="_on_button_room_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Room_3" to="." method="_on_button_room_3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Egg_Friend_1" to="." method="_on_button_egg_friend_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Egg_Friend_2" to="." method="_on_button_egg_friend_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_Egg_Friend_3" to="." method="_on_button_egg_friend_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_actions" to="CanvasLayer" method="_on_button_actions_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_options" to="CanvasLayer" method="_on_button_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_save" to="CanvasLayer" method="_on_button_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_load" to="CanvasLayer" method="_on_button_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_quit" to="CanvasLayer" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_scold" to="CanvasLayer" method="_on_button_scold_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_timeSkip" to="CanvasLayer" method="_on_button_time_skip_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setBackground" to="CanvasLayer" method="_on_button_set_background_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setEggFriend" to="CanvasLayer" method="_on_button_set_egg_friend_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_setBackground_1" to="CanvasLayer" method="_on_button_set_background_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_setBackground_2" to="CanvasLayer" method="_on_button_set_background_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_setBackground_3" to="CanvasLayer" method="_on_button_set_background_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_subEggFriendMenu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Options_subEggFriendMenu/Button_setEggFriend_1" to="CanvasLayer" method="_on_button_set_egg_friend_1_pressed"]

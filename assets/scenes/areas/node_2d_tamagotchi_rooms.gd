@@ -5,16 +5,22 @@ extends Node2D
 @export var backgrounds: Array[Texture2D] = []
 @export var background_names: Array[StringName] = []
 
+var backgrounds_map: Dictionary[String, Texture2D]
+
 func _ready():
 	if backgrounds.size() > 0:
-		set_background(1)
+		set_background("field")
 		
-func set_background(idx: int) -> void:
+		backgrounds_map["bedroom"] = backgrounds[0]
+		backgrounds_map["bakery"] = backgrounds[1]
+		backgrounds_map["field"] = backgrounds[2]
+		
+func set_background(name: String) -> void:
 	#If invalid, do nothing
-	if idx < 0 or idx >= backgrounds.size():
+	if not backgrounds_map.has(name):
 		return
 	
-	bg_sprite.texture = backgrounds[idx]
+	bg_sprite.texture = backgrounds_map[name]
 	fit_background_to_viewport()
 
 func fit_background_to_viewport() -> void:
