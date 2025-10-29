@@ -16,6 +16,8 @@ signal load_game(profileName: String, saveSlotNum: int)
 signal background_changed(backgroundName: String)
 signal egg_friend_changed(friendName: String)
 
+signal forward_time_skip()
+
 signal quit_game # no payload
 
 
@@ -102,3 +104,7 @@ func _on_button_load_pressed():
 
 func _on_button_quit_pressed():
 	quit_game.emit()
+
+
+func _on_button_time_skip_pressed():
+	forward_time_skip.emit()

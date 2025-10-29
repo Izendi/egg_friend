@@ -50,6 +50,8 @@ func _ready():
 	menuSystem.background_changed.connect(_on_background_changed)
 	menuSystem.egg_friend_changed.connect(_on_egg_friend_chosen)
 	
+	menuSystem.forward_time_skip.connect(_on_forward_time_jump)
+	
 	menuSystem.quit_game.connect(_on_quit_game)
 	
 	# Set up level loading system
@@ -63,8 +65,12 @@ func _ready():
 	fit_egg_friend_to_viewport(current_egg_Friend_Scale)
 	
 
+func _on_forward_time_jump():
+	GLOBAL_game_data["Days"] += 1
+	GLOBAL_game_data["Days"] = int(GLOBAL_game_data["Days"])
+
 func _on_save_game_request():
-	var save_path = "user://savegame_data/" + str(GLOBAL_game_data["save_slot_num"]) + ".json"
+	var save_path = "user://savegame_data/" + str(int(GLOBAL_game_data["save_slot_num"])) + ".json"
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	#file.store_string("hello world")
 	
@@ -211,14 +217,14 @@ func _process(delta):
 	topRight_label.text = topRight_label.text + "\n\nEgg Friend Name: " + str(GLOBAL_game_data["egg_friend_name"])
 	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(GLOBAL_game_data["growth_stage"])
 	
-	topRight_label.text = topRight_label.text + "\n\nDay: " + str(GLOBAL_game_data["Days"]) # In game day
-	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(GLOBAL_game_data["growth_stage"])
+	topRight_label.text = topRight_label.text + "\n\nDay: " + str(int(GLOBAL_game_data["Days"])) # In game day
+	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(int(GLOBAL_game_data["growth_stage"]))
 	topRight_label.text = topRight_label.text + "\nCurrent Location: " + str(GLOBAL_game_data["Current_background"])
 	topRight_label.text = topRight_label.text + "\nNo. Pets: " + str(GLOBAL_game_data["No_Pets"])
-	topRight_label.text = topRight_label.text + "\nNo. Good Scoldings: " + str(GLOBAL_game_data["No_just_scoldings"])
-	topRight_label.text = topRight_label.text + "\nNo. Bad Scoldings: " + str(GLOBAL_game_data["No_unjust_scoldings"])
-	topRight_label.text = topRight_label.text + "\nNo. Needed Snacks: " + str(GLOBAL_game_data["No_Needed_Snacks"])
-	topRight_label.text = topRight_label.text + "\nNo. Unneeded Snacks: " + str(GLOBAL_game_data["No_Unneeded_Snacks"])
+	topRight_label.text = topRight_label.text + "\nNo. Good Scoldings: " + str(int(GLOBAL_game_data["No_just_scoldings"]))
+	topRight_label.text = topRight_label.text + "\nNo. Bad Scoldings: " + str(int(GLOBAL_game_data["No_unjust_scoldings"]))
+	topRight_label.text = topRight_label.text + "\nNo. Needed Snacks: " + str(int(GLOBAL_game_data["No_Needed_Snacks"]))
+	topRight_label.text = topRight_label.text + "\nNo. Unneeded Snacks: " + str(int(GLOBAL_game_data["No_Unneeded_Snacks"]))
 	
 	
 	if current_egg_Friend_Scale != egg_Friend_Scale:

@@ -105,6 +105,7 @@ layout_mode = 2
 text = "Tamagotchi 3"
 
 [node name="Main_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.176
@@ -149,7 +150,6 @@ theme_override_font_sizes/font_size = 36
 text = "Quit"
 
 [node name="Action_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.175573
@@ -185,6 +185,12 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Scold"
+
+[node name="Button_timeSkip" type="Button" parent="CanvasLayer/Control/Action_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Time Jump ->"
 
 [node name="Options_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
@@ -312,6 +318,7 @@ text = "set ???"
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_scold" to="CanvasLayer" method="_on_button_scold_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_timeSkip" to="CanvasLayer" method="_on_button_time_skip_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setBackground" to="CanvasLayer" method="_on_button_set_background_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setEggFriend" to="CanvasLayer" method="_on_button_set_egg_friend_pressed"]
