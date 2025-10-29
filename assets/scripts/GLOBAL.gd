@@ -3,7 +3,7 @@ extends Node
 #this is only updated during a load, this way we can rever to previous save
 @onready var default_empty_save_data = {
 		"save_slot_num": 1,
-		"egg_friend_type": "cd",
+		"egg_friend_type": "cutie",
 		"egg_friend_name": "empty",
 		"growth_stage": 1,
 		"Days": 0,
@@ -14,13 +14,14 @@ extends Node
 		"No_Needed_Snacks": 0,
 		"No_Unneeded_Snacks": 0,
 		"No_Pets": 0,
-		"Unloaded": true
+		"Unloaded": true,
+		"Evolution_Path": "baby"
 		#"inventory": inventory,  # can be an Array or Dictionary
 	}
 
 @onready var loaded_save_data = {
 		"save_slot_num": 1,
-		"egg_friend_type": "cd",
+		"egg_friend_type": "cutie",
 		"egg_friend_name": "empty",
 		"growth_stage": 1,
 		"Days": 0,
@@ -31,14 +32,15 @@ extends Node
 		"No_Needed_Snacks": 0,
 		"No_Unneeded_Snacks": 0,
 		"No_Pets": 0,
-		"Unloaded": true
+		"Unloaded": true,
+		"Evolution_Path": "baby"
 		#"inventory": inventory,  # can be an Array or Dictionary
 	}
 
 #this in updated during playtime on the fly
 @onready var current_game_data = {
 		"save_slot_num": 1,
-		"egg_friend_type": "cd",
+		"egg_friend_type": "cutie",
 		"egg_friend_name": "empty",
 		"growth_stage": 1,
 		"Days": 0,
@@ -49,7 +51,8 @@ extends Node
 		"No_Needed_Snacks": 0,
 		"No_Unneeded_Snacks": 0,
 		"No_Pets": 0,
-		"Unloaded": true
+		"Unloaded": true,
+		"Evolution_Path": "baby"
 		#"inventory": inventory,  # can be an Array or Dictionary
 	}
 

@@ -74,4 +74,4 @@ script = ExtResource("1_lmmyp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
 sprite_frames = SubResource("SpriteFrames_voioc")
-animation = &"idle"
+animation = &"sleeping"

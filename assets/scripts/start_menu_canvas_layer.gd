@@ -108,7 +108,7 @@ func _on_button_start_game_pressed():
 		play_bad_input_sound()
 		return
 	
-	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, "cd") # NEED TO CHANGE THIS to be dynamic
+	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, GLOBAL.default_empty_save_data["egg_friend_type"]) # NEED TO CHANGE THIS to be dynamic
 
 
 func _on_button_quit_game_pressed():

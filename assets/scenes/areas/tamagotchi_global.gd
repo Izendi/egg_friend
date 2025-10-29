@@ -34,6 +34,8 @@ var idleCount: float = default_IdleCount #second
 
 var current_egg_Friend_Scale: Vector2 = Vector2(1.0, 1.0)
 
+var oldEvolutionPath = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# NORMAL WORK:
@@ -59,7 +61,7 @@ func _ready():
 	
 	#load egg friend:
 	load_egg_friend(GLOBAL_game_data["egg_friend_type"])
-	
+	oldEvolutionPath = GLOBAL_game_data["Evolution_Path"]
 	#For Debugging Purposes:
 	current_egg_Friend_Scale = egg_Friend_Scale
 	fit_egg_friend_to_viewport(current_egg_Friend_Scale)
@@ -152,7 +154,19 @@ func load_level(path: String, level_name: String) -> void:
 func load_egg_friend(type_name: String) -> void:
 	var path: String = ""
 	if type_name == "cd":
-		path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn"
+		if GLOBAL_game_data["Evolution_Path"] == "baby":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn"
+		elif GLOBAL_game_data["Evolution_Path"] == "bad_teen":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_bad_teen.tscn"
+		elif GLOBAL_game_data["Evolution_Path"] == "good_teen":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_good_teen.tscn"
+		elif GLOBAL_game_data["Evolution_Path"] == "bad_adult":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_bad_adult.tscn"
+		elif GLOBAL_game_data["Evolution_Path"] == "good_adult":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_good_adult.tscn"
+	elif type_name == "cutie":
+		if GLOBAL_game_data["Evolution_Path"] == "baby":
+			path = "res://assets/scenes/egg_friends/Cutie/node_2d_egg_friend_cutie_teen_good.tscn"
 	else:
 		path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn" # cd is the default
 		print("invalid name, using default egg friend (cd)")
@@ -170,6 +184,7 @@ func load_egg_friend(type_name: String) -> void:
 	var inst = scene.instantiate()
 	assert(inst is ef_interface) #type safety, ensures functional polymorphism
 	selected_egg_friend = inst as ef_interface
+	#assert(inst is ef_interface)
 	
 	#this "add_child" function call will add the node to the scene hierarchy and
 	#	will cause things like @onready and the _ready function to start running
@@ -230,7 +245,20 @@ func _process(delta):
 	if current_egg_Friend_Scale != egg_Friend_Scale:
 		current_egg_Friend_Scale = egg_Friend_Scale
 		fit_egg_friend_to_viewport(current_egg_Friend_Scale)
-		
+	
+	if GLOBAL_game_data["Days"] < 6:
+		GLOBAL_game_data["Evolution_Path"] = "baby"
+	elif GLOBAL_game_data["Days"] > 6 and GLOBAL_game_data["Days"] <= 12:
+		GLOBAL_game_data["Evolution_Path"] = "bad_teen"
+	elif GLOBAL_game_data["Days"] > 12:
+		GLOBAL_game_data["Evolution_Path"] = "bad_adult"
+	else:
+		GLOBAL_game_data["Evolution_Path"] = "baby"
+	
+	#HERE!!!
+	if oldEvolutionPath != GLOBAL_game_data["Evolution_Path"]:
+		load_egg_friend(GLOBAL_game_data["egg_friend_type"])
+		oldEvolutionPath = GLOBAL_game_data["egg_friend_type"]
 
 func _on_quit_game() -> void:
 	get_tree().quit()
