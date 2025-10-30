@@ -61,7 +61,6 @@ stream = ExtResource("5_y8jm2")
 stream = ExtResource("6_034c4")
 
 [node name="Control_base_menu" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -418,7 +417,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
-[node name="Control_new_game_chose_ef_type" type="Control" parent="CanvasLayer"]
+[node name="Control_new_game_choose_ef_type" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -426,7 +426,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button_New_Egg_1" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="Button_New_Egg_sai" type="Button" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -440,9 +440,9 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "Sai"
 
-[node name="Button_New_Egg_2" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="Button_New_Egg_debear" type="Button" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -456,9 +456,9 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "Debear"
 
-[node name="Button_New_Egg_3" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="Button_New_Egg_snowman" type="Button" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -472,9 +472,9 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "Snowman"
 
-[node name="Button_New_Egg_4" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="Button_New_Egg_bunny" type="Button" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -488,9 +488,9 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "Bunny"
 
-[node name="Button_New_Egg_5" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="Button_New_Egg_shiki" type="Button" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -504,9 +504,9 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "Shiki"
 
-[node name="Button_Back" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="Button_Back" type="Button" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -522,7 +522,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Back"
 
-[node name="TextureRect_menu_text" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="TextureRect_menu_text" type="TextureRect" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -538,7 +538,7 @@ grow_vertical = 2
 texture = ExtResource("8_0e0ms")
 expand_mode = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -553,12 +553,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yj1ns")
 
-[node name="TextureRect_ef_portrait_1" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer"]
+[node name="TextureRect_ef_portrait_1" type="TextureRect" parent="CanvasLayer/Control_new_game_choose_ef_type/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("9_2beq1")
 expand_mode = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -573,12 +573,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vt70m")
 
-[node name="TextureRect_ef_portrait_5" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer2"]
+[node name="TextureRect_ef_portrait_5" type="TextureRect" parent="CanvasLayer/Control_new_game_choose_ef_type/PanelContainer2"]
 layout_mode = 2
 texture = ExtResource("10_ovfja")
 expand_mode = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -593,12 +593,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vbtvq")
 
-[node name="TextureRect_ef_portrait_4" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer3"]
+[node name="TextureRect_ef_portrait_4" type="TextureRect" parent="CanvasLayer/Control_new_game_choose_ef_type/PanelContainer3"]
 layout_mode = 2
 texture = ExtResource("11_5hp8n")
 expand_mode = 1
 
-[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -613,12 +613,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vt70m")
 
-[node name="TextureRect_ef_portrait_3" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer4"]
+[node name="TextureRect_ef_portrait_3" type="TextureRect" parent="CanvasLayer/Control_new_game_choose_ef_type/PanelContainer4"]
 layout_mode = 2
 texture = ExtResource("12_76kbs")
 expand_mode = 1
 
-[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -633,7 +633,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vt70m")
 
-[node name="TextureRect_ef_portrait_2" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer5"]
+[node name="TextureRect_ef_portrait_2" type="TextureRect" parent="CanvasLayer/Control_new_game_choose_ef_type/PanelContainer5"]
 layout_mode = 2
 texture = ExtResource("13_xfloq")
 expand_mode = 1
@@ -652,4 +652,9 @@ expand_mode = 1
 [connection signal="pressed" from="CanvasLayer/Control_load_game_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Start_game" to="CanvasLayer" method="_on_button_start_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control_new_game_chose_ef_type/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_choose_ef_type/Button_New_Egg_sai" to="CanvasLayer" method="_on_button_new_egg_sai_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_choose_ef_type/Button_New_Egg_debear" to="CanvasLayer" method="_on_button_new_egg_debear_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_choose_ef_type/Button_New_Egg_snowman" to="CanvasLayer" method="_on_button_new_egg_snowman_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_choose_ef_type/Button_New_Egg_bunny" to="CanvasLayer" method="_on_button_new_egg_bunny_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_choose_ef_type/Button_New_Egg_shiki" to="CanvasLayer" method="_on_button_new_egg_shiki_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_choose_ef_type/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]

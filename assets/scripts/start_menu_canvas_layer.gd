@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var new_game_menu: Control = $Control_new_game_menu
 @onready var load_game_menu: Control = $Control_load_game_menu
 @onready var new_game_enter_name_menu: Control = $Control_new_game_enter_name_menu
+@onready var new_game_choose_ef_type: Control = $Control_new_game_choose_ef_type
 
 @onready var name_input_text = $Control_new_game_enter_name_menu/LineEdit_name_input_box
 
@@ -108,7 +109,10 @@ func _on_button_start_game_pressed():
 		play_bad_input_sound()
 		return
 	
-	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, GLOBAL.default_empty_save_data["egg_friend_type"]) # NEED TO CHANGE THIS to be dynamic
+	start_menu_stack.back().visible = false
+	start_menu_stack.append(new_game_choose_ef_type)
+	start_menu_stack.back().visible = true
+	play_regular_click_sound()
 
 
 func _on_button_quit_game_pressed():
@@ -144,3 +148,23 @@ func _on_button_load_game_pressed():
 
 func _on_button_options_pressed():
 	play_bad_input_sound()
+
+
+func _on_button_new_egg_sai_pressed():
+	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, "sai") # NEED TO CHANGE THIS to be dynamic
+
+
+func _on_button_new_egg_debear_pressed():
+	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, "debear")
+
+
+func _on_button_new_egg_snowman_pressed():
+	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, "snowman")
+
+
+func _on_button_new_egg_bunny_pressed():
+	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, "bunny")
+
+
+func _on_button_new_egg_shiki_pressed():
+	new_egg_friend_slot.emit(active_save_slot_num, name_input_text.text, "shiki")
