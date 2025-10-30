@@ -1,7 +1,6 @@
 res://assets/scenes/areas/tamagotchi_global.tscn
 res://assets/shader/node_start_menu.gdshader
 res://assets/sprites/mySprites/egg_friend_1_animated_sprite.tres
-res://assets/scripts/start_menu_canvas_layer.gd
 res://assets/scenes/node_start_menu.tscn
 res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn
 res://assets/scenes/areas/node_2d_i_egg_friend.tscn
@@ -11,16 +10,5 @@ res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_bad_teen.tscn
 res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_good_adult.tscn
 res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_bad_adult.tscn
 res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn
-res://assets/scripts/GLOBAL.gd
-res://assets/scripts/node_start_menu.gd
-res://assets/scenes/areas/tamagotchi_global.gd
-res://assets/scenes/areas/menu_manager.gd
-res://assets/scripts/node_2d_egg_friend_cd_bad_adult.gd
-res://assets/scripts/node_2d_egg_friend_cd_good_adult.gd
-res://assets/scripts/node_2d_egg_friend_cd_bad_teen.gd
-res://assets/scripts/node_2d_egg_friend_cd_good_teen.gd
-res://node_2d_egg_friend_cutie_teen_good.gd
 res://assets/scenes/egg_friends/Cutie/node_2d_egg_friend_cutie_teen_good.tscn
-res://assets/scenes/areas/node_2d_egg_friend_1_child.gd
-res://assets/scenes/areas/node_2d_i_egg_friend.gd
-res://assets/scenes/areas/node_2d_tamagotchi_rooms.gd
+res://assets/scenes/areas/tamagotchi_global.gd

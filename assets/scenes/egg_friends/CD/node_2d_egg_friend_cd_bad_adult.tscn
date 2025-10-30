@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c24raj2f5ik2a"]
 
-[ext_resource type="Script" path="res://assets/scripts/node_2d_egg_friend_cd_bad_adult.gd" id="1_7fvbe"]
+[ext_resource type="Script" uid="uid://corxt3bjmdlgd" path="res://assets/scripts/node_2d_egg_friend_cd_bad_adult.gd" id="1_7fvbe"]
 [ext_resource type="Texture2D" uid="uid://bgcr5tmlsyynm" path="res://assets/sprites/mySprites/CD/adult_nb_evil/adult_7-removebg-preview.png" id="1_7nu8c"]
 [ext_resource type="Texture2D" uid="uid://xfvxd2jlc5h6" path="res://assets/sprites/mySprites/CD/adult_nb_evil/ChatGPT_Image_Oct_26__2025__01_50_08_PM-0-2-removebg-preview.png" id="2_7fvbe"]
 [ext_resource type="Texture2D" uid="uid://v2ke4306woiu" path="res://assets/sprites/mySprites/CD/adult_nb_evil/ChatGPT_Image_Oct_26__2025__01_50_08_PM-1-0-removebg-preview.png" id="3_vnlnp"]

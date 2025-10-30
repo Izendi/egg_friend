@@ -1,13 +1,5 @@
 extends Node
 
-var inventory: Array = ["apple", "banana", "cake"]
-
-var test_save_data = {
-		"player_level": 25,
-		"player_health": 10,
-		"inventory": inventory,  # can be an Array or Dictionary
-	}
-
 const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
 
 const default_IdleCount = 0.0
@@ -258,6 +250,7 @@ func _process(delta):
 	#HERE!!!
 	if oldEvolutionPath != GLOBAL_game_data["Evolution_Path"]:
 		load_egg_friend(GLOBAL_game_data["egg_friend_type"])
+		load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", GLOBAL_game_data["Current_background"])
 		oldEvolutionPath = GLOBAL_game_data["egg_friend_type"]
 
 func _on_quit_game() -> void:
