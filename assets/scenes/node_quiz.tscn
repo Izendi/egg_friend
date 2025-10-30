@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://lamvkbimis6w"]
+
+[node name="Node_quiz" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control_persistent_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1151.0
+offset_bottom = -834.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control_persistent_menu"]
+layout_mode = 0
+offset_right = 517.0
+offset_bottom = 834.0
+theme_override_constants/separation = 50
+
+[node name="Button_1" type="Button" parent="CanvasLayer/Control_persistent_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Button 1"
+
+[node name="Button_2" type="Button" parent="CanvasLayer/Control_persistent_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Button 2"
+
+[node name="Button_3" type="Button" parent="CanvasLayer/Control_persistent_menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Button 3"
+
+[node name="Control_ef_display" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 834.0
+offset_right = -1151.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control_ef_display"]
+custom_minimum_size = Vector2(517, 834)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control_question_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 517.0
