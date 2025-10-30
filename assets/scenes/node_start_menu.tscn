@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2ywfvrj38hnv"]
+[gd_scene load_steps=18 format=3 uid="uid://2ywfvrj38hnv"]
 
 [ext_resource type="Script" uid="uid://2nacpueghkay" path="res://assets/scripts/node_start_menu.gd" id="1_vftgg"]
 [ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="2_3xagg"]
@@ -7,10 +7,37 @@
 [ext_resource type="Texture2D" uid="uid://dj70fdjfy571y" path="res://assets/sprites/logos/egg_friend_logo-removebg-preview.png" id="5_xssu2"]
 [ext_resource type="AudioStream" uid="uid://btb7fgupl22yn" path="res://assets/sounds/start_menu_button.wav" id="5_y8jm2"]
 [ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="6_034c4"]
+[ext_resource type="Texture2D" uid="uid://j6v11dtkj8h2" path="res://assets/sprites/logos/choose_a_type_nihongo_nobg.png" id="8_0e0ms"]
+[ext_resource type="Texture2D" uid="uid://dr8cxic7svf2f" path="res://assets/sprites/mySprites/IMG_2318.JPG" id="9_2beq1"]
+[ext_resource type="Texture2D" uid="uid://cebmt4kwe2hsx" path="res://assets/sprites/mySprites/IMG_0257.JPG" id="10_ovfja"]
+[ext_resource type="Texture2D" uid="uid://1vl50a3y6yuk" path="res://assets/sprites/mySprites/IMG_0258.JPG" id="11_5hp8n"]
+[ext_resource type="Texture2D" uid="uid://cxq8wbrd6ucly" path="res://assets/sprites/mySprites/IMG_0259.JPG" id="12_76kbs"]
+[ext_resource type="Texture2D" uid="uid://d1awyx18qvmr1" path="res://assets/sprites/mySprites/IMG_0930.JPG" id="13_xfloq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5b70b"]
 shader = ExtResource("2_3xagg")
-shader_parameter/pixels_per_second = Vector2(10, 10)
+shader_parameter/pixels_per_second = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj1ns"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt70m"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbtvq"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [node name="Node_start_menu" type="Node"]
 script = ExtResource("1_vftgg")
@@ -237,6 +264,7 @@ theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Control_load_game_menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -390,6 +418,226 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
+[node name="Control_new_game_chose_ef_type" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_New_Egg_1" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 150.0
+offset_right = -200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Egg"
+
+[node name="Button_New_Egg_2" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 150.0
+offset_right = 100.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Egg"
+
+[node name="Button_New_Egg_3" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 150.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Egg"
+
+[node name="Button_New_Egg_4" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 500.0
+offset_top = 150.0
+offset_right = 700.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Egg"
+
+[node name="Button_New_Egg_5" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -700.0
+offset_top = 150.0
+offset_right = -500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "New Egg"
+
+[node name="Button_Back" type="Button" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = 425.0
+offset_right = -350.0
+offset_bottom = 525.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="TextureRect_menu_text" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 260.0
+offset_right = 184.0
+offset_bottom = 660.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_0e0ms")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -162.0
+offset_right = 93.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yj1ns")
+
+[node name="TextureRect_ef_portrait_1" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("9_2beq1")
+expand_mode = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.0
+offset_top = -162.0
+offset_right = -203.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vt70m")
+
+[node name="TextureRect_ef_portrait_5" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("10_ovfja")
+expand_mode = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -698.0
+offset_top = -162.0
+offset_right = -507.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vbtvq")
+
+[node name="TextureRect_ef_portrait_4" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("11_5hp8n")
+expand_mode = 1
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 206.0
+offset_top = -162.0
+offset_right = 397.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vt70m")
+
+[node name="TextureRect_ef_portrait_3" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer4"]
+layout_mode = 2
+texture = ExtResource("12_76kbs")
+expand_mode = 1
+
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/Control_new_game_chose_ef_type"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 510.0
+offset_top = -162.0
+offset_right = 701.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vt70m")
+
+[node name="TextureRect_ef_portrait_2" type="TextureRect" parent="CanvasLayer/Control_new_game_chose_ef_type/PanelContainer5"]
+layout_mode = 2
+texture = ExtResource("13_xfloq")
+expand_mode = 1
+
 [connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_NewGame" to="CanvasLayer" method="_on_button_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_LoadGame" to="CanvasLayer" method="_on_button_load_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_base_menu/Button_Options" to="CanvasLayer" method="_on_button_options_pressed"]
@@ -404,3 +652,4 @@ text = "Start Game"
 [connection signal="pressed" from="CanvasLayer/Control_load_game_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_new_game_enter_name_menu/Button_Start_game" to="CanvasLayer" method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_new_game_chose_ef_type/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
