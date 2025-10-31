@@ -1,63 +1,173 @@
-[gd_scene format=3 uid="uid://lamvkbimis6w"]
+[gd_scene load_steps=6 format=3 uid="uid://lamvkbimis6w"]
+
+[ext_resource type="Script" uid="uid://cwusy35w7w5q0" path="res://assets/scripts/node_quiz.gd" id="1_1x316"]
+[ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="2_eij6y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
+border_width_left = 6
+border_width_top = 6
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x316"]
+border_width_left = 3
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eij6y"]
+border_width_left = 6
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
 
 [node name="Node_quiz" type="Node"]
+script = ExtResource("1_1x316")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Control_persistent_menu" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1151.0
-offset_bottom = -834.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control_persistent_menu"]
-layout_mode = 0
+[node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 517.0
 offset_bottom = 834.0
-theme_override_constants/separation = 50
+theme_override_styles/panel = SubResource("StyleBoxFlat_kf13m")
 
-[node name="Button_1" type="Button" parent="CanvasLayer/Control_persistent_menu/VBoxContainer"]
+[node name="Control_persistent_menu" type="Control" parent="CanvasLayer/PanelContainer_persistent_menu_border"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 487.0
+offset_bottom = 794.0
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Button_1" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Button 1"
+text = "Back"
 
-[node name="Button_2" type="Button" parent="CanvasLayer/Control_persistent_menu/VBoxContainer"]
+[node name="Button_2" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Button 2"
+text = "Save"
 
-[node name="Button_3" type="Button" parent="CanvasLayer/Control_persistent_menu/VBoxContainer"]
+[node name="Button_3" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Button 3"
+text = "Options"
 
-[node name="Control_ef_display" type="Control" parent="CanvasLayer"]
+[node name="Button_4" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="PanelContainer_question_control_menu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 517.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1x316")
+
+[node name="Control_question_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+layout_mode = 2
+
+[node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+anchors_preset = 0
+offset_left = 542.0
+offset_top = 80.0
+offset_right = 1084.0
+offset_bottom = 198.0
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_Re_Roll"]
+layout_mode = 0
+offset_right = 542.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 38
+text = "Re-roll Question
+(x1 Coin)"
+
+[node name="Control_Quiz_Logo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 25.0
+offset_right = 450.0
+offset_bottom = 193.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_Quiz_Logo"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -39.0
+offset_right = 372.0
+offset_bottom = 279.0
+texture = ExtResource("2_eij6y")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+anchors_preset = 0
+offset_top = 314.0
+offset_right = 1144.0
+offset_bottom = 1602.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 1288.0
+theme_override_constants/h_separation = 200
+theme_override_constants/v_separation = 200
+columns = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 834.0
 offset_right = -1151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eij6y")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control_ef_display"]
-custom_minimum_size = Vector2(517, 834)
+[node name="Control_ef_display" type="Control" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Control_ef_display"]
+custom_minimum_size = Vector2(508, 825)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Control_question_menu" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 517.0

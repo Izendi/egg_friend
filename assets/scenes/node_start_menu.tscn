@@ -16,7 +16,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5b70b"]
 shader = ExtResource("2_3xagg")
-shader_parameter/pixels_per_second = Vector2(0, 0)
+shader_parameter/pixels_per_second = Vector2(10, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj1ns"]
 border_width_left = 3
@@ -418,7 +418,6 @@ theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
 [node name="Control_new_game_choose_ef_type" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
