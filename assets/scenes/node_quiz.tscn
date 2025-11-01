@@ -97,32 +97,32 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1x316")
 
-[node name="Control_question_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+[node name="Control_shop_item_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 layout_mode = 2
 
-[node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+[node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 anchors_preset = 0
 offset_left = 542.0
 offset_top = 80.0
 offset_right = 1084.0
 offset_bottom = 198.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_Re_Roll"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control_Re_Roll"]
 layout_mode = 0
 offset_right = 542.0
 offset_bottom = 118.0
 theme_override_font_sizes/font_size = 38
-text = "Re-roll Question
+text = "Re-roll Shop
 (x1 Coin)"
 
-[node name="Control_Quiz_Logo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+[node name="Control_Quiz_Logo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 anchors_preset = 0
 offset_left = 50.0
 offset_top = 25.0
 offset_right = 450.0
 offset_bottom = 193.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_Quiz_Logo"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control_Quiz_Logo"]
 layout_mode = 0
 offset_left = 54.0
 offset_top = -39.0
@@ -131,33 +131,35 @@ offset_bottom = 279.0
 texture = ExtResource("2_eij6y")
 expand_mode = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 anchors_preset = 0
 offset_top = 314.0
 offset_right = 1144.0
 offset_bottom = 1602.0
 
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 anchors_preset = 0
 offset_left = 164.0
 offset_top = 70.0
 offset_right = 489.0
 offset_bottom = 527.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control"]
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 325.0
 texture = ExtResource("3_y4n6b")
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control"]
 custom_minimum_size = Vector2(325, 100)
 layout_mode = 0
 offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
+theme_override_font_sizes/font_size = 40
+text = "Buy"
 
-[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 164.0
@@ -165,19 +167,21 @@ offset_top = 711.0
 offset_right = 489.0
 offset_bottom = 1168.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control3"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control3"]
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 325.0
 texture = ExtResource("3_y4n6b")
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control3"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control3"]
 custom_minimum_size = Vector2(325, 100)
 offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
+theme_override_font_sizes/font_size = 40
+text = "Buy"
 
-[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 653.0
@@ -185,19 +189,21 @@ offset_top = 70.0
 offset_right = 978.0
 offset_bottom = 527.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control2"]
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 325.0
 texture = ExtResource("3_y4n6b")
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control2"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control2"]
 custom_minimum_size = Vector2(325, 100)
 offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
+theme_override_font_sizes/font_size = 40
+text = "Buy"
 
-[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 653.0
@@ -205,17 +211,19 @@ offset_top = 711.0
 offset_right = 978.0
 offset_bottom = 1168.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control4"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control4"]
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 325.0
 texture = ExtResource("3_y4n6b")
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control4"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control4"]
 custom_minimum_size = Vector2(325, 100)
 offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
+theme_override_font_sizes/font_size = 40
+text = "Buy"
 
 [node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -232,7 +240,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_eij6y")
 layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(508, 511)
+render_target_update_mode = 4
 
 [node name="PanelContainer_ef_info" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
