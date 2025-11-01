@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://lamvkbimis6w"]
+[gd_scene load_steps=8 format=3 uid="uid://lamvkbimis6w"]
 
 [ext_resource type="Script" uid="uid://cwusy35w7w5q0" path="res://assets/scripts/node_quiz.gd" id="1_1x316"]
 [ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="2_eij6y"]
+[ext_resource type="Texture2D" uid="uid://bmwcakyripy3v" path="res://assets/sprites/energy_cell.png" id="3_y4n6b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
 border_width_left = 6
@@ -18,6 +19,13 @@ border_width_bottom = 6
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eij6y"]
+border_width_left = 6
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4n6b"]
 border_width_left = 6
 border_width_top = 3
 border_width_right = 3
@@ -72,7 +80,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control_Whole_Screen" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -129,45 +137,109 @@ offset_top = 314.0
 offset_right = 1144.0
 offset_bottom = 1602.0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+anchors_preset = 0
+offset_left = 164.0
+offset_top = 70.0
+offset_right = 489.0
+offset_bottom = 527.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control"]
 layout_mode = 0
-offset_right = 1144.0
-offset_bottom = 1288.0
-theme_override_constants/h_separation = 200
-theme_override_constants/v_separation = 200
-columns = 2
+offset_right = 325.0
+offset_bottom = 325.0
+texture = ExtResource("3_y4n6b")
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control"]
+custom_minimum_size = Vector2(325, 100)
+layout_mode = 0
+offset_top = 355.0
+offset_right = 325.0
+offset_bottom = 455.0
 
-[node name="Button2" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
+[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 164.0
+offset_top = 711.0
+offset_right = 489.0
+offset_bottom = 1168.0
 
-[node name="Button3" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control3"]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 325.0
+texture = ExtResource("3_y4n6b")
 
-[node name="Button4" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/GridContainer"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control3"]
+custom_minimum_size = Vector2(325, 100)
+offset_top = 355.0
+offset_right = 325.0
+offset_bottom = 455.0
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 653.0
+offset_top = 70.0
+offset_right = 978.0
+offset_bottom = 527.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control2"]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 325.0
+texture = ExtResource("3_y4n6b")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control2"]
+custom_minimum_size = Vector2(325, 100)
+offset_top = 355.0
+offset_right = 325.0
+offset_bottom = 455.0
+
+[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 653.0
+offset_top = 711.0
+offset_right = 978.0
+offset_bottom = 1168.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control4"]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 325.0
+texture = ExtResource("3_y4n6b")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control/Control4"]
+custom_minimum_size = Vector2(325, 100)
+offset_top = 355.0
+offset_right = 325.0
+offset_bottom = 455.0
+
+[node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 834.0
 offset_right = -1151.0
+offset_bottom = -317.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eij6y")
 
-[node name="Control_ef_display" type="Control" parent="CanvasLayer/PanelContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer_ef_display"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Control_ef_display"]
-custom_minimum_size = Vector2(508, 825)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+size = Vector2i(508, 511)
+
+[node name="PanelContainer_ef_info" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1351.0
+offset_right = -1151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4n6b")
