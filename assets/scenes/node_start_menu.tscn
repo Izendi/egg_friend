@@ -418,6 +418,7 @@ theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
 [node name="Control_new_game_choose_ef_type" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

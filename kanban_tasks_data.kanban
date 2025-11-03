@@ -12,15 +12,18 @@
 			"title": "Todo",
 			"tasks": [
 				"77c6d2e4-7826-4895-b644-703cec6e9493",
-				"78224eb8-9428-4578-8ac5-c0633400ba8b"
+				"78224eb8-9428-4578-8ac5-c0633400ba8b",
+				"47d81da1-cee5-47a0-93be-fd57c2620aeb",
+				"8c2aa351-c889-481a-9cc2-aa6c7e889d3c",
+				"b1fd628e-4484-4f07-b362-73d80e87b59e"
 			]
 		},
 		{
 			"uuid": "8ebd51e7-5c70-457c-9db4-9deaa5c4d022",
 			"title": "Doing",
 			"tasks": [
-				"47d81da1-cee5-47a0-93be-fd57c2620aeb",
-				"8c2aa351-c889-481a-9cc2-aa6c7e889d3c"
+				"dd08d766-b44a-4684-a70b-7c77c371faac",
+				"d41924ad-d6d2-4e7e-a336-9edb4223ef98"
 			]
 		},
 		{
@@ -66,6 +69,41 @@
 			"description": "",
 			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
 			"steps": []
+		},
+		{
+			"uuid": "dd08d766-b44a-4684-a70b-7c77c371faac",
+			"title": "Add code to generate question data in Quiz_Question_Data class function",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "d41924ad-d6d2-4e7e-a336-9edb4223ef98",
+			"title": "Connect all menus",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": [
+				{
+					"details": "Make button go to quiz menu",
+					"done": false
+				},
+				{
+					"details": "Make button go to shop menu",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "b1fd628e-4484-4f07-b362-73d80e87b59e",
+			"title": "Enusre game works on ios",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": [
+				{
+					"details": "Make sure save system works on ios",
+					"done": false
+				}
+			]
 		}
 	],
 	"layout": {

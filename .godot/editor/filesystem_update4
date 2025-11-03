@@ -1,7 +1,11 @@
-res://assets/scenes/node_quiz.tscn
+res://assets/scenes/areas/menu_manager.gd
+res://assets/scenes/areas/tamagotchi_global.tscn
 res://assets/shader/node_start_menu.gdshader
 res://assets/scenes/node_start_menu.tscn
-res://assets/scenes/areas/tamagotchi_global.tscn
-res://assets/scenes/node_shop_view.tscn
+res://assets/scenes/node_shop.tscn
+res://assets/scenes/node_quiz.tscn
 res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn
 res://assets/scenes/areas/node_2d_i_egg_friend.tscn
+res://assets/scripts/classes/Quiz_Question_Data.gd
+res://assets/scripts/quiz_canvas_clips.gd
+res://assets/scenes/shop_menu_button.gd

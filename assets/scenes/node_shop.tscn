@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctqcy2o31pdqx"]
+[gd_scene load_steps=9 format=3 uid="uid://lamvkbimis6w"]
 
-[ext_resource type="Script" uid="uid://cwusy35w7w5q0" path="res://assets/scripts/node_quiz.gd" id="1_eij6y"]
-[ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="2_eij6y"]
-[ext_resource type="Script" uid="uid://ca60qdcbu7bdi" path="res://assets/scripts/quiz_canvas_clips.gd" id="2_y4n6b"]
+[ext_resource type="Script" uid="uid://q20cfg421dk3" path="res://assets/scripts/node_shop.gd" id="1_ailxb"]
+[ext_resource type="Texture2D" uid="uid://bmwcakyripy3v" path="res://assets/sprites/energy_cell.png" id="2_6kv02"]
+[ext_resource type="Script" uid="uid://cwl0f3gu5lltq" path="res://assets/scenes/shop_menu_button.gd" id="2_86i15"]
+[ext_resource type="Texture2D" uid="uid://doe53kg8olr0e" path="res://assets/sprites/logos/net_shop_nihongo-removebg-preview.png" id="3_86i15"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
 border_width_left = 6
@@ -18,27 +19,27 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x8yr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eij6y"]
 border_width_left = 6
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpi5l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4n6b"]
 border_width_left = 6
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 6
 border_color = Color(0, 0, 0, 1)
 
-[node name="Node_quiz" type="Node"]
-script = ExtResource("1_eij6y")
+[node name="Node_Shop" type="Node"]
+script = ExtResource("1_ailxb")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("2_y4n6b")
+script = ExtResource("2_86i15")
 
 [node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 517.0
@@ -81,7 +82,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control_Whole_Screen" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -100,95 +101,122 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1x316")
 
-[node name="Control_question_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+[node name="Control_shop_item_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 layout_mode = 2
 
-[node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+[node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 anchors_preset = 0
 offset_left = 542.0
 offset_top = 80.0
 offset_right = 1084.0
 offset_bottom = 198.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_Re_Roll"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control_Re_Roll"]
 layout_mode = 0
 offset_right = 542.0
 offset_bottom = 118.0
 theme_override_font_sizes/font_size = 38
-text = "Re-roll Question
+text = "Re-roll Shop
 (x1 Coin)"
 
-[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
-layout_mode = 3
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 anchors_preset = 0
 offset_top = 314.0
 offset_right = 1144.0
 offset_bottom = 1602.0
 
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 anchors_preset = 0
 offset_left = 164.0
-offset_top = 620.0
+offset_top = 70.0
 offset_right = 489.0
-offset_bottom = 820.0
+offset_bottom = 527.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control"]
-custom_minimum_size = Vector2(325, 200)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control"]
 layout_mode = 0
 offset_right = 325.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 40
-text = "A"
+offset_bottom = 325.0
+texture = ExtResource("2_6kv02")
 
-[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 164.0
-offset_top = 970.0
-offset_right = 489.0
-offset_bottom = 1170.0
-
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control3"]
-custom_minimum_size = Vector2(325, 200)
-layout_mode = 0
-offset_right = 325.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 40
-text = "C"
-
-[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 653.0
-offset_top = 620.0
-offset_right = 978.0
-offset_bottom = 820.0
-
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control2"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control"]
 custom_minimum_size = Vector2(325, 100)
 layout_mode = 0
+offset_top = 355.0
 offset_right = 325.0
-offset_bottom = 200.0
+offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "B"
+text = "Buy"
 
-[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
+[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 164.0
+offset_top = 711.0
+offset_right = 489.0
+offset_bottom = 1168.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control3"]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 325.0
+texture = ExtResource("2_6kv02")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control3"]
+custom_minimum_size = Vector2(325, 100)
+layout_mode = 0
+offset_top = 355.0
+offset_right = 325.0
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 40
+text = "Buy"
+
+[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 653.0
-offset_top = 970.0
+offset_top = 70.0
 offset_right = 978.0
-offset_bottom = 1170.0
+offset_bottom = 527.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control4"]
-custom_minimum_size = Vector2(325, 200)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control2"]
 layout_mode = 0
 offset_right = 325.0
-offset_bottom = 100.0
-theme_override_font_sizes/font_size = 40
-text = "D"
+offset_bottom = 325.0
+texture = ExtResource("2_6kv02")
 
-[node name="Control_Quiz_Logo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control2"]
+custom_minimum_size = Vector2(325, 100)
+layout_mode = 0
+offset_top = 355.0
+offset_right = 325.0
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 40
+text = "Buy"
+
+[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 653.0
+offset_top = 711.0
+offset_right = 978.0
+offset_bottom = 1168.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control4"]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 325.0
+texture = ExtResource("2_6kv02")
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control4"]
+custom_minimum_size = Vector2(325, 100)
+layout_mode = 0
+offset_top = 355.0
+offset_right = 325.0
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 40
+text = "Buy"
+
+[node name="Control_ShopLogo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 50.0
@@ -196,40 +224,14 @@ offset_top = 25.0
 offset_right = 450.0
 offset_bottom = 193.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_Quiz_Logo"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control_ShopLogo"]
 layout_mode = 0
 offset_left = 54.0
 offset_top = -39.0
 offset_right = 372.0
 offset_bottom = 279.0
-texture = ExtResource("2_eij6y")
+texture = ExtResource("3_86i15")
 expand_mode = 1
-
-[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
-layout_mode = 0
-offset_left = 110.0
-offset_top = 270.0
-offset_right = 1032.0
-offset_bottom = 820.0
-
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Panel"]
-layout_mode = 0
-offset_right = 922.0
-offset_bottom = 550.0
-theme_override_font_sizes/font_size = 22
-text = "Question 1
-
-No matter what you say
-
-A. The City
-
-B. The Town
-
-C. The Village
-
-D. The House"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -240,7 +242,7 @@ offset_right = -1151.0
 offset_bottom = -317.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1x8yr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_eij6y")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer_ef_display"]
 layout_mode = 2
@@ -258,7 +260,7 @@ offset_top = 1351.0
 offset_right = -1151.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4n6b")
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]
