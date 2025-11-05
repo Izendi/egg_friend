@@ -1,7 +1,7 @@
-TextureButton
 Button
-PanelContainer
 Control
+TextureButton
+PanelContainer
 Label
 Panel
 TextureRect
@@ -12,4 +12,3 @@ GridContainer
 VBoxContainer
 CanvasLayer
 Node2D
-Node

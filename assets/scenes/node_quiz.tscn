@@ -101,6 +101,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1x316")
 
 [node name="Control_question_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+visible = false
 layout_mode = 2
 
 [node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
@@ -231,6 +232,104 @@ D. The House"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Control_setup_difficulty_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+visible = false
+layout_mode = 2
+
+[node name="Button_easy" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 325.0
+offset_top = 500.0
+offset_right = 826.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 60
+text = "Easy"
+
+[node name="Button_medium" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 325.0
+offset_top = 850.0
+offset_right = 826.0
+offset_bottom = 1050.0
+theme_override_font_sizes/font_size = 60
+text = "Medium"
+
+[node name="Button_hard" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 325.0
+offset_top = 1200.0
+offset_right = 826.0
+offset_bottom = 1400.0
+theme_override_font_sizes/font_size = 60
+text = "Hard"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
+offset_left = 110.0
+offset_top = 100.0
+offset_right = 1032.0
+offset_bottom = 400.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Panel"]
+layout_mode = 0
+offset_right = 922.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 70
+text = "Choose your difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control_setup_topic_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+layout_mode = 2
+
+[node name="Button_anime" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 325.0
+offset_top = 500.0
+offset_right = 826.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 60
+text = "Anime"
+
+[node name="Button_tbd_1" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 325.0
+offset_top = 850.0
+offset_right = 826.0
+offset_bottom = 1050.0
+theme_override_font_sizes/font_size = 60
+text = "X"
+
+[node name="Button_tbs_2" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 325.0
+offset_top = 1200.0
+offset_right = 826.0
+offset_bottom = 1400.0
+theme_override_font_sizes/font_size = 60
+text = "X"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+offset_left = 110.0
+offset_top = 100.0
+offset_right = 1032.0
+offset_bottom = 400.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Panel"]
+layout_mode = 0
+offset_right = 922.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 70
+text = "Choose the topic you wish to be quizzed on"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -262,3 +361,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_easy" to="CanvasLayer" method="_on_button_easy_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_medium" to="CanvasLayer" method="_on_button_medium_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_hard" to="CanvasLayer" method="_on_button_hard_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_anime" to="CanvasLayer" method="_on_button_anime_pressed"]

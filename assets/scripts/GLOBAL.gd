@@ -64,6 +64,11 @@ var saveData_1_dictionary: Dictionary
 var saveData_2_dictionary: Dictionary
 var saveData_3_dictionary: Dictionary
 
+var hard_question_prize_amount: int = 10 
+var medium_question_prize_amount: int = 5 
+var easy_question_prize_amount: int = 2 
+
+
 func _ready():
 	var load_slot_path_1 = "user://savegame_data/1.json"
 	var load_slot_path_2 = "user://savegame_data/2.json"
@@ -133,3 +138,6 @@ func GLOBAL_load_game_request(egg_friend_name: String, saveSlotNum: int) -> bool
 	
 	print(result)
 	return true
+
+func GLOBAL_get_question_uid() -> int:
+	return 0

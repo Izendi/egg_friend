@@ -31,7 +31,7 @@ func _ready():
 	new_game_menu.visible = false
 	load_game_menu.visible = false
 	
-	# reset set new game menu names
+	# reset new game menu names
 	var button_new_egg_1 = new_game_menu.get_node("Button_New_Egg_1")
 	var button_new_egg_2 = new_game_menu.get_node("Button_New_Egg_2")
 	var button_new_egg_3 = new_game_menu.get_node("Button_New_Egg_3")
