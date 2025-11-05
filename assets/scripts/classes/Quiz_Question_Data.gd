@@ -11,7 +11,8 @@ var option_A: String
 var option_B: String
 var option_C: String
 var option_D: String
-var correct_option: String
+var correct_option: int
+var correct_question_string: String
 
 #Dictionary Structure:
 #	difficulty (string): "easy" / "medium" / "hard"
@@ -29,7 +30,8 @@ func _init():
 	self.option_C = "C"
 	self.option_D = "D"
 	self.question_catagory = "NA"
-	self.correct_option = "F"
+	self.correct_option = 5
+	self.correct_question_string = "NA"
 
 # GLOBAL_hard_question_prize_amount
 
@@ -48,27 +50,29 @@ func set_new_question_data(diff: String, catagory: String, ques: String, cor_ans
 	
 	var r_num = randi_range(1, 4)
 	
+	self.correct_question_string = cor_ans 
+	
 	if r_num == 1:
-		self.correct_option = "A"
-		self.option_A = cor_ans
-		self.option_B = wrng_ans[0]
-		self.option_C = wrng_ans[1]
-		self.option_D = wrng_ans[2]
+		self.correct_option = GLOBAL.AnswerState.OPTION_A
+		self.option_A = "A - " + cor_ans
+		self.option_B = "B - " + wrng_ans[0]
+		self.option_C = "C - " + wrng_ans[1]
+		self.option_D = "D - " + wrng_ans[2]
 	elif r_num == 2:
-		self.correct_option = "B"
-		self.option_A = wrng_ans[2]
-		self.option_B = cor_ans
-		self.option_C = wrng_ans[0]
-		self.option_D = wrng_ans[1]
+		self.correct_option = GLOBAL.AnswerState.OPTION_B
+		self.option_A = "A - " + wrng_ans[2]
+		self.option_B = "B - " + cor_ans
+		self.option_C = "C - " + wrng_ans[0]
+		self.option_D = "D - " + wrng_ans[1]
 	elif r_num == 3:
-		self.correct_option = "C"
-		self.option_A = wrng_ans[0]
-		self.option_B = wrng_ans[2]
-		self.option_C = cor_ans
-		self.option_D = wrng_ans[1]
+		self.correct_option = GLOBAL.AnswerState.OPTION_C
+		self.option_A = "A - " + wrng_ans[0]
+		self.option_B = "B - " + wrng_ans[2]
+		self.option_C = "C - " + cor_ans
+		self.option_D = "D - " + wrng_ans[1]
 	elif r_num == 4:
-		self.correct_option = "D"
-		self.option_A = wrng_ans[1]
-		self.option_B = wrng_ans[0]
-		self.option_C = wrng_ans[2]
-		self.option_D = cor_ans
+		self.correct_option = GLOBAL.AnswerState.OPTION_D
+		self.option_A = "A - " + wrng_ans[1]
+		self.option_B = "B - " + wrng_ans[0]
+		self.option_C = "C - " + wrng_ans[2]
+		self.option_D = "D - " + cor_ans

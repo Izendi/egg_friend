@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctqcy2o31pdqx"]
+[gd_scene load_steps=14 format=3 uid="uid://ctqcy2o31pdqx"]
 
 [ext_resource type="Script" uid="uid://cwusy35w7w5q0" path="res://assets/scripts/node_quiz.gd" id="1_eij6y"]
 [ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="2_eij6y"]
+[ext_resource type="AudioStream" uid="uid://qjg82sody2cq" path="res://assets/sounds/bad_loss.wav" id="2_j2cla"]
 [ext_resource type="Script" uid="uid://ca60qdcbu7bdi" path="res://assets/scripts/quiz_canvas_clips.gd" id="2_y4n6b"]
+[ext_resource type="AudioStream" uid="uid://jse2fi02146e" path="res://assets/sounds/correct_sound.wav" id="3_1knml"]
+[ext_resource type="AudioStream" uid="uid://btb7fgupl22yn" path="res://assets/sounds/start_menu_button.wav" id="3_p67ri"]
+[ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="4_cx7hr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
 border_width_left = 6
@@ -17,6 +21,12 @@ border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p67ri"]
+bg_color = Color(0, 0.330344, 0.127504, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx7hr"]
+bg_color = Color(0.259043, 0, 0.0420781, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x8yr"]
 border_width_left = 6
@@ -35,10 +45,22 @@ border_color = Color(0, 0, 0, 1)
 [node name="Node_quiz" type="Node"]
 script = ExtResource("1_eij6y")
 
+[node name="AudioStreamPlayer_wrong_answer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_j2cla")
+
+[node name="AudioStreamPlayer_correct_answer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1knml")
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_y4n6b")
+
+[node name="AudioStreamPlayer_reg_button_pressed" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("3_p67ri")
+
+[node name="AudioStreamPlayer_bad_input" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("4_cx7hr")
 
 [node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 517.0
@@ -101,7 +123,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1x316")
 
 [node name="Control_question_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
-visible = false
 layout_mode = 2
 
 [node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
@@ -119,21 +140,21 @@ theme_override_font_sizes/font_size = 38
 text = "Re-roll Question
 (x1 Coin)"
 
-[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+[node name="Control_abcd_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 314.0
 offset_right = 1144.0
 offset_bottom = 1602.0
 
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 anchors_preset = 0
 offset_left = 164.0
 offset_top = 620.0
 offset_right = 489.0
 offset_bottom = 820.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control"]
+[node name="Button_A" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control"]
 custom_minimum_size = Vector2(325, 200)
 layout_mode = 0
 offset_right = 325.0
@@ -141,7 +162,7 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 40
 text = "A"
 
-[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
+[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 164.0
@@ -149,15 +170,15 @@ offset_top = 970.0
 offset_right = 489.0
 offset_bottom = 1170.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control3"]
+[node name="Button_B" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control3"]
 custom_minimum_size = Vector2(325, 200)
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 40
-text = "C"
+text = "B"
 
-[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
+[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 653.0
@@ -165,15 +186,15 @@ offset_top = 620.0
 offset_right = 978.0
 offset_bottom = 820.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control2"]
+[node name="Button_C" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control2"]
 custom_minimum_size = Vector2(325, 100)
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 200.0
 theme_override_font_sizes/font_size = 40
-text = "B"
+text = "C"
 
-[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2"]
+[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 653.0
@@ -181,7 +202,7 @@ offset_top = 970.0
 offset_right = 978.0
 offset_bottom = 1170.0
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control2/Control4"]
+[node name="Button_D" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control4"]
 custom_minimum_size = Vector2(325, 200)
 layout_mode = 0
 offset_right = 325.0
@@ -220,7 +241,7 @@ offset_bottom = 550.0
 theme_override_font_sizes/font_size = 22
 text = "Question 1
 
-No matter what you say
+No matter what you sayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
 A. The City
 
@@ -231,6 +252,7 @@ C. The Village
 D. The House"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 1
 
 [node name="Control_setup_difficulty_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 visible = false
@@ -282,6 +304,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Control_setup_topic_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+visible = false
 layout_mode = 2
 
 [node name="Button_anime" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
@@ -330,6 +353,84 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Control_correct_answer_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu"]
+offset_left = 110.0
+offset_top = 270.0
+offset_right = 1032.0
+offset_bottom = 820.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p67ri")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu/Panel"]
+layout_mode = 0
+offset_right = 922.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 22
+text = "CORRECT!
+Good Job. The correct answer was:
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control_next_question" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 653.0
+offset_top = 920.0
+offset_right = 978.0
+offset_bottom = 1120.0
+
+[node name="Button_Next_Question" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu/Control_next_question"]
+custom_minimum_size = Vector2(325, 100)
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
+[node name="Control_incorrect_answer_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu"]
+offset_left = 110.0
+offset_top = 270.0
+offset_right = 1032.0
+offset_bottom = 820.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cx7hr")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu/Panel"]
+layout_mode = 0
+offset_right = 922.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 22
+text = "WRONG!
+Sorry. The correct answer is:
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control_next_question" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 653.0
+offset_top = 920.0
+offset_right = 978.0
+offset_bottom = 1120.0
+
+[node name="Button_wrong_now_next_question" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu/Control_next_question"]
+custom_minimum_size = Vector2(325, 100)
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
 [node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -361,7 +462,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control/Button_A" to="CanvasLayer" method="_on_button_a_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control3/Button_B" to="CanvasLayer" method="_on_button_b_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control2/Button_C" to="CanvasLayer" method="_on_button_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control4/Button_D" to="CanvasLayer" method="_on_button_d_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_easy" to="CanvasLayer" method="_on_button_easy_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_medium" to="CanvasLayer" method="_on_button_medium_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_hard" to="CanvasLayer" method="_on_button_hard_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_anime" to="CanvasLayer" method="_on_button_anime_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_tbd_1" to="CanvasLayer" method="_on_button_tbd_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_tbs_2" to="CanvasLayer" method="_on_button_tbs_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu/Control_next_question/Button_Next_Question" to="CanvasLayer" method="_on_button_next_question_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu/Control_next_question/Button_wrong_now_next_question" to="CanvasLayer" method="_on_button_wrong_now_next_question_pressed"]

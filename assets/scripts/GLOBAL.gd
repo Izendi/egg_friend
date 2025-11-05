@@ -68,6 +68,8 @@ var hard_question_prize_amount: int = 10
 var medium_question_prize_amount: int = 5 
 var easy_question_prize_amount: int = 2 
 
+enum AnswerState {OPTION_A, OPTION_B, OPTION_C, OPTION_D}
+
 
 func _ready():
 	var load_slot_path_1 = "user://savegame_data/1.json"
