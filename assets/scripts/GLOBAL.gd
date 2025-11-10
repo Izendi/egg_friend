@@ -15,7 +15,8 @@ extends Node
 		"No_Unneeded_Snacks": 0,
 		"No_Pets": 0,
 		"Unloaded": true,
-		"Evolution_Path": "baby"
+		"Evolution_Path": "baby",
+		"Coins": 0
 		#"inventory": inventory,  # can be an Array or Dictionary
 	}
 
@@ -33,7 +34,8 @@ extends Node
 		"No_Unneeded_Snacks": 0,
 		"No_Pets": 0,
 		"Unloaded": true,
-		"Evolution_Path": "baby"
+		"Evolution_Path": "baby",
+		"Coins": 0
 		#"inventory": inventory,  # can be an Array or Dictionary
 	}
 
@@ -52,7 +54,8 @@ extends Node
 		"No_Unneeded_Snacks": 0,
 		"No_Pets": 0,
 		"Unloaded": true,
-		"Evolution_Path": "baby"
+		"Evolution_Path": "baby",
+		"Coins": 0
 		#"inventory": inventory,  # can be an Array or Dictionary
 	}
 

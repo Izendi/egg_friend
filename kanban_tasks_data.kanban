@@ -32,7 +32,8 @@
 			"uuid": "f24cfa8c-0d13-4886-8ca0-ca8716476b82",
 			"title": "Done",
 			"tasks": [
-				"d41924ad-d6d2-4e7e-a336-9edb4223ef98"
+				"d41924ad-d6d2-4e7e-a336-9edb4223ef98",
+				"e6d95790-22e1-461c-a02f-a085be636e60"
 			]
 		}
 	],
@@ -131,6 +132,13 @@
 		{
 			"uuid": "0ee3ff20-85a0-4f0e-be21-7ef624ce4408",
 			"title": "finish writing code for get_a_question_from_the_loaded_list in Node_quiz gdscript",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "e6d95790-22e1-461c-a02f-a085be636e60",
+			"title": "Get Game working on Ipad",
 			"description": "",
 			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
 			"steps": []

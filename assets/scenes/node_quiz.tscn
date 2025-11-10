@@ -289,6 +289,7 @@ theme_override_font_sizes/font_size = 60
 text = "Hard"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
+layout_mode = 0
 offset_left = 110.0
 offset_top = 100.0
 offset_right = 1032.0
@@ -338,6 +339,7 @@ theme_override_font_sizes/font_size = 60
 text = "X"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+layout_mode = 0
 offset_left = 110.0
 offset_top = 100.0
 offset_right = 1032.0
@@ -358,6 +360,7 @@ visible = false
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu"]
+layout_mode = 0
 offset_left = 110.0
 offset_top = 270.0
 offset_right = 1032.0
@@ -397,6 +400,7 @@ visible = false
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu"]
+layout_mode = 0
 offset_left = 110.0
 offset_top = 270.0
 offset_right = 1032.0
