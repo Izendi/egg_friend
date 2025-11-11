@@ -59,6 +59,11 @@ extends Node
 		#"inventory": inventory,  # can be an Array or Dictionary
 	}
 
+const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
+var selected_egg_friend: ef_interface = null
+
+var current_egg_Friend_Scale: Vector2 = Vector2(1.0, 1.0)
+
 @onready var save_slot_name_1 = "empty egg 1"
 @onready var save_slot_name_2 = "empty egg 2"
 @onready var save_slot_name_3 = "empty egg 3"
@@ -82,6 +87,64 @@ func _ready():
 	saveData_1_dictionary = getSavedGameDataInDictionaryFormat(load_slot_path_1)
 	saveData_2_dictionary = getSavedGameDataInDictionaryFormat(load_slot_path_2)
 	saveData_3_dictionary = getSavedGameDataInDictionaryFormat(load_slot_path_3)
+	
+
+func loadSelectedEggFriend(type_name: String) -> void:
+	var path: String = ""
+	if type_name == "cd":
+		if current_game_data["Evolution_Path"] == "baby":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn"
+		elif current_game_data["Evolution_Path"] == "bad_teen":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_bad_teen.tscn"
+		elif current_game_data["Evolution_Path"] == "good_teen":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_good_teen.tscn"
+		elif current_game_data["Evolution_Path"] == "bad_adult":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_bad_adult.tscn"
+		elif current_game_data["Evolution_Path"] == "good_adult":
+			path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_good_adult.tscn"
+	elif type_name == "cutie":
+		if current_game_data["Evolution_Path"] == "baby":
+			path = "res://assets/scenes/egg_friends/Cutie/node_2d_egg_friend_cutie_teen_good.tscn"
+	else:
+		path = "res://assets/scenes/egg_friends/CD/node_2d_egg_friend_cd_baby.tscn" # cd is the default
+		print("invalid name, using default egg friend (cd)")
+		
+		
+	if GLOBAL.selected_egg_friend:
+		GLOBAL.selected_egg_friend.queue_free() #This queue_free func tells godot: Please remove this node (and all its children) safely at the end of the current frame.
+		GLOBAL.selected_egg_friend = null
+	
+	#this should point to the child type, not the parent type
+	var scene: PackedScene = load(path)
+	#Path to default:
+	#"res://assets/scenes/areas/node_2d_egg_friend_1.tscn"
+	
+	var inst = scene.instantiate()
+	assert(inst is ef_interface) #type safety, ensures functional polymorphism
+	GLOBAL.selected_egg_friend = inst as ef_interface
+	#assert(inst is ef_interface)
+	
+	#this "add_child" function call will add the node to the scene hierarchy and
+	#	will cause things like @onready and the _ready function to start running
+	get_tree().current_scene.add_child(selected_egg_friend)
+	fit_egg_friend_to_viewport(current_egg_Friend_Scale)
+	
+	
+
+func fit_egg_friend_to_viewport(scale_vector: Vector2) -> void:
+	if selected_egg_friend == null:
+		return
+	
+	
+	var current_loaded_scene = get_tree().current_scene
+	
+	print(current_loaded_scene.name)
+	
+	if current_loaded_scene.name == "Node_tamagotchi_global":
+		var view_size: Vector2 = current_loaded_scene.get_node("Node2D_world").get_viewport_rect().size
+		selected_egg_friend.resize_and_centre_egg_friend_sprite(scale_vector)
+	else:
+		return #do nothing
 	
 
 func getSavedGameDataInDictionaryFormat(saveDataPath: String) -> Dictionary:
