@@ -64,7 +64,7 @@ func _on_forward_time_jump():
 	GLOBAL_game_data["Days"] = int(GLOBAL_game_data["Days"])
 
 func _on_save_game_request():
-	var save_path = "user://savegame_data/" + str(int(GLOBAL_game_data["save_slot_num"])) + ".json"
+	var save_path = "user://" + str(int(GLOBAL_game_data["save_slot_num"])) + ".json"
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	#file.store_string("hello world")
 	

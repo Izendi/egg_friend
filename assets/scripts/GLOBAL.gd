@@ -75,9 +75,9 @@ enum AnswerState {OPTION_A, OPTION_B, OPTION_C, OPTION_D}
 
 
 func _ready():
-	var load_slot_path_1 = "user://savegame_data/1.json"
-	var load_slot_path_2 = "user://savegame_data/2.json"
-	var load_slot_path_3 = "user://savegame_data/3.json"
+	var load_slot_path_1 = "user://1.json"
+	var load_slot_path_2 = "user://2.json"
+	var load_slot_path_3 = "user://3.json"
 	
 	saveData_1_dictionary = getSavedGameDataInDictionaryFormat(load_slot_path_1)
 	saveData_2_dictionary = getSavedGameDataInDictionaryFormat(load_slot_path_2)
@@ -109,19 +109,22 @@ func getSavedGameDataInDictionaryFormat(saveDataPath: String) -> Dictionary:
 
 #this is copied from the 
 func GLOBAL_save_game_request(saveSlotNum: int):
-	var save_path = "user://savegame_data" + "/" + str(saveSlotNum) + ".json"
+	var save_path = "user://" + str(saveSlotNum) + ".json"
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	#file.store_string("hello world")
 	
-	var json_string = JSON.stringify(current_game_data, "\t")
-	file.store_string(json_string)
+	if file:
+		var json_string = JSON.stringify(current_game_data, "\t")
+		file.store_string(json_string)
+	else:
+		print("unable to open save data in GLOBAL script")
 	
 	file.close()
 	print(ProjectSettings.globalize_path(save_path)) # Used for debugginf to output full path that save data was written to.
 
 
 func GLOBAL_load_game_request(egg_friend_name: String, saveSlotNum: int) -> bool:
-	var load_path = "user://savegame_data" + "/" + str(saveSlotNum) + ".json"
+	var load_path = "user://" + str(saveSlotNum) + ".json"
 	
 	if not FileAccess.file_exists(load_path):
 		print("ERROR: No save file found.")
