@@ -25,9 +25,13 @@ func _ready():
 	quizMenuSystem.question_button_pressed.connect(_on_question_answer_given)
 	quizMenuSystem.get_new_question.connect(get_a_question_from_the_loaded_list)
 
-#func get_prize_money_amount(question_difficulty) -> int:
-	#if question_difficulty == "hard":
-		#return GLOBAL.e
+func get_prize_money_amount(question_difficulty) -> int:
+	if question_difficulty == "hard":
+		return GLOBAL.hard_question_prize_amount
+	elif question_difficulty == "medium":
+		return GLOBAL.medium_question_prize_amount
+	else:
+		return GLOBAL.easy_question_prize_amount
 
 func play_wrong_answer_sound() -> void:
 	wrong_answer_sound.play()
@@ -45,10 +49,12 @@ func displayCorrectAnswerScreen(question_difficulty: String) -> void:
 func displayIncorrectAnswerScreen() -> void:
 	quizMenuSystem.display_incorrect_answer_menu(questionData)
 
+
 func _on_question_answer_given(answer: GLOBAL.AnswerState) -> void:
 	if answer == questionData.correct_option:
 		play_correct_answer_sound()
 		displayCorrectAnswerScreen(questionData.df_level)
+		GLOBAL.current_loaded_game_data["Coins"] += get_prize_money_amount(g_questionDifficulty)
 		
 	else:
 		play_wrong_answer_sound()
