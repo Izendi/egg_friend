@@ -4,7 +4,7 @@ extends Node
 	"save_slot_num": 1,
 	"egg_friend_type": "cd",
 	"egg_friend_name": "empty",
-	"growth_stage": 1,
+	"growth_stage": float(1),
 	"rebirth_level": 0,
 	"Days": 0,
 	"Current_background": "field",
@@ -22,7 +22,7 @@ extends Node
 	"save_slot_num": 1,
 	"egg_friend_type": "cd",
 	"egg_friend_name": "empty",
-	"growth_stage": 1,
+	"growth_stage": float(1),
 	"rebirth_level": 0,
 	"Days": 0,
 	"Current_background": "field",
@@ -40,7 +40,7 @@ extends Node
 	"save_slot_num": 1,
 	"egg_friend_type": "cd",
 	"egg_friend_name": "empty",
-	"growth_stage": 1,
+	"growth_stage": float(1),
 	"rebirth_level": 0,
 	"Days": 0,
 	"Current_background": "field",
@@ -54,6 +54,12 @@ extends Node
 	"cookie": int(0)
 }
 
+var foodGrowthValuesDict = {
+	"iceCream": float(0.1),
+	"cake": float(0.2),
+	"curryRice": float(0.4),
+	"cookie": float(1.0)
+}
 
 const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
 var selected_egg_friend: ef_interface = null
