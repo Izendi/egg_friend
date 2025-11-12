@@ -15,6 +15,9 @@ const default_ReturnBuffer = 2.0
 #	I should not reach down so many layers to interact with something
 @onready var topRight_label: Label = $CanvasLayer/Control_info/Panel/Label
 
+@onready var bad_input_audio: AudioStreamPlayer = $CanvasLayer/AudioStreamPlayer_bad_input
+@onready var good_input_audio: AudioStreamPlayer = $CanvasLayer/AudioStreamPlayer_correct_answer
+
 var current_level: Node2D = null
 
 var old_egg_friend_scale: Vector2 = Vector2(1, 1)
@@ -48,6 +51,8 @@ func _ready():
 	
 	menuSystem.quit_game.connect(_on_quit_game)
 	
+	menuSystem.feed_food.connect(_on_food_fed)
+	
 	# Set up level loading system
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", GLOBAL_game_data["Current_background"])
 	
@@ -58,6 +63,22 @@ func _ready():
 	
 	GLOBAL.loadSelectedEggFriend(GLOBAL_game_data["egg_friend_type"])
 	
+
+func _on_food_fed(food: String) -> void:
+	if feedFood(food) == 0:
+		bad_input_audio.play()
+	else:
+		good_input_audio.play()
+
+func feedFood(food: String) -> int:
+	if GLOBAL.current_loaded_game_data[food] == 0:
+		return 0
+	else:
+		GLOBAL.current_loaded_game_data[food] = GLOBAL.current_loaded_game_data[food] - 1
+		return 1
+	
+
+
 
 func _on_forward_time_jump():
 	GLOBAL_game_data["Days"] += 1

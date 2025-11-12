@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var options_menu: VBoxContainer = $Control/Options_menu
 @onready var sub_background_menu: VBoxContainer = $Control/Options_subBackgroundMenu
 @onready var sub_egg_friend_menu: VBoxContainer = $Control/Options_subEggFriendMenu
+@onready var feed_menu: VBoxContainer = $Control/feed_menu
 
 #Signals for global manager
 signal pet_egg_friend # no payload
@@ -15,6 +16,7 @@ signal save_game()
 signal load_game(profileName: String, saveSlotNum: int)
 signal background_changed(backgroundName: String)
 signal egg_friend_changed(friendName: String)
+signal feed_food(foodFed: String)
 
 signal forward_time_skip()
 
@@ -60,12 +62,6 @@ func _on_button_set_background_pressed():
 	menu_stack.back().visible = true
 
 
-func _on_button_set_egg_friend_pressed():
-	menu_stack.back().visible = false
-	menu_stack.append(sub_egg_friend_menu)
-	menu_stack.back().visible = true
-
-
 func _on_button_set_background_1_pressed():
 	background_changed.emit("field")
 
@@ -78,16 +74,14 @@ func _on_button_set_background_3_pressed():
 	background_changed.emit("bakery")
 
 
-func _on_button_set_egg_friend_1_pressed():
-	egg_friend_changed.emit("cd")
-
-
 func _on_button_scold_pressed():
 	scold_egg_friend.emit()
 
 
 func _on_button_feed_pressed():
-	feed_egg_friend.emit()
+	menu_stack.back().visible = false
+	menu_stack.append(feed_menu)
+	menu_stack.back().visible = true
 
 
 func _on_button_pet_pressed():
@@ -96,10 +90,6 @@ func _on_button_pet_pressed():
 
 func _on_button_save_pressed():
 	save_game.emit()
-
-
-func _on_button_load_pressed():
-	load_game.emit("testProfile", 1)
 
 
 func _on_button_quit_pressed():
@@ -117,3 +107,19 @@ func _on_texture_button_shop_pressed():
 func _on_texture_button_quiz_pressed():
 	print("Quiz Button Pressed!")
 	get_tree().change_scene_to_file("res://assets/scenes/node_quiz.tscn")
+
+
+func _on_button_feed_ice_cream_pressed():
+	feed_food.emit("iceCream")
+
+
+func _on_button_feed_cake_pressed():
+	feed_food.emit("cake")
+
+
+func _on_button_feed_curry_rice_pressed():
+	feed_food.emit("curryRice")
+
+
+func _on_button_feed_cookie_pressed():
+	feed_food.emit("cookie")

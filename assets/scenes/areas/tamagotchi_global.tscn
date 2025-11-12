@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://214ce7ai1vg3"]
+[gd_scene load_steps=11 format=3 uid="uid://214ce7ai1vg3"]
 
 [ext_resource type="Script" uid="uid://bivcrv4c16j75" path="res://assets/scenes/areas/tamagotchi_global.gd" id="1_cxcdh"]
 [ext_resource type="Script" uid="uid://dqjsx45dg5ypi" path="res://assets/scenes/areas/menu_manager.gd" id="2_cxcdh"]
 [ext_resource type="Texture2D" uid="uid://doe53kg8olr0e" path="res://assets/sprites/logos/net_shop_nihongo-removebg-preview.png" id="3_i6i21"]
+[ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="3_v4amd"]
 [ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="4_b1joo"]
+[ext_resource type="AudioStream" uid="uid://jse2fi02146e" path="res://assets/sounds/correct_sound.wav" id="4_pand0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcdh"]
 bg_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -31,6 +33,12 @@ script = ExtResource("1_cxcdh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_cxcdh")
+
+[node name="AudioStreamPlayer_bad_input" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("3_v4amd")
+
+[node name="AudioStreamPlayer_correct_answer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("4_pand0")
 
 [node name="Control_info" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -149,12 +157,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Save"
 
-[node name="Button_load" type="Button" parent="CanvasLayer/Control/Main_menu"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Load"
-
 [node name="Button_quit" type="Button" parent="CanvasLayer/Control/Main_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
@@ -181,17 +183,17 @@ theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Back"
 
-[node name="Button_pet" type="Button" parent="CanvasLayer/Control/Action_menu"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Pet"
-
 [node name="Button_feed" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Feed"
+
+[node name="Button_pet" type="Button" parent="CanvasLayer/Control/Action_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Pet"
 
 [node name="Button_scold" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
@@ -233,18 +235,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Background"
 
-[node name="Button_setEggFriend" type="Button" parent="CanvasLayer/Control/Options_menu"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Egg Friend"
-
-[node name="Button_setTime" type="Button" parent="CanvasLayer/Control/Options_menu"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Time"
-
 [node name="Options_subBackgroundMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
 layout_mode = 1
@@ -285,7 +275,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Bakery"
 
-[node name="Options_subEggFriendMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
+[node name="feed_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -295,29 +285,41 @@ anchor_right = 1.321
 anchor_bottom = 0.904
 offset_left = -0.112003
 offset_top = -0.18
-offset_right = -0.10202
+offset_right = -0.10199
 offset_bottom = -0.208008
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="Button_back" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+[node name="Button_back" type="Button" parent="CanvasLayer/Control/feed_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Back"
 
-[node name="Button_setEggFriend_1" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+[node name="Button_feed_iceCream" type="Button" parent="CanvasLayer/Control/feed_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "set cd"
+text = "アイスクリームをあげる"
 
-[node name="Button_setEggFriend_2" type="Button" parent="CanvasLayer/Control/Options_subEggFriendMenu"]
+[node name="Button_feed_cake" type="Button" parent="CanvasLayer/Control/feed_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "set ???"
+text = "ケーキをあげる"
+
+[node name="Button_feed_curryRice" type="Button" parent="CanvasLayer/Control/feed_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "カレーライスをあげる"
+
+[node name="Button_feed_cookie" type="Button" parent="CanvasLayer/Control/feed_menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "クッキーをあげる"
 
 [node name="Control_shop_and_quiz_menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -360,21 +362,22 @@ stretch_mode = 0
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_actions" to="CanvasLayer" method="_on_button_actions_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_options" to="CanvasLayer" method="_on_button_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_save" to="CanvasLayer" method="_on_button_save_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_load" to="CanvasLayer" method="_on_button_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Main_menu/Button_quit" to="CanvasLayer" method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_scold" to="CanvasLayer" method="_on_button_scold_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_timeSkip" to="CanvasLayer" method="_on_button_time_skip_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setBackground" to="CanvasLayer" method="_on_button_set_background_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setEggFriend" to="CanvasLayer" method="_on_button_set_egg_friend_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_setBackground_1" to="CanvasLayer" method="_on_button_set_background_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_setBackground_2" to="CanvasLayer" method="_on_button_set_background_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_setBackground_3" to="CanvasLayer" method="_on_button_set_background_3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Options_subEggFriendMenu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Options_subEggFriendMenu/Button_setEggFriend_1" to="CanvasLayer" method="_on_button_set_egg_friend_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/feed_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/feed_menu/Button_feed_iceCream" to="CanvasLayer" method="_on_button_feed_ice_cream_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/feed_menu/Button_feed_cake" to="CanvasLayer" method="_on_button_feed_cake_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/feed_menu/Button_feed_curryRice" to="CanvasLayer" method="_on_button_feed_curry_rice_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/feed_menu/Button_feed_cookie" to="CanvasLayer" method="_on_button_feed_cookie_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_shop_button/TextureButton_shop" to="CanvasLayer" method="_on_texture_button_shop_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_quiz_button/TextureButton_quiz" to="CanvasLayer" method="_on_texture_button_quiz_pressed"]
