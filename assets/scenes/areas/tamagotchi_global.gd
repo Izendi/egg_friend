@@ -9,7 +9,7 @@ const default_ReturnBuffer = 2.0
 @onready var world: Node2D = $Node2D_world
 @onready var menuSystem: CanvasLayer = $CanvasLayer
 
-@onready var GLOBAL_game_data: Dictionary = GLOBAL.current_game_data
+@onready var GLOBAL_game_data: Dictionary = GLOBAL.current_loaded_game_data
 
 #This topRight_label aquisition should be updated to be clearner!
 #	I should not reach down so many layers to interact with something
@@ -17,6 +17,7 @@ const default_ReturnBuffer = 2.0
 
 var current_level: Node2D = null
 
+var old_egg_friend_scale: Vector2 = Vector2(1, 1)
 
 var bool_needToResetToIdele = false
 var idleCount: float = default_IdleCount #second
@@ -72,7 +73,8 @@ func _on_save_game_request():
 	
 	file.close()
 	
-	GLOBAL.loaded_save_data = GLOBAL_game_data.duplicate()
+	#store the loaded game data in the saved data slot now that it has been saved:
+	GLOBAL.current_saved_game_data = GLOBAL_game_data.duplicate()
 	
 	print(ProjectSettings.globalize_path(save_path))
 
@@ -178,17 +180,26 @@ func _process(delta):
 	topRight_label.text = "%s:%s:%s" % [h, m, s] #Real World Time
 	topRight_label.text = topRight_label.text + "\n\nEgg Friend Name: " + str(GLOBAL_game_data["egg_friend_name"])
 	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(GLOBAL_game_data["growth_stage"])
+	topRight_label.text = topRight_label.text + "\nRebirth Level: " + str(int(GLOBAL_game_data["rebirth_level"]))
 	
 	topRight_label.text = topRight_label.text + "\n\nDay: " + str(int(GLOBAL_game_data["Days"])) # In game day
-	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(int(GLOBAL_game_data["growth_stage"]))
+	
 	topRight_label.text = topRight_label.text + "\nCurrent Location: " + str(GLOBAL_game_data["Current_background"])
 	topRight_label.text = topRight_label.text + "\nNo. Pets: " + str(GLOBAL_game_data["No_Pets"])
-	topRight_label.text = topRight_label.text + "\nNo. Good Scoldings: " + str(int(GLOBAL_game_data["No_just_scoldings"]))
-	topRight_label.text = topRight_label.text + "\nNo. Bad Scoldings: " + str(int(GLOBAL_game_data["No_unjust_scoldings"]))
-	topRight_label.text = topRight_label.text + "\nNo. Needed Snacks: " + str(int(GLOBAL_game_data["No_Needed_Snacks"]))
-	topRight_label.text = topRight_label.text + "\nNo. Unneeded Snacks: " + str(int(GLOBAL_game_data["No_Unneeded_Snacks"]))
+	#topRight_label.text = topRight_label.text + "\nNo. Good Scoldings: " + str(int(GLOBAL_game_data["No_just_scoldings"]))
+	#topRight_label.text = topRight_label.text + "\nNo. Bad Scoldings: " + str(int(GLOBAL_game_data["No_unjust_scoldings"]))
+	#topRight_label.text = topRight_label.text + "\nNo. Needed Snacks: " + str(int(GLOBAL_game_data["No_Needed_Snacks"]))
+	#topRight_label.text = topRight_label.text + "\nNo. Unneeded Snacks: " + str(int(GLOBAL_game_data["No_Unneeded_Snacks"]))
 	
+	# !!! These two are purly for editor cutomizability for now, althought they may be used to grow the tamagotchi later
+	if GLOBAL.selected_egg_friend.getScale() != GLOBAL.old_egg_friend_scale:
+		GLOBAL.selected_egg_friend.resize_and_centre_egg_friend_sprite()
+		GLOBAL.old_egg_friend_scale = GLOBAL.selected_egg_friend.getScale()
 	
+	if GLOBAL.selected_egg_friend.getCenterOffset() != GLOBAL.old_egg_friend_center_offset:
+		GLOBAL.selected_egg_friend.resize_and_centre_egg_friend_sprite()
+		GLOBAL.old_egg_friend_center_offset = GLOBAL.selected_egg_friend.getCenterOffset()
+
 	# !!! Evolution used to be here
 
 func _on_quit_game() -> void:

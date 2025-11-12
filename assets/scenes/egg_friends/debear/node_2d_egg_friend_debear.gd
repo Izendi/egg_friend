@@ -1,30 +1,23 @@
-extends Node2D
+extends "res://assets/scenes/areas/node_2d_i_egg_friend.gd"
 
-#This is my Interface egg friend class that all other egg friends will inherit from
-
-@onready var _animated_sprite = $Node2D_animations/AnimatedSprite2D
-
-var current_anim = ""
+@export var size_vec = Vector2(1, 1)
+@export var center_offset = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	current_anim = "idle"
-	
+	#Call the parents version of ready
+	super._ready()
+	#setAnimation("idle")
+	animate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	#if _animated_sprite.sprite_frames:
-		#print("Frames resource loaded!")
-	#else:
-		#print("No frames assigned yet.")
+	super._process(delta)
 
 func resize_and_centre_egg_friend_sprite() -> void:
 	if _animated_sprite == null: #ensure this is not null
 		return
-	
-	var size_vec: Vector2 = Vector2(1, 1)
 	
 	var view_size: Vector2 = get_viewport_rect().size
 	#var tex_size: Vector2 = _animated_sprite.sprite_frames.get_frame_texture(current_anim, 0).get_size()
@@ -34,18 +27,11 @@ func resize_and_centre_egg_friend_sprite() -> void:
 	_animated_sprite.scale = size_vec #Vector2(s, s)
 	_animated_sprite.position = view_size * 0.5
 	
-
-func setAnimation(new_anim: String):
-	if new_anim != current_anim:
-		if _animated_sprite.sprite_frames.has_animation(new_anim):
-			_animated_sprite.play(new_anim)
-			current_anim = new_anim
+	#Offset from center
+	_animated_sprite.position = _animated_sprite.position + center_offset
 
 func getScale() -> Vector2:
-	return Vector2(1, 1)
+	return size_vec
 
 func getCenterOffset() -> Vector2:
-	return Vector2(0, 0)
-
-func animate():
-	_animated_sprite.play(current_anim)
+	return center_offset

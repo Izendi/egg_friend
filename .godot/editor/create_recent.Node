@@ -1,3 +1,5 @@
+AnimatedSprite2D
+Node2D
 AnimationPlayer
 Button
 Control
@@ -10,6 +12,3 @@ SubViewport
 SubViewportContainer
 MarginContainer
 GridContainer
-VBoxContainer
-CanvasLayer
-Node2D

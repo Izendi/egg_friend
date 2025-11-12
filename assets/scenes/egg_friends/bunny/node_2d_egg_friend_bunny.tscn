@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://4j7uja1ihamf"]
+
+[ext_resource type="Script" uid="uid://dq8ekospaqj7l" path="res://assets/scenes/egg_friends/bunny/node_2d_egg_friend_bunny.gd" id="1_uvpgv"]
+[ext_resource type="Texture2D" uid="uid://bbulytxji37s7" path="res://assets/scenes/egg_friends/bunny/sprites/shocked_1.png" id="2_fb0qe"]
+[ext_resource type="Texture2D" uid="uid://cul050u3so8lu" path="res://assets/scenes/egg_friends/bunny/sprites/happy_1.png" id="3_5q23c"]
+[ext_resource type="Texture2D" uid="uid://lmq3o0u8l1hj" path="res://assets/scenes/egg_friends/bunny/sprites/idle_1.png" id="4_wfrd1"]
+[ext_resource type="Texture2D" uid="uid://dewgsqy0meyya" path="res://assets/scenes/egg_friends/bunny/sprites/sad_1.png" id="5_3fny4"]
+[ext_resource type="Texture2D" uid="uid://lsaiqwessih7" path="res://assets/scenes/egg_friends/bunny/sprites/happy_2.png" id="6_7fjre"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktgqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fb0qe")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5q23c")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wfrd1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3fny4")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7fjre")
+}],
+"loop": true,
+"name": &"shocked",
+"speed": 5.0
+}]
+
+[node name="Node2D_egg_friend_bunny" type="Node2D"]
+script = ExtResource("1_uvpgv")
+
+[node name="Node2D_animations" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
+sprite_frames = SubResource("SpriteFrames_ktgqb")
+animation = &"idle"

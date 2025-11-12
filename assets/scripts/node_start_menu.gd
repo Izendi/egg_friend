@@ -15,12 +15,11 @@ func _process(delta):
 func _on_new_egg_friend_slot(save_slot_num: int, egg_friend_name: String, egg_friend_type: String):
 	print("function was called with name: " + egg_friend_name + " with save slot: " + str(save_slot_num))
 	#create_new_save_game
-	GLOBAL.loaded_save_data = GLOBAL.default_empty_save_data.duplicate() #make a deep copy
-	GLOBAL.loaded_save_data["save_slot_num"] = save_slot_num
-	GLOBAL.loaded_save_data["egg_friend_name"] = egg_friend_name
-	GLOBAL.loaded_save_data["egg_friend_type"] = egg_friend_type
-	GLOBAL.loaded_save_data["Unloaded"] = false
-	GLOBAL.current_game_data = GLOBAL.loaded_save_data.duplicate() # make a deep copy for the current game data
+	GLOBAL.current_loaded_game_data = GLOBAL.new_game_default_data.duplicate() #make a deep copy
+	GLOBAL.current_loaded_game_data["save_slot_num"] = save_slot_num
+	GLOBAL.current_loaded_game_data["egg_friend_name"] = egg_friend_name
+	GLOBAL.current_loaded_game_data["egg_friend_type"] = egg_friend_type
+	GLOBAL.current_loaded_game_data["Unloaded"] = false
 	
 	# now when we load our main scene, we can set up the character based on what is in "current_game_data" from global
 	
@@ -29,16 +28,16 @@ func _on_new_egg_friend_slot(save_slot_num: int, egg_friend_name: String, egg_fr
 
 func _on_load_saved_file(save_slot: int):
 	if save_slot == 1:
-		GLOBAL.loaded_save_data = GLOBAL.saveData_1_dictionary.duplicate()
+		GLOBAL.current_saved_game_data = GLOBAL.saveData_1_dictionary.duplicate()
 	elif save_slot == 2:
-		GLOBAL.loaded_save_data = GLOBAL.saveData_2_dictionary.duplicate()
+		GLOBAL.current_saved_game_data = GLOBAL.saveData_2_dictionary.duplicate()
 	elif save_slot == 3:
-		GLOBAL.loaded_save_data = GLOBAL.saveData_3_dictionary.duplicate()
+		GLOBAL.current_saved_game_data = GLOBAL.saveData_3_dictionary.duplicate()
 	else:
 		print("Invalid save slot request! Doing nothing")
 		return
 	
-	GLOBAL.current_game_data = GLOBAL.loaded_save_data.duplicate()
+	GLOBAL.current_loaded_game_data = GLOBAL.current_saved_game_data.duplicate()
 	
 	#load the main scene and use the info in the GLOBAL autoload to setup scene as needed:
 	get_tree().change_scene_to_file("res://assets/scenes/areas/tamagotchi_global.tscn")
