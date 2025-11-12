@@ -1,13 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://214ce7ai1vg3"]
+[gd_scene load_steps=9 format=3 uid="uid://214ce7ai1vg3"]
 
 [ext_resource type="Script" uid="uid://bivcrv4c16j75" path="res://assets/scenes/areas/tamagotchi_global.gd" id="1_cxcdh"]
 [ext_resource type="Script" uid="uid://dqjsx45dg5ypi" path="res://assets/scenes/areas/menu_manager.gd" id="2_cxcdh"]
+[ext_resource type="Texture2D" uid="uid://doe53kg8olr0e" path="res://assets/sprites/logos/net_shop_nihongo-removebg-preview.png" id="3_i6i21"]
+[ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="4_b1joo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcdh"]
 bg_color = Color(0.233926, 0.233925, 0.233925, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i6i21"]
 font_size = 26
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6i21"]
+bg_color = Color(0.867754, 0.474566, 0.379513, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cxcdh"]
+diffuse_texture = ExtResource("3_i6i21")
 
 [node name="Node_tamagotchi_global" type="Node"]
 script = ExtResource("1_cxcdh")
@@ -105,7 +118,6 @@ layout_mode = 2
 text = "Tamagotchi 3"
 
 [node name="Main_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.176
@@ -150,6 +162,7 @@ theme_override_font_sizes/font_size = 36
 text = "Quit"
 
 [node name="Action_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.175573
@@ -306,6 +319,41 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "set ???"
 
+[node name="Control_shop_and_quiz_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 834.0
+offset_right = 1668.0
+offset_bottom = 1668.0
+
+[node name="PanelContainer_shop_button" type="PanelContainer" parent="CanvasLayer/Control_shop_and_quiz_menu"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 474.0
+offset_right = 360.0
+offset_bottom = 784.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i6i21")
+
+[node name="TextureButton_shop" type="TextureButton" parent="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_shop_button"]
+layout_mode = 2
+texture_normal = SubResource("CanvasTexture_cxcdh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PanelContainer_quiz_button" type="PanelContainer" parent="CanvasLayer/Control_shop_and_quiz_menu"]
+layout_mode = 0
+offset_left = 1308.0
+offset_top = 474.0
+offset_right = 1618.0
+offset_bottom = 784.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i6i21")
+
+[node name="TextureButton_quiz" type="TextureButton" parent="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_quiz_button"]
+layout_mode = 2
+texture_normal = ExtResource("4_b1joo")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_feed" to="." method="_on_button_feed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button_freeze" to="." method="_on_button_freeze_pressed"]
@@ -328,3 +376,5 @@ text = "set ???"
 [connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_setBackground_3" to="CanvasLayer" method="_on_button_set_background_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_subEggFriendMenu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_subEggFriendMenu/Button_setEggFriend_1" to="CanvasLayer" method="_on_button_set_egg_friend_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_shop_button/TextureButton_shop" to="CanvasLayer" method="_on_texture_button_shop_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_quiz_button/TextureButton_quiz" to="CanvasLayer" method="_on_texture_button_quiz_pressed"]

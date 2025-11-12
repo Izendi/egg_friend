@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://sq5scxo088gd"]
+
+[ext_resource type="Script" uid="uid://bqlgvis42njx7" path="res://assets/scenes/egg_friends/snowman/node_2d_egg_friend_snowman.gd" id="1_btlk6"]
+[ext_resource type="Texture2D" uid="uid://dkwrdyapfi18e" path="res://assets/scenes/egg_friends/snowman/sprites/idle_1.PNG" id="2_1il0d"]
+[ext_resource type="Texture2D" uid="uid://cyff8h4upf8c3" path="res://assets/scenes/egg_friends/snowman/sprites/sad_1.PNG" id="3_g6wd6"]
+[ext_resource type="Texture2D" uid="uid://dsyw7hyyof5ta" path="res://assets/scenes/egg_friends/snowman/sprites/shocked_1.PNG" id="4_fsiil"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sp5f6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1il0d")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1il0d")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1il0d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g6wd6")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fsiil")
+}],
+"loop": true,
+"name": &"shocked",
+"speed": 5.0
+}]
+
+[node name="Node2D_egg_friend_snowman" type="Node2D"]
+script = ExtResource("1_btlk6")
+
+[node name="Node2D_animations" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
+sprite_frames = SubResource("SpriteFrames_sp5f6")
+animation = &"shocked"

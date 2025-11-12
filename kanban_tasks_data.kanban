@@ -1,0 +1,160 @@
+{
+	"categories": [
+		{
+			"uuid": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "2b56bcb8-a7a2-45c9-93a7-a1327bc119ed",
+			"title": "Todo",
+			"tasks": [
+				"77c6d2e4-7826-4895-b644-703cec6e9493",
+				"78224eb8-9428-4578-8ac5-c0633400ba8b",
+				"47d81da1-cee5-47a0-93be-fd57c2620aeb",
+				"8c2aa351-c889-481a-9cc2-aa6c7e889d3c",
+				"cb706e2b-b45c-489a-9497-1cc0b3d9a07d",
+				"b1fd628e-4484-4f07-b362-73d80e87b59e",
+				"699d503d-9d2d-4d8e-b53d-1471ec2b5f2d",
+				"dd08d766-b44a-4684-a70b-7c77c371faac"
+			]
+		},
+		{
+			"uuid": "8ebd51e7-5c70-457c-9db4-9deaa5c4d022",
+			"title": "Doing",
+			"tasks": [
+				"0ee3ff20-85a0-4f0e-be21-7ef624ce4408"
+			]
+		},
+		{
+			"uuid": "f24cfa8c-0d13-4886-8ca0-ca8716476b82",
+			"title": "Done",
+			"tasks": [
+				"d41924ad-d6d2-4e7e-a336-9edb4223ef98",
+				"e6d95790-22e1-461c-a02f-a085be636e60"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "77c6d2e4-7826-4895-b644-703cec6e9493",
+			"title": "Remove Kanban Addon before export or add it to the list of build exceptions",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "47d81da1-cee5-47a0-93be-fd57c2620aeb",
+			"title": "Finish Start Menu",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": [
+				{
+					"details": "Connect all menu layers",
+					"done": false
+				},
+				{
+					"details": "Make save and load work as intended",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "8c2aa351-c889-481a-9cc2-aa6c7e889d3c",
+			"title": "Add a time system that evolves the egg friend ",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "78224eb8-9428-4578-8ac5-c0633400ba8b",
+			"title": "CHANGE: _on_button_start_game_pressed to handle egg friend type selection, it is currently \"cd\" by default",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "dd08d766-b44a-4684-a70b-7c77c371faac",
+			"title": "Add code to generate question data in Quiz_Question_Data class function",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "d41924ad-d6d2-4e7e-a336-9edb4223ef98",
+			"title": "Connect all menus",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": [
+				{
+					"details": "X Make button go to quiz menu",
+					"done": true
+				},
+				{
+					"details": "X Make button go to shop menu",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "b1fd628e-4484-4f07-b362-73d80e87b59e",
+			"title": "Enusre game works on ios",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": [
+				{
+					"details": "Make sure save system works on ios",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "699d503d-9d2d-4d8e-b53d-1471ec2b5f2d",
+			"title": "Make UID in global saved to a file and retirved on load",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": [
+				{
+					"details": "At present it resets to zero",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "cb706e2b-b45c-489a-9497-1cc0b3d9a07d",
+			"title": "in Node_quiz script, have the question file loaded respond to question catagory selected",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "0ee3ff20-85a0-4f0e-be21-7ef624ce4408",
+			"title": "finish writing code for get_a_question_from_the_loaded_list in Node_quiz gdscript",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		},
+		{
+			"uuid": "e6d95790-22e1-461c-a02f-a085be636e60",
+			"title": "Get Game working on Ipad",
+			"description": "",
+			"category": "024accb1-d041-4f66-9ca2-9930db818b64",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"2b56bcb8-a7a2-45c9-93a7-a1327bc119ed"
+			],
+			[
+				"8ebd51e7-5c70-457c-9db4-9deaa5c4d022"
+			],
+			[
+				"f24cfa8c-0d13-4886-8ca0-ca8716476b82"
+			]
+		]
+	}
+}
