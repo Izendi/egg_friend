@@ -1,3 +1,5 @@
+Label
+Panel
 AnimatedSprite2D
 Node2D
 AnimationPlayer
@@ -5,8 +7,6 @@ Button
 Control
 TextureButton
 PanelContainer
-Label
-Panel
 TextureRect
 SubViewport
 SubViewportContainer

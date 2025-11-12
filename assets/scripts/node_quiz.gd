@@ -14,6 +14,7 @@ var g_questionTopic: String
 @onready var wrong_answer_sound = $AudioStreamPlayer_wrong_answer
 @onready var correct_answer_sound = $AudioStreamPlayer_correct_answer
 
+var prize_money: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +25,9 @@ func _ready():
 	quizMenuSystem.question_button_pressed.connect(_on_question_answer_given)
 	quizMenuSystem.get_new_question.connect(get_a_question_from_the_loaded_list)
 
+#func get_prize_money_amount(question_difficulty) -> int:
+	#if question_difficulty == "hard":
+		#return GLOBAL.e
 
 func play_wrong_answer_sound() -> void:
 	wrong_answer_sound.play()
@@ -45,6 +49,7 @@ func _on_question_answer_given(answer: GLOBAL.AnswerState) -> void:
 	if answer == questionData.correct_option:
 		play_correct_answer_sound()
 		displayCorrectAnswerScreen(questionData.df_level)
+		
 	else:
 		play_wrong_answer_sound()
 		displayIncorrectAnswerScreen()

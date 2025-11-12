@@ -11,11 +11,11 @@ extends Node
 	"No_Pets": 0,
 	"No_Scoldings": 0,
 	"Unloaded": true,
-	"Coins": 0,
-	"food_cake": 0,
-	"food_iceCream": 0,
-	"food_curryRice": 0,
-	"food_magicFood": 0
+	"Coins": int(30),
+	"cake": int(0),
+	"iceCream": int(0),
+	"curryRice": int(0),
+	"cookie": int(0)
 }
 
 @onready var current_saved_game_data = {
@@ -29,11 +29,11 @@ extends Node
 	"No_Pets": 0,
 	"No_Scoldings": 0,
 	"Unloaded": true,
-	"Coins": 0,
-	"food_cake": 0,
-	"food_iceCream": 0,
-	"food_curryRice": 0,
-	"food_magicFood": 0
+	"Coins": int(30),
+	"cake": int(0),
+	"iceCream": int(0),
+	"curryRice": int(0),
+	"cookie": int(0)
 }
 
 @onready var current_loaded_game_data = {
@@ -47,11 +47,11 @@ extends Node
 	"No_Pets": 0,
 	"No_Scoldings": 0,
 	"Unloaded": true,
-	"Coins": 0,
-	"food_cake": 0,
-	"food_iceCream": 0,
-	"food_curryRice": 0,
-	"food_magicFood": 0
+	"Coins": int(30),
+	"cake": int(0),
+	"iceCream": int(0),
+	"curryRice": int(0),
+	"cookie": int(0)
 }
 
 
