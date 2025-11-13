@@ -75,7 +75,7 @@ func feedFood(food: String) -> int:
 		return 0
 	else:
 		GLOBAL.current_loaded_game_data[food] = GLOBAL.current_loaded_game_data[food] - 1 #!!!
-		#GLOBAL.selected_egg_friend.someFunction(GLOBAL.foodGrowthValuesDict[food]) # !!! You need to add a function to have egg friends respond to increased growth Values!
+		GLOBAL.selected_egg_friend.feedFood(food) # !!! You need to add a function to have egg friends respond to increased growth Values!
 		return 1
 	
 
