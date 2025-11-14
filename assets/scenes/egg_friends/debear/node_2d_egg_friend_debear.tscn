@@ -57,4 +57,4 @@ script = ExtResource("1_62elj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
 sprite_frames = SubResource("SpriteFrames_qna0d")
-animation = &"happy"
+animation = &"shocked"

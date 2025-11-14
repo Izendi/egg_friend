@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctqcy2o31pdqx"]
+[gd_scene load_steps=17 format=3 uid="uid://ctqcy2o31pdqx"]
 
 [ext_resource type="Script" uid="uid://cwusy35w7w5q0" path="res://assets/scripts/node_quiz.gd" id="1_eij6y"]
 [ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="2_eij6y"]
@@ -7,13 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://jse2fi02146e" path="res://assets/sounds/correct_sound.wav" id="3_1knml"]
 [ext_resource type="AudioStream" uid="uid://btb7fgupl22yn" path="res://assets/sounds/start_menu_button.wav" id="3_p67ri"]
 [ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="4_cx7hr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
-border_width_left = 6
-border_width_top = 6
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
+[ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="7_djcjr"]
+[ext_resource type="Texture2D" uid="uid://dt4476o3o3koc" path="res://assets/backgrounds/quiz_menu/quiz_menu.png" id="8_djcjr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x316"]
 border_width_left = 3
@@ -22,11 +17,23 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_utm3t"]
+shader = ExtResource("7_djcjr")
+shader_parameter/pixels_per_second = Vector2(10, 10)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p67ri"]
 bg_color = Color(0, 0.330344, 0.127504, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx7hr"]
 bg_color = Color(0.259043, 0, 0.0420781, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
+bg_color = Color(0.6, 0.6, 0.6, 0.627451)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x8yr"]
 border_width_left = 6
@@ -36,6 +43,7 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpi5l"]
+bg_color = Color(0.6, 0.6, 0.6, 0.627451)
 border_width_left = 6
 border_width_top = 3
 border_width_right = 3
@@ -62,47 +70,6 @@ stream = ExtResource("3_p67ri")
 [node name="AudioStreamPlayer_bad_input" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("4_cx7hr")
 
-[node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
-offset_right = 517.0
-offset_bottom = 834.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_kf13m")
-
-[node name="Control_persistent_menu" type="Control" parent="CanvasLayer/PanelContainer_persistent_menu_border"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 30.0
-offset_right = 487.0
-offset_bottom = 794.0
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="Button_Back" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Back"
-
-[node name="Button_Save" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Save"
-
-[node name="Button_Options" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Options"
-
-[node name="Button_Quit" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Quit"
-
 [node name="Control" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
@@ -124,6 +91,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1x316")
 
 [node name="Control_question_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_utm3t")
+position = Vector2(312, 826)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("8_djcjr")
 
 [node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
 anchors_preset = 0
@@ -258,6 +232,13 @@ autowrap_mode = 1
 visible = false
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_utm3t")
+position = Vector2(312, 826)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("8_djcjr")
+
 [node name="Button_easy" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
 layout_mode = 1
 anchors_preset = -1
@@ -307,6 +288,13 @@ vertical_alignment = 1
 [node name="Control_setup_topic_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 visible = false
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_utm3t")
+position = Vector2(312, 826)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("8_djcjr")
 
 [node name="Button_anime" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
 layout_mode = 1
@@ -435,6 +423,47 @@ offset_bottom = 200.0
 theme_override_font_sizes/font_size = 40
 text = "Continue"
 
+[node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 517.0
+offset_bottom = 834.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kf13m")
+
+[node name="Control_persistent_menu" type="Control" parent="CanvasLayer/PanelContainer_persistent_menu_border"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 487.0
+offset_bottom = 794.0
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Button_Back" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
+[node name="Button_Save" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Save"
+
+[node name="Button_Options" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="Button_Quit" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
 [node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -464,8 +493,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 
-[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control/Button_A" to="CanvasLayer" method="_on_button_a_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control3/Button_B" to="CanvasLayer" method="_on_button_b_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control2/Button_C" to="CanvasLayer" method="_on_button_c_pressed"]
@@ -478,3 +505,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_tbs_2" to="CanvasLayer" method="_on_button_tbs_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu/Control_next_question/Button_Next_Question" to="CanvasLayer" method="_on_button_next_question_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu/Control_next_question/Button_wrong_now_next_question" to="CanvasLayer" method="_on_button_wrong_now_next_question_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]

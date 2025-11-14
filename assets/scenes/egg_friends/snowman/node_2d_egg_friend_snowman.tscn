@@ -55,4 +55,4 @@ script = ExtResource("1_btlk6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
 sprite_frames = SubResource("SpriteFrames_sp5f6")
-animation = &"shocked"
+animation = &"happy"
