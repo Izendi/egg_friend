@@ -26,8 +26,6 @@ diffuse_texture = ExtResource("3_i6i21")
 
 [node name="Node_tamagotchi_global" type="Node"]
 script = ExtResource("1_cxcdh")
-idleReturnBuffer = null
-egg_Friend_Starting_Scale = null
 
 [node name="Node2D_world" type="Node2D" parent="."]
 

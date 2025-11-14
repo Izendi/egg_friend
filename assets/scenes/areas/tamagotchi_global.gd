@@ -121,13 +121,13 @@ func _on_load_game_request(profileName: String, saveSlotNum: int):
 
 func _on_pet_egg_friend() -> void:
 	print("you pet your egg friend!")
-	set_current_egg_friend_animation("idle")
+	set_current_egg_friend_animation("happy")
 	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
 	GLOBAL_game_data["No_Pets"] += 1 
 
 func _on_scold_egg_friend() -> void:
 	print("you scold your egg friend!")
-	set_current_egg_friend_animation("scolded")
+	set_current_egg_friend_animation("sad")
 	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
 
 func _on_feed_egg_friend() -> void:
