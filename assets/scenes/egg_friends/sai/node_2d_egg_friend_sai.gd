@@ -1,5 +1,7 @@
 extends "res://assets/scenes/areas/node_2d_i_egg_friend.gd"
 
+var baseSizeVec: Vector2 = Vector2(0.5, 0.5)
+
 @export var size_vec = Vector2(1, 1)
 @export var center_offset = Vector2(0, 0)
 
@@ -11,7 +13,7 @@ func _ready():
 	super._ready()
 	#setAnimation("idle")
 	animate()
-
+	updateEggFriendForNewGrowthStage(GLOBAL.current_loaded_game_data["growth_stage"])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,9 +44,12 @@ func multiplySizeVecBy(vec: Vector2) -> void:
 	size_vec = size_vec * vec
 
 func updateEggFriendForNewGrowthStage(growthStage: float) -> void:
-	if growthStage >= 3.0:
+	
+	if growthStage >= GLOBAL.level_up_growth_stage:
 		GLOBAL.current_loaded_game_data["rebirth_level"] += 1
-		GLOBAL.current_loaded_game_data["growthStage"] = 1.0
+		GLOBAL.current_loaded_game_data["growth_stage"] = 0.0
+		
+	addFloatToBaseSizeVecAndMakeThatTheNewSizeVec(GLOBAL.current_loaded_game_data["growth_stage"])
 	
 	var level = int(GLOBAL.current_loaded_game_data["rebirth_level"])
 	
@@ -58,3 +63,9 @@ func updateEggFriendForNewGrowthStage(growthStage: float) -> void:
 		ef_sprite.modulate = Color(0,0,1) #BLUE
 	else: #MAX level !!!
 		ef_sprite.modulate = Color(0,1,1) #TEAL
+	
+	resize_and_centre_egg_friend_sprite()
+
+
+func addFloatToBaseSizeVecAndMakeThatTheNewSizeVec(floatToAdd: float) -> void:
+	size_vec = Vector2(baseSizeVec.x + floatToAdd, baseSizeVec.y + floatToAdd)

@@ -43,7 +43,6 @@ animations = [{
 
 [node name="Node2D_egg_friend_debear" type="Node2D"]
 script = ExtResource("1_62elj")
-size_vec = Vector2(0.5, 0.5)
 
 [node name="Node2D_animations" type="Node2D" parent="."]
 

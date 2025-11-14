@@ -1,17 +1,19 @@
 extends Node
 
+var startingCoins = 500
+
 @onready var new_game_default_data = {
 	"save_slot_num": 1,
 	"egg_friend_type": "cd",
 	"egg_friend_name": "empty",
-	"growth_stage": float(1),
+	"growth_stage": float(0.0),
 	"rebirth_level": int(0),
 	"Days": 0,
 	"Current_background": "field",
 	"No_Pets": 0,
 	"No_Scoldings": 0,
 	"Unloaded": true,
-	"Coins": int(30),
+	"Coins": int(startingCoins),
 	"cake": int(0),
 	"iceCream": int(0),
 	"curryRice": int(0),
@@ -22,14 +24,14 @@ extends Node
 	"save_slot_num": 1,
 	"egg_friend_type": "cd",
 	"egg_friend_name": "empty",
-	"growth_stage": float(1),
+	"growth_stage": float(0.0),
 	"rebirth_level": int(0),
 	"Days": 0,
 	"Current_background": "field",
 	"No_Pets": 0,
 	"No_Scoldings": 0,
 	"Unloaded": true,
-	"Coins": int(30),
+	"Coins": int(startingCoins),
 	"cake": int(0),
 	"iceCream": int(0),
 	"curryRice": int(0),
@@ -40,14 +42,14 @@ extends Node
 	"save_slot_num": 1,
 	"egg_friend_type": "cd",
 	"egg_friend_name": "empty",
-	"growth_stage": float(1),
+	"growth_stage": float(0.0),
 	"rebirth_level": int(0),
 	"Days": 0,
 	"Current_background": "field",
 	"No_Pets": 0,
 	"No_Scoldings": 0,
 	"Unloaded": true,
-	"Coins": int(30),
+	"Coins": int(startingCoins),
 	"cake": int(0),
 	"iceCream": int(0),
 	"curryRice": int(0),
@@ -61,7 +63,7 @@ var foodGrowthValuesDict = {
 	"cookie": float(1.0)
 }
 
-var level_up_growth_stage: float = 3.0
+var level_up_growth_stage: float = 2.0
 
 const ef_interface = preload("res://assets/scenes/areas/node_2d_i_egg_friend.gd")
 var selected_egg_friend: ef_interface = null
@@ -145,7 +147,7 @@ func fit_egg_friend_to_viewport() -> void:
 	
 	if current_loaded_scene.name == "Node_tamagotchi_global":
 		var view_size: Vector2 = current_loaded_scene.get_node("Node2D_world").get_viewport_rect().size
-		selected_egg_friend.resize_and_centre_egg_friend_sprite()
+		#selected_egg_friend.resize_and_centre_egg_friend_sprite() !!!
 		old_egg_friend_scale = selected_egg_friend.getScale()
 		old_egg_friend_center_offset = selected_egg_friend.getCenterOffset()
 	else:
