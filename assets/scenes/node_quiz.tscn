@@ -71,7 +71,6 @@ stream = ExtResource("3_p67ri")
 stream = ExtResource("4_cx7hr")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -289,9 +288,9 @@ offset_top = 500.0
 offset_right = 826.0
 offset_bottom = 700.0
 theme_override_font_sizes/font_size = 60
-text = "Anime"
+text = "Anime (English)"
 
-[node name="Button_tbd_1" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+[node name="Button_geography" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 325.0
@@ -299,9 +298,9 @@ offset_top = 850.0
 offset_right = 826.0
 offset_bottom = 1050.0
 theme_override_font_sizes/font_size = 60
-text = "X"
+text = "地理"
 
-[node name="Button_tbs_2" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
+[node name="Button_biology" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 325.0
@@ -309,7 +308,7 @@ offset_top = 1200.0
 offset_right = 826.0
 offset_bottom = 1400.0
 theme_override_font_sizes/font_size = 60
-text = "X"
+text = "生物学"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
 layout_mode = 0
@@ -332,6 +331,13 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_utm3t")
+position = Vector2(312, 826)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("8_djcjr")
+
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu"]
 layout_mode = 0
 offset_left = 110.0
@@ -344,9 +350,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_p67ri")
 layout_mode = 0
 offset_right = 922.0
 offset_bottom = 550.0
-theme_override_font_sizes/font_size = 22
-text = "CORRECT!
-Good Job. The correct answer was:
+theme_override_font_sizes/font_size = 50
+text = "正解！ 
+よくできました。正しい答えは…
 
 "
 horizontal_alignment = 1
@@ -366,11 +372,18 @@ layout_mode = 0
 offset_right = 325.0
 offset_bottom = 200.0
 theme_override_font_sizes/font_size = 40
-text = "Continue"
+text = "つづける"
 
 [node name="Control_incorrect_answer_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 visible = false
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_utm3t")
+position = Vector2(312, 826)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("8_djcjr")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu"]
 layout_mode = 0
@@ -384,9 +397,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cx7hr")
 layout_mode = 0
 offset_right = 922.0
 offset_bottom = 550.0
-theme_override_font_sizes/font_size = 22
-text = "WRONG!
-Sorry. The correct answer is:
+theme_override_font_sizes/font_size = 50
+text = "不正解！ 
+正しい答えは…
 
 "
 horizontal_alignment = 1
@@ -406,7 +419,7 @@ layout_mode = 0
 offset_right = 325.0
 offset_bottom = 200.0
 theme_override_font_sizes/font_size = 40
-text = "Continue"
+text = "つづける"
 
 [node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 517.0
@@ -486,8 +499,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_medium" to="CanvasLayer" method="_on_button_medium_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options/Button_hard" to="CanvasLayer" method="_on_button_hard_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_anime" to="CanvasLayer" method="_on_button_anime_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_tbd_1" to="CanvasLayer" method="_on_button_tbd_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_tbs_2" to="CanvasLayer" method="_on_button_tbs_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_geography" to="CanvasLayer" method="_on_button_geography_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Button_biology" to="CanvasLayer" method="_on_button_biology_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu/Control_next_question/Button_Next_Question" to="CanvasLayer" method="_on_button_next_question_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu/Control_next_question/Button_wrong_now_next_question" to="CanvasLayer" method="_on_button_wrong_now_next_question_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]

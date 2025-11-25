@@ -62,14 +62,31 @@ func _on_question_answer_given(answer: GLOBAL.AnswerState) -> void:
 
 func _on_setup_quiz_environment() -> void:
 	g_questionDifficulty = quizMenuSystem.chosenQuestionDifficulty
-	g_questionTopic = quizMenuSystem.chosenQuestionTopic #Not used yet
+	g_questionTopic = quizMenuSystem.chosenQuestionTopic
 	
-	if g_questionDifficulty == "easy":
-		question_list = loadQuestions("res://assets/quiz_questions/anime_easy_questions.jsonl")
-	elif g_questionDifficulty == "medium":
-		question_list = loadQuestions("res://assets/quiz_questions/anime_medium_questions.jsonl")
-	elif g_questionDifficulty == "hard":
-		question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl")
+	if g_questionTopic == "geography":
+		if g_questionDifficulty == "easy":
+			question_list = loadQuestions("res://assets/quiz_questions/geography_easy_questions.jsonl")
+		elif g_questionDifficulty == "medium":
+			question_list = loadQuestions("res://assets/quiz_questions/geography_medium_questions.jsonl")
+		elif g_questionDifficulty == "hard":
+			question_list = loadQuestions("res://assets/quiz_questions/geography_hard_questions.jsonl")
+	elif g_questionTopic == "anime":
+		if g_questionDifficulty == "easy":
+			question_list = loadQuestions("res://assets/quiz_questions/anime_easy_questions.jsonl")
+		elif g_questionDifficulty == "medium":
+			question_list = loadQuestions("res://assets/quiz_questions/anime_medium_questions.jsonl")
+		elif g_questionDifficulty == "hard":
+			question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl")
+	elif g_questionTopic == "biology":
+		if g_questionDifficulty == "easy":
+			question_list = loadQuestions("res://assets/quiz_questions/biology_easy_questions.jsonl")
+		elif g_questionDifficulty == "medium":
+			question_list = loadQuestions("res://assets/quiz_questions/biology_medium_questions.jsonl")
+		elif g_questionDifficulty == "hard":
+			question_list = loadQuestions("res://assets/quiz_questions/biology_hard_questions.jsonl")
+	else:
+		question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl") # if something goes wrong, just load hard anime questions.
 	
 	get_a_question_from_the_loaded_list()
 
@@ -98,7 +115,7 @@ func loadQuestions(path: String) -> Array:
 
 func get_a_question_from_the_loaded_list():
 	#print(question_list)
-	var random_question_num = randi_range(0, 99)
+	var random_question_num = randi_range(0, (question_list.size() - 1))
 	
 	questionData.set_new_question_data(g_questionDifficulty, g_questionTopic, question_list[random_question_num]["question"], question_list[random_question_num]["correct_answer"], question_list[random_question_num]["incorrect_answers"])
 	
