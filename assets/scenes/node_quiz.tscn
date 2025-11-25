@@ -99,21 +99,6 @@ position = Vector2(312, 826)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("8_djcjr")
 
-[node name="Control_Re_Roll" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
-anchors_preset = 0
-offset_left = 542.0
-offset_top = 80.0
-offset_right = 1084.0
-offset_bottom = 198.0
-
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_Re_Roll"]
-layout_mode = 0
-offset_right = 542.0
-offset_bottom = 118.0
-theme_override_font_sizes/font_size = 38
-text = "Re-roll Question
-(x1 Coin)"
-
 [node name="Control_abcd_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
 layout_mode = 3
 anchors_preset = 0
@@ -124,64 +109,64 @@ offset_bottom = 1602.0
 [node name="Control" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 anchors_preset = 0
 offset_left = 164.0
-offset_top = 620.0
+offset_top = 670.0
 offset_right = 489.0
-offset_bottom = 820.0
+offset_bottom = 870.0
 
 [node name="Button_A" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control"]
 custom_minimum_size = Vector2(325, 200)
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 100.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 70
 text = "A"
 
 [node name="Control3" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 164.0
-offset_top = 970.0
-offset_right = 489.0
-offset_bottom = 1170.0
+offset_left = 653.0
+offset_top = 670.0
+offset_right = 978.0
+offset_bottom = 870.0
 
 [node name="Button_B" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control3"]
 custom_minimum_size = Vector2(325, 200)
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 100.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 70
 text = "B"
 
 [node name="Control2" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 653.0
-offset_top = 620.0
-offset_right = 978.0
-offset_bottom = 820.0
+offset_left = 164.0
+offset_top = 1020.0
+offset_right = 489.0
+offset_bottom = 1220.0
 
 [node name="Button_C" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control2"]
 custom_minimum_size = Vector2(325, 100)
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 200.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 70
 text = "C"
 
 [node name="Control4" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 653.0
-offset_top = 970.0
+offset_top = 1020.0
 offset_right = 978.0
-offset_bottom = 1170.0
+offset_bottom = 1220.0
 
 [node name="Button_D" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control4"]
 custom_minimum_size = Vector2(325, 200)
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 100.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 70
 text = "D"
 
 [node name="Control_Quiz_Logo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
@@ -206,13 +191,13 @@ layout_mode = 0
 offset_left = 110.0
 offset_top = 270.0
 offset_right = 1032.0
-offset_bottom = 820.0
+offset_bottom = 898.0
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Panel"]
 layout_mode = 0
 offset_right = 922.0
-offset_bottom = 550.0
-theme_override_font_sizes/font_size = 22
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 32
 text = "Question 1
 
 No matter what you sayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
