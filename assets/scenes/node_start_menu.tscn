@@ -82,7 +82,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Game"
+text = "ニューゲーム"
 
 [node name="Button_LoadGame" type="Button" parent="CanvasLayer/Control_base_menu"]
 layout_mode = 1
@@ -98,7 +98,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Load Game"
+text = "ロード"
 
 [node name="Button_Options" type="Button" parent="CanvasLayer/Control_base_menu"]
 layout_mode = 1
@@ -114,7 +114,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "オプション"
 
 [node name="Button_Quit_game" type="Button" parent="CanvasLayer/Control_base_menu"]
 layout_mode = 1
@@ -130,7 +130,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Quit Game"
+text = "ゲーム終了"
 
 [node name="Control_options_menu" type="Control" parent="CanvasLayer"]
 visible = false
@@ -212,7 +212,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "新しいエッグ"
 
 [node name="Button_New_Egg_2" type="Button" parent="CanvasLayer/Control_new_game_menu"]
 layout_mode = 1
@@ -228,7 +228,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "新しいエッグ"
 
 [node name="Button_New_Egg_3" type="Button" parent="CanvasLayer/Control_new_game_menu"]
 layout_mode = 1
@@ -244,7 +244,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "New Egg"
+text = "新しいエッグ"
 
 [node name="Button_Back" type="Button" parent="CanvasLayer/Control_new_game_menu"]
 layout_mode = 1
@@ -260,7 +260,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Back"
+text = "戻る"
 
 [node name="Control_load_game_menu" type="Control" parent="CanvasLayer"]
 visible = false
@@ -285,7 +285,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Slot 1"
+text = "スロット 1"
 
 [node name="Button_Load_file_2" type="Button" parent="CanvasLayer/Control_load_game_menu"]
 layout_mode = 1
@@ -301,7 +301,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Slot 2"
+text = "スロット 2"
 
 [node name="Button_Load_file_3" type="Button" parent="CanvasLayer/Control_load_game_menu"]
 layout_mode = 1
@@ -317,7 +317,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Slot 3"
+text = "スロット 3"
 
 [node name="Button_Back" type="Button" parent="CanvasLayer/Control_load_game_menu"]
 layout_mode = 1
@@ -333,7 +333,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Back"
+text = "戻る"
 
 [node name="Control_logo" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -383,7 +383,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-placeholder_text = "Enter Name"
+placeholder_text = "名前を入力"
 
 [node name="Button_Back" type="Button" parent="CanvasLayer/Control_new_game_enter_name_menu"]
 layout_mode = 1
@@ -399,7 +399,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Back"
+text = "戻る"
 
 [node name="Button_Start_game" type="Button" parent="CanvasLayer/Control_new_game_enter_name_menu"]
 layout_mode = 1
@@ -415,7 +415,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Start Game"
+text = "スタート"
 
 [node name="Control_new_game_choose_ef_type" type="Control" parent="CanvasLayer"]
 visible = false
@@ -520,7 +520,7 @@ offset_bottom = 525.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Back"
+text = "戻る"
 
 [node name="TextureRect_menu_text" type="TextureRect" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1

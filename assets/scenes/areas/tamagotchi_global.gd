@@ -15,6 +15,9 @@ const default_ReturnBuffer = 2.0
 #	I should not reach down so many layers to interact with something
 @onready var topRight_label: Label = $CanvasLayer/Control_info/Panel/Label
 
+@onready var bad_input_audio: AudioStreamPlayer = $CanvasLayer/AudioStreamPlayer_bad_input
+@onready var good_input_audio: AudioStreamPlayer = $CanvasLayer/AudioStreamPlayer_correct_answer
+
 var current_level: Node2D = null
 
 var old_egg_friend_scale: Vector2 = Vector2(1, 1)
@@ -48,6 +51,8 @@ func _ready():
 	
 	menuSystem.quit_game.connect(_on_quit_game)
 	
+	menuSystem.feed_food.connect(_on_food_fed)
+	
 	# Set up level loading system
 	load_level("res://assets/scenes/areas/node_2d_tamagotchi_rooms.tscn", GLOBAL_game_data["Current_background"])
 	
@@ -57,6 +62,21 @@ func _ready():
 	#oldEvolutionPath = GLOBAL_game_data["Evolution_Path"]
 	
 	GLOBAL.loadSelectedEggFriend(GLOBAL_game_data["egg_friend_type"])
+	
+
+func _on_food_fed(food: String) -> void:
+	if feedFood(food) == 0:
+		bad_input_audio.play()
+	else:
+		good_input_audio.play()
+
+func feedFood(food: String) -> int:
+	if GLOBAL.current_loaded_game_data[food] == 0:
+		return 0
+	else:
+		GLOBAL.current_loaded_game_data[food] = GLOBAL.current_loaded_game_data[food] - 1 #!!!
+		GLOBAL.selected_egg_friend.feedFood(food) # !!! You need to add a function to have egg friends respond to increased growth Values!
+		return 1
 	
 
 func _on_forward_time_jump():
@@ -101,13 +121,13 @@ func _on_load_game_request(profileName: String, saveSlotNum: int):
 
 func _on_pet_egg_friend() -> void:
 	print("you pet your egg friend!")
-	set_current_egg_friend_animation("idle")
+	set_current_egg_friend_animation("happy")
 	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
 	GLOBAL_game_data["No_Pets"] += 1 
 
 func _on_scold_egg_friend() -> void:
 	print("you scold your egg friend!")
-	set_current_egg_friend_animation("scolded")
+	set_current_egg_friend_animation("sad")
 	need_to_reset_to_idle(default_IdleCount, default_ReturnBuffer)
 
 func _on_feed_egg_friend() -> void:
@@ -178,14 +198,14 @@ func _process(delta):
 	
 	#SET UP TOP RIGHT DISPLAY PANEL
 	topRight_label.text = "%s:%s:%s" % [h, m, s] #Real World Time
-	topRight_label.text = topRight_label.text + "\n\nEgg Friend Name: " + str(GLOBAL_game_data["egg_friend_name"])
-	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(GLOBAL_game_data["growth_stage"])
-	topRight_label.text = topRight_label.text + "\nRebirth Level: " + str(int(GLOBAL_game_data["rebirth_level"]))
+	topRight_label.text = topRight_label.text + "\n\nエッグフレンド名: \n   " + str(GLOBAL_game_data["egg_friend_name"])
+	topRight_label.text = topRight_label.text + "\n\n成長レベル: " + str(GLOBAL_game_data["growth_stage"])
+	topRight_label.text = topRight_label.text + "\n転生レベル: " + str(int(GLOBAL_game_data["rebirth_level"]))
 	
-	topRight_label.text = topRight_label.text + "\n\nDay: " + str(int(GLOBAL_game_data["Days"])) # In game day
+	#topRight_label.text = topRight_label.text + "\n\nDay: " + str(int(GLOBAL_game_data["Days"])) # In game day
 	
-	topRight_label.text = topRight_label.text + "\nCurrent Location: " + str(GLOBAL_game_data["Current_background"])
-	topRight_label.text = topRight_label.text + "\nNo. Pets: " + str(GLOBAL_game_data["No_Pets"])
+	#topRight_label.text = topRight_label.text + "\nCurrent Location: " + str(GLOBAL_game_data["Current_background"])
+	#topRight_label.text = topRight_label.text + "\nNo. Pets: " + str(GLOBAL_game_data["No_Pets"])
 	#topRight_label.text = topRight_label.text + "\nNo. Good Scoldings: " + str(int(GLOBAL_game_data["No_just_scoldings"]))
 	#topRight_label.text = topRight_label.text + "\nNo. Bad Scoldings: " + str(int(GLOBAL_game_data["No_unjust_scoldings"]))
 	#topRight_label.text = topRight_label.text + "\nNo. Needed Snacks: " + str(int(GLOBAL_game_data["No_Needed_Snacks"]))

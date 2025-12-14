@@ -57,4 +57,4 @@ script = ExtResource("1_uvpgv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
 sprite_frames = SubResource("SpriteFrames_ktgqb")
-animation = &"idle"
+animation = &"shocked"

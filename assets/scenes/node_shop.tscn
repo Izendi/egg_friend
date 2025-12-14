@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lamvkbimis6w"]
+[gd_scene load_steps=19 format=3 uid="uid://lamvkbimis6w"]
 
 [ext_resource type="Script" uid="uid://q20cfg421dk3" path="res://assets/scripts/node_shop.gd" id="1_ailxb"]
 [ext_resource type="Script" uid="uid://cwl0f3gu5lltq" path="res://assets/scenes/shop_menu_button.gd" id="2_86i15"]
@@ -10,19 +10,27 @@
 [ext_resource type="AudioStream" uid="uid://jse2fi02146e" path="res://assets/sounds/correct_sound.wav" id="5_cgw5f"]
 [ext_resource type="Texture2D" uid="uid://bre4lay70nuk3" path="res://assets/food_sprites/Ice_cream.PNG" id="5_ub7dq"]
 [ext_resource type="Texture2D" uid="uid://b1qd7mhqhas3s" path="res://assets/food_sprites/curryRice.PNG" id="6_cgw5f"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
-border_width_left = 6
-border_width_top = 6
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
+[ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="6_g1w7w"]
+[ext_resource type="Texture2D" uid="uid://bvlkj74exwem2" path="res://assets/backgrounds/shop_menu/shop_background.png" id="7_wm3et"]
+[ext_resource type="Texture2D" uid="uid://lmq3o0u8l1hj" path="res://assets/scenes/egg_friends/bunny/sprites/idle_1.png" id="13_wm3et"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x316"]
 border_width_left = 3
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfjqd"]
+shader = ExtResource("6_g1w7w")
+shader_parameter/pixels_per_second = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf13m"]
+bg_color = Color(0.6, 0.6, 0.6, 0.627451)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eij6y"]
@@ -33,6 +41,7 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4n6b"]
+bg_color = Color(0.6, 0.6, 0.6, 0.627451)
 border_width_left = 6
 border_width_top = 3
 border_width_right = 3
@@ -56,57 +65,6 @@ stream = ExtResource("4_cgw5f")
 [node name="AudioStreamPlayer_correct_answer" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("5_cgw5f")
 
-[node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
-offset_right = 517.0
-offset_bottom = 834.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_kf13m")
-
-[node name="Control_persistent_menu" type="Control" parent="CanvasLayer/PanelContainer_persistent_menu_border"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 30.0
-offset_right = 487.0
-offset_bottom = 794.0
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="Button_Back" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Back"
-
-[node name="Button_Save" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Save"
-
-[node name="Button_Options" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Options"
-
-[node name="Button_Quit" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Quit"
-
-[node name="Control_Whole_Screen" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="PanelContainer_question_control_menu" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,6 +84,13 @@ offset_top = 80.0
 offset_right = 1084.0
 offset_bottom = 198.0
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control_Coins_and_Storage_Available"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_pfjqd")
+position = Vector2(-228, 748)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("7_wm3et")
+
 [node name="Panel1" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control_Coins_and_Storage_Available"]
 layout_mode = 0
 offset_left = 2.0
@@ -144,6 +109,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control_Coins_and_Storage_Available"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 106.0
 offset_right = 544.0
@@ -188,7 +154,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (123 coins)"
+text = "購入 (123 コイン)"
 
 [node name="Control_cake" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
@@ -212,7 +178,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (10 coins)"
+text = "購入 (10 コイン)"
 
 [node name="Control_iceCream" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
@@ -236,7 +202,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (3 coins)"
+text = "購入 (3 コイン)"
 
 [node name="Control_CurryRice" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
@@ -260,7 +226,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (25 coins)"
+text = "購入 (25 コイン)"
 
 [node name="Control_ShopLogo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 layout_mode = 3
@@ -279,6 +245,39 @@ offset_bottom = 279.0
 texture = ExtResource("3_86i15")
 expand_mode = 1
 
+[node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 517.0
+offset_bottom = 834.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kf13m")
+
+[node name="Control_persistent_menu" type="Control" parent="CanvasLayer/PanelContainer_persistent_menu_border"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 487.0
+offset_bottom = 794.0
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Button_Back" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "戻る"
+
+[node name="Control_Whole_Screen" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -293,10 +292,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_eij6y")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer_ef_display"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+[node name="SubViewport_ef" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(508, 511)
 render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer/SubViewport_ef"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer/SubViewport_ef"]
+texture = ExtResource("13_wm3et")
 
 [node name="PanelContainer_ef_info" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -308,9 +313,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_y4n6b")
 
-[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control_cookie/Button_cookie" to="CanvasLayer" method="_on_button_cookie_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control_cake/Button_cake" to="CanvasLayer" method="_on_button_cake_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control_iceCream/Button_iceCream" to="CanvasLayer" method="_on_button_ice_cream_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control_CurryRice/Button_curryRice" to="CanvasLayer" method="_on_button_curry_rice_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]

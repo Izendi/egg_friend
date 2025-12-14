@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd2y7gdn7ktr7"]
+[gd_scene load_steps=8 format=3 uid="uid://bd2y7gdn7ktr7"]
 
 [ext_resource type="Script" uid="uid://ofbr6syljodb" path="res://assets/scenes/egg_friends/debear/node_2d_egg_friend_debear.gd" id="1_62elj"]
 [ext_resource type="Texture2D" uid="uid://0foe60t4amen" path="res://assets/scenes/egg_friends/debear/sprites/angry_1.PNG" id="2_tpu34"]
 [ext_resource type="Texture2D" uid="uid://cfun6w54lnanp" path="res://assets/scenes/egg_friends/debear/sprites/happy_1.PNG" id="3_0nfrl"]
 [ext_resource type="Texture2D" uid="uid://dq0wp15y1ugx6" path="res://assets/scenes/egg_friends/debear/sprites/idle_1.PNG" id="4_y08e1"]
+[ext_resource type="Texture2D" uid="uid://dq7qfy8wb2ewv" path="res://assets/scenes/egg_friends/debear/sprites/sad_1.PNG" id="5_0nfrl"]
 [ext_resource type="Texture2D" uid="uid://b8u5fdthbv4ap" path="res://assets/scenes/egg_friends/debear/sprites/shocked_1.PNG" id="5_u1myy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qna0d"]
@@ -34,6 +35,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_0nfrl")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_u1myy")
 }],
 "loop": true,
@@ -43,10 +52,9 @@ animations = [{
 
 [node name="Node2D_egg_friend_debear" type="Node2D"]
 script = ExtResource("1_62elj")
-size_vec = Vector2(0.5, 0.5)
 
 [node name="Node2D_animations" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D_animations"]
 sprite_frames = SubResource("SpriteFrames_qna0d")
-animation = &"angry"
+animation = &"shocked"

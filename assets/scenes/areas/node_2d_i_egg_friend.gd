@@ -49,3 +49,21 @@ func getCenterOffset() -> Vector2:
 
 func animate():
 	_animated_sprite.play(current_anim)
+
+func feedFood(foodName: String) -> void:
+	
+	GLOBAL.current_loaded_game_data["growth_stage"] += GLOBAL.foodGrowthValuesDict[foodName]
+	
+	#multiplySizeVecBy(Vector2(GLOBAL.current_loaded_game_data["growth_stage"], GLOBAL.current_loaded_game_data["growth_stage"])) #!!!
+	
+	updateEggFriendForNewGrowthStage(GLOBAL.current_loaded_game_data["growth_stage"])
+	
+
+func multiplySizeVecBy(vec: Vector2) -> void:
+	pass # needs to be overriden in the child class
+	
+func addFloatToBaseSizeVecAndMakeThatTheNewSizeVec(floatToAdd: float) -> void:
+	pass
+
+func updateEggFriendForNewGrowthStage(growthStage: float) -> void:
+	pass

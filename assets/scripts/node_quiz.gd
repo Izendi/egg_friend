@@ -24,6 +24,21 @@ func _ready():
 	quizMenuSystem.setup_quiz_environment.connect(_on_setup_quiz_environment)
 	quizMenuSystem.question_button_pressed.connect(_on_question_answer_given)
 	quizMenuSystem.get_new_question.connect(get_a_question_from_the_loaded_list)
+	
+	if GLOBAL.current_loaded_game_data["egg_friend_type"] == "sai":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/sai/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "debear":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/debear/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "snowman":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/snowman/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "bunny":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/bunny/sprites/idle_1.png")
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "shiki":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/shiki/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
 
 func get_prize_money_amount(question_difficulty) -> int:
 	if question_difficulty == "hard":
@@ -62,14 +77,31 @@ func _on_question_answer_given(answer: GLOBAL.AnswerState) -> void:
 
 func _on_setup_quiz_environment() -> void:
 	g_questionDifficulty = quizMenuSystem.chosenQuestionDifficulty
-	g_questionTopic = quizMenuSystem.chosenQuestionTopic #Not used yet
+	g_questionTopic = quizMenuSystem.chosenQuestionTopic
 	
-	if g_questionDifficulty == "easy":
-		question_list = loadQuestions("res://assets/quiz_questions/anime_easy_questions.jsonl")
-	elif g_questionDifficulty == "medium":
-		question_list = loadQuestions("res://assets/quiz_questions/anime_medium_questions.jsonl")
-	elif g_questionDifficulty == "hard":
-		question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl")
+	if g_questionTopic == "geography":
+		if g_questionDifficulty == "easy":
+			question_list = loadQuestions("res://assets/quiz_questions/geography_easy_questions.jsonl")
+		elif g_questionDifficulty == "medium":
+			question_list = loadQuestions("res://assets/quiz_questions/geography_medium_questions.jsonl")
+		elif g_questionDifficulty == "hard":
+			question_list = loadQuestions("res://assets/quiz_questions/geography_hard_questions.jsonl")
+	elif g_questionTopic == "anime":
+		if g_questionDifficulty == "easy":
+			question_list = loadQuestions("res://assets/quiz_questions/anime_easy_questions.jsonl")
+		elif g_questionDifficulty == "medium":
+			question_list = loadQuestions("res://assets/quiz_questions/anime_medium_questions.jsonl")
+		elif g_questionDifficulty == "hard":
+			question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl")
+	elif g_questionTopic == "biology":
+		if g_questionDifficulty == "easy":
+			question_list = loadQuestions("res://assets/quiz_questions/biology_easy_questions.jsonl")
+		elif g_questionDifficulty == "medium":
+			question_list = loadQuestions("res://assets/quiz_questions/biology_medium_questions.jsonl")
+		elif g_questionDifficulty == "hard":
+			question_list = loadQuestions("res://assets/quiz_questions/biology_hard_questions.jsonl")
+	else:
+		question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl") # if something goes wrong, just load hard anime questions.
 	
 	get_a_question_from_the_loaded_list()
 
@@ -98,7 +130,7 @@ func loadQuestions(path: String) -> Array:
 
 func get_a_question_from_the_loaded_list():
 	#print(question_list)
-	var random_question_num = randi_range(0, 99)
+	var random_question_num = randi_range(0, (question_list.size() - 1))
 	
 	questionData.set_new_question_data(g_questionDifficulty, g_questionTopic, question_list[random_question_num]["question"], question_list[random_question_num]["correct_answer"], question_list[random_question_num]["incorrect_answers"])
 	

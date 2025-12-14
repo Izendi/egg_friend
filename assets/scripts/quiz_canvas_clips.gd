@@ -43,9 +43,6 @@ func _on_button_back_pressed():
 	get_tree().change_scene_to_file("res://assets/scenes/areas/tamagotchi_global.tscn")
 	
 
-func _on_button_quit_pressed():
-	get_tree().quit()
-
 
 func _on_button_anime_pressed():
 	play_regular_click_sound()
@@ -81,7 +78,7 @@ func display_correct_answer_menu(questionData: Quiz_Question_Data):
 	quiz_menu_stack.back().visible = false
 	quiz_menu_stack.append(correct_answer_menu)
 	
-	correct_answer_menu.get_node("Panel").get_node("Label").text = "CORRECT!\nWell done!\n\nThe correct answer was:\n\n" + questionData.correct_question_string 
+	correct_answer_menu.get_node("Panel").get_node("Label").text = "正解!   :) \nよくできました。正しい答えは…\n\n" + questionData.correct_question_string  #正解！ よくできました。正しい答えは…
 	
 	quiz_menu_stack.back().visible = true
 
@@ -90,7 +87,7 @@ func display_incorrect_answer_menu(questionData: Quiz_Question_Data):
 	quiz_menu_stack.append(incorrect_answer_menu)
 	quiz_menu_stack.back().visible = true
 	
-	incorrect_answer_menu.get_node("Panel").get_node("Label").text = "WRONG!\nSorry, maybe try again :(\n\nThe correct answer was:\n\n" + questionData.correct_question_string 
+	incorrect_answer_menu.get_node("Panel").get_node("Label").text = "不正解！  :( \n正しい答えは…\n\n" + questionData.correct_question_string  # 不正解！ 正しい答えは…
 	
 
 func _on_button_tbd_1_pressed():
@@ -128,4 +125,18 @@ func _on_button_next_question_pressed():
 func _on_button_wrong_now_next_question_pressed():
 	quiz_menu_stack.pop_back().visible = false
 	get_new_question.emit()
+	quiz_menu_stack.back().visible = true
+
+
+func _on_button_geography_pressed():
+	play_regular_click_sound()
+	chosenQuestionTopic = "geography"
+	quiz_menu_stack.pop_back().visible = false
+	quiz_menu_stack.back().visible = true
+
+
+func _on_button_biology_pressed():
+	play_regular_click_sound()
+	chosenQuestionTopic = "biology"
+	quiz_menu_stack.pop_back().visible = false
 	quiz_menu_stack.back().visible = true

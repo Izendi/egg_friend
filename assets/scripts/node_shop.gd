@@ -27,6 +27,22 @@ func _ready():
 	"\nアイスクリーム: " + str(GLOBAL.current_loaded_game_data["iceCream"]) + \
 	"\nカレーライス: " + str(GLOBAL.current_loaded_game_data["curryRice"]) + \
 	"\nクッキー: " + str(GLOBAL.current_loaded_game_data["cookie"])
+	
+	if GLOBAL.current_loaded_game_data["egg_friend_type"] == "sai":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/sai/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "debear":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/debear/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "snowman":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/snowman/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "bunny":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/bunny/sprites/idle_1.png")
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "shiki":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/shiki/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	
 
 func _on_buy_request(requested_item: String):
 	var itemPrice = getItemPrice(requested_item)

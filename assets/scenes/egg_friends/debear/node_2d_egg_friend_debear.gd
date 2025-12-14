@@ -1,14 +1,24 @@
 extends "res://assets/scenes/areas/node_2d_i_egg_friend.gd"
 
-@export var size_vec = Vector2(1, 1)
+var baseSizeVec: Vector2 = Vector2(0.5, 0.5)
+@export var size_vec = Vector2(0.5, 0.5)
 @export var center_offset = Vector2(0, 0)
+
+@onready var ef_sprite: AnimatedSprite2D = $Node2D_animations/AnimatedSprite2D
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Call the parents version of ready
 	super._ready()
+	
+	baseSizeVec = size_vec
+	
 	#setAnimation("idle")
+	updateEggFriendForNewGrowthStage(GLOBAL.current_loaded_game_data["growth_stage"])
 	animate()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,3 +45,33 @@ func getScale() -> Vector2:
 
 func getCenterOffset() -> Vector2:
 	return center_offset
+
+func multiplySizeVecBy(vec: Vector2) -> void:
+	size_vec = size_vec * vec
+
+func updateEggFriendForNewGrowthStage(growthStage: float) -> void:
+	
+	if growthStage >= GLOBAL.level_up_growth_stage:
+		GLOBAL.current_loaded_game_data["rebirth_level"] += 1
+		GLOBAL.current_loaded_game_data["growth_stage"] = 0.0
+		
+	addFloatToBaseSizeVecAndMakeThatTheNewSizeVec(GLOBAL.current_loaded_game_data["growth_stage"])
+	
+	var level = int(GLOBAL.current_loaded_game_data["rebirth_level"])
+	
+	if level == 0:
+		pass
+	elif level == 1:
+		ef_sprite.modulate = Color(1,0,0) #RED
+	elif level == 2:
+		ef_sprite.modulate = Color(0,1,0) #GREEN
+	elif level == 3:
+		ef_sprite.modulate = Color(0,0,1) #BLUE
+	else: #MAX level !!!
+		ef_sprite.modulate = Color(0,1,1) #TEAL
+	
+	resize_and_centre_egg_friend_sprite()
+
+
+func addFloatToBaseSizeVecAndMakeThatTheNewSizeVec(floatToAdd: float) -> void:
+	size_vec = Vector2(baseSizeVec.x + floatToAdd, baseSizeVec.y + floatToAdd)
