@@ -96,10 +96,6 @@ func _on_button_quit_pressed():
 	quit_game.emit()
 
 
-func _on_button_time_skip_pressed():
-	forward_time_skip.emit()
-
-
 func _on_texture_button_shop_pressed():
 	get_tree().change_scene_to_file("res://assets/scenes/node_shop.tscn")
 

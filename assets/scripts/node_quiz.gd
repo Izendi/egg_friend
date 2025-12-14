@@ -24,6 +24,21 @@ func _ready():
 	quizMenuSystem.setup_quiz_environment.connect(_on_setup_quiz_environment)
 	quizMenuSystem.question_button_pressed.connect(_on_question_answer_given)
 	quizMenuSystem.get_new_question.connect(get_a_question_from_the_loaded_list)
+	
+	if GLOBAL.current_loaded_game_data["egg_friend_type"] == "sai":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/sai/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "debear":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/debear/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "snowman":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/snowman/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "bunny":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/bunny/sprites/idle_1.png")
+	elif GLOBAL.current_loaded_game_data["egg_friend_type"] == "shiki":
+		%SubViewport_ef/Sprite2D.texture = load("res://assets/scenes/egg_friends/shiki/sprites/idle_1.PNG")
+		%SubViewport_ef/Sprite2D.scale = Vector2(0.4, 0.4)
 
 func get_prize_money_amount(question_difficulty) -> int:
 	if question_difficulty == "hard":

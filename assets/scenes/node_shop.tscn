@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://lamvkbimis6w"]
+[gd_scene load_steps=19 format=3 uid="uid://lamvkbimis6w"]
 
 [ext_resource type="Script" uid="uid://q20cfg421dk3" path="res://assets/scripts/node_shop.gd" id="1_ailxb"]
 [ext_resource type="Script" uid="uid://cwl0f3gu5lltq" path="res://assets/scenes/shop_menu_button.gd" id="2_86i15"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b1qd7mhqhas3s" path="res://assets/food_sprites/curryRice.PNG" id="6_cgw5f"]
 [ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="6_g1w7w"]
 [ext_resource type="Texture2D" uid="uid://bvlkj74exwem2" path="res://assets/backgrounds/shop_menu/shop_background.png" id="7_wm3et"]
+[ext_resource type="Texture2D" uid="uid://lmq3o0u8l1hj" path="res://assets/scenes/egg_friends/bunny/sprites/idle_1.png" id="13_wm3et"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x316"]
 border_width_left = 3
@@ -153,7 +154,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (123 coins)"
+text = "購入 (123 コイン)"
 
 [node name="Control_cake" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
@@ -177,7 +178,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (10 coins)"
+text = "購入 (10 コイン)"
 
 [node name="Control_iceCream" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
@@ -201,7 +202,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (3 coins)"
+text = "購入 (3 コイン)"
 
 [node name="Control_CurryRice" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control"]
 layout_mode = 3
@@ -225,7 +226,7 @@ offset_top = 355.0
 offset_right = 325.0
 offset_bottom = 455.0
 theme_override_font_sizes/font_size = 40
-text = "Buy (25 coins)"
+text = "購入 (25 コイン)"
 
 [node name="Control_ShopLogo" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu"]
 layout_mode = 3
@@ -265,25 +266,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Back"
-
-[node name="Button_Save" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Save"
-
-[node name="Button_Options" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Options"
-
-[node name="Button_Quit" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Quit"
+text = "戻る"
 
 [node name="Control_Whole_Screen" type="Control" parent="CanvasLayer"]
 visible = false
@@ -309,10 +292,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_eij6y")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer_ef_display"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+[node name="SubViewport_ef" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(508, 511)
 render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer/SubViewport_ef"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer/SubViewport_ef"]
+texture = ExtResource("13_wm3et")
 
 [node name="PanelContainer_ef_info" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -329,4 +318,3 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_y4n6b")
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control_iceCream/Button_iceCream" to="CanvasLayer" method="_on_button_ice_cream_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_shop_item_menu/Control/Control_CurryRice/Button_curryRice" to="CanvasLayer" method="_on_button_curry_rice_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]

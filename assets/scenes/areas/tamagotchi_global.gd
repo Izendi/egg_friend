@@ -198,14 +198,14 @@ func _process(delta):
 	
 	#SET UP TOP RIGHT DISPLAY PANEL
 	topRight_label.text = "%s:%s:%s" % [h, m, s] #Real World Time
-	topRight_label.text = topRight_label.text + "\n\nEgg Friend Name: " + str(GLOBAL_game_data["egg_friend_name"])
-	topRight_label.text = topRight_label.text + "\nGrowth Stage: " + str(GLOBAL_game_data["growth_stage"])
-	topRight_label.text = topRight_label.text + "\nRebirth Level: " + str(int(GLOBAL_game_data["rebirth_level"]))
+	topRight_label.text = topRight_label.text + "\n\nエッグフレンド名: \n   " + str(GLOBAL_game_data["egg_friend_name"])
+	topRight_label.text = topRight_label.text + "\n\n成長レベル: " + str(GLOBAL_game_data["growth_stage"])
+	topRight_label.text = topRight_label.text + "\n転生レベル: " + str(int(GLOBAL_game_data["rebirth_level"]))
 	
-	topRight_label.text = topRight_label.text + "\n\nDay: " + str(int(GLOBAL_game_data["Days"])) # In game day
+	#topRight_label.text = topRight_label.text + "\n\nDay: " + str(int(GLOBAL_game_data["Days"])) # In game day
 	
-	topRight_label.text = topRight_label.text + "\nCurrent Location: " + str(GLOBAL_game_data["Current_background"])
-	topRight_label.text = topRight_label.text + "\nNo. Pets: " + str(GLOBAL_game_data["No_Pets"])
+	#topRight_label.text = topRight_label.text + "\nCurrent Location: " + str(GLOBAL_game_data["Current_background"])
+	#topRight_label.text = topRight_label.text + "\nNo. Pets: " + str(GLOBAL_game_data["No_Pets"])
 	#topRight_label.text = topRight_label.text + "\nNo. Good Scoldings: " + str(int(GLOBAL_game_data["No_just_scoldings"]))
 	#topRight_label.text = topRight_label.text + "\nNo. Bad Scoldings: " + str(int(GLOBAL_game_data["No_unjust_scoldings"]))
 	#topRight_label.text = topRight_label.text + "\nNo. Needed Snacks: " + str(int(GLOBAL_game_data["No_Needed_Snacks"]))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctqcy2o31pdqx"]
+[gd_scene load_steps=18 format=3 uid="uid://ctqcy2o31pdqx"]
 
 [ext_resource type="Script" uid="uid://cwusy35w7w5q0" path="res://assets/scripts/node_quiz.gd" id="1_eij6y"]
 [ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="2_eij6y"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="4_cx7hr"]
 [ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="7_djcjr"]
 [ext_resource type="Texture2D" uid="uid://dt4476o3o3koc" path="res://assets/backgrounds/quiz_menu/quiz_menu.png" id="8_djcjr"]
+[ext_resource type="Texture2D" uid="uid://lmq3o0u8l1hj" path="res://assets/scenes/egg_friends/bunny/sprites/idle_1.png" id="10_pyjye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x316"]
 border_width_left = 3
@@ -231,7 +232,7 @@ offset_top = 500.0
 offset_right = 826.0
 offset_bottom = 700.0
 theme_override_font_sizes/font_size = 60
-text = "Easy"
+text = "かんたん"
 
 [node name="Button_medium" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
 layout_mode = 1
@@ -241,7 +242,7 @@ offset_top = 850.0
 offset_right = 826.0
 offset_bottom = 1050.0
 theme_override_font_sizes/font_size = 60
-text = "Medium"
+text = "ふつう"
 
 [node name="Button_hard" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
 layout_mode = 1
@@ -251,7 +252,7 @@ offset_top = 1200.0
 offset_right = 826.0
 offset_bottom = 1400.0
 theme_override_font_sizes/font_size = 60
-text = "Hard"
+text = "むずかしい"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
 layout_mode = 0
@@ -265,7 +266,7 @@ layout_mode = 0
 offset_right = 922.0
 offset_bottom = 300.0
 theme_override_font_sizes/font_size = 70
-text = "Choose your difficulty"
+text = "難易度を選んでください"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -288,7 +289,7 @@ offset_top = 500.0
 offset_right = 826.0
 offset_bottom = 700.0
 theme_override_font_sizes/font_size = 60
-text = "Anime (English)"
+text = "アニメ (English)"
 
 [node name="Button_geography" type="Button" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
 layout_mode = 1
@@ -322,7 +323,7 @@ layout_mode = 0
 offset_right = 922.0
 offset_bottom = 300.0
 theme_override_font_sizes/font_size = 70
-text = "Choose the topic you wish to be quizzed on"
+text = "クイズするテーマを選んでください"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -442,25 +443,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Back"
-
-[node name="Button_Save" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Save"
-
-[node name="Button_Options" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Options"
-
-[node name="Button_Quit" type="Button" parent="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Quit"
+text = "戻る"
 
 [node name="PanelContainer_ef_display" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -476,10 +459,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1x8yr")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer_ef_display"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+[node name="SubViewport_ef" type="SubViewport" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer"]
+unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(508, 511)
 render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer/SubViewport_ef"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_ef_display/SubViewportContainer/SubViewport_ef"]
+texture = ExtResource("10_pyjye")
 
 [node name="PanelContainer_ef_info" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -504,4 +493,3 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu/Control_next_question/Button_Next_Question" to="CanvasLayer" method="_on_button_next_question_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu/Control_next_question/Button_wrong_now_next_question" to="CanvasLayer" method="_on_button_wrong_now_next_question_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Back" to="CanvasLayer" method="_on_button_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer_persistent_menu_border/Control_persistent_menu/VBoxContainer/Button_Quit" to="CanvasLayer" method="_on_button_quit_pressed"]

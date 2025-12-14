@@ -54,18 +54,20 @@ grow_horizontal = 0
 [node name="Panel" type="Panel" parent="CanvasLayer/Control_info"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.965
+anchor_left = -0.385
 anchor_right = 1.0
-anchor_bottom = 8.55
+anchor_bottom = 4.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cxcdh")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control_info/Panel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.993
+offset_left = 14.0
+offset_bottom = -0.102997
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_i6i21")
@@ -143,25 +145,25 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Actions"
+text = "アクション"
 
 [node name="Button_options" type="Button" parent="CanvasLayer/Control/Main_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Options"
+text = "オプション"
 
 [node name="Button_save" type="Button" parent="CanvasLayer/Control/Main_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Save"
+text = "セーブ"
 
 [node name="Button_quit" type="Button" parent="CanvasLayer/Control/Main_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Quit"
+text = "終了"
 
 [node name="Action_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
@@ -181,31 +183,25 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
-text = "Back"
+text = "戻る"
 
 [node name="Button_feed" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Feed"
+text = "えさをあげる"
 
 [node name="Button_pet" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Pet"
+text = "なでる"
 
 [node name="Button_scold" type="Button" parent="CanvasLayer/Control/Action_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Scold"
-
-[node name="Button_timeSkip" type="Button" parent="CanvasLayer/Control/Action_menu"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Time Jump ->"
+text = "しかる"
 
 [node name="Options_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
@@ -227,13 +223,13 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
-text = "Back"
+text = "戻る"
 
 [node name="Button_setBackground" type="Button" parent="CanvasLayer/Control/Options_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Background"
+text = "背景"
 
 [node name="Options_subBackgroundMenu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
@@ -255,25 +251,25 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
-text = "Back"
+text = "戻る"
 
 [node name="Button_setBackground_1" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Field"
+text = "草原"
 
 [node name="Button_setBackground_2" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Bedroom"
+text = "寝室"
 
 [node name="Button_setBackground_3" type="Button" parent="CanvasLayer/Control/Options_subBackgroundMenu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Bakery"
+text = "パン屋"
 
 [node name="feed_menu" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
@@ -295,7 +291,7 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
-text = "Back"
+text = "戻る"
 
 [node name="Button_feed_iceCream" type="Button" parent="CanvasLayer/Control/feed_menu"]
 custom_minimum_size = Vector2(0, 80)
@@ -367,7 +363,6 @@ stretch_mode = 0
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_feed" to="CanvasLayer" method="_on_button_feed_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_pet" to="CanvasLayer" method="_on_button_pet_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_scold" to="CanvasLayer" method="_on_button_scold_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Action_menu/Button_timeSkip" to="CanvasLayer" method="_on_button_time_skip_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_menu/Button_setBackground" to="CanvasLayer" method="_on_button_set_background_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Options_subBackgroundMenu/Button_back" to="CanvasLayer" method="_on_button_back_pressed"]

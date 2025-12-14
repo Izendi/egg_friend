@@ -1,3 +1,5 @@
+Sprite2D
+Camera2D
 Label
 Panel
 AnimatedSprite2D
@@ -11,4 +13,3 @@ TextureRect
 SubViewport
 SubViewportContainer
 MarginContainer
-GridContainer
