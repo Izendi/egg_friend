@@ -1,6 +1,6 @@
 extends Node
 
-var startingCoins = 500
+var startingCoins = 10
 
 @onready var new_game_default_data = {
 	"save_slot_num": 1,

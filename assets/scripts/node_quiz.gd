@@ -81,27 +81,27 @@ func _on_setup_quiz_environment() -> void:
 	
 	if g_questionTopic == "geography":
 		if g_questionDifficulty == "easy":
-			question_list = loadQuestions("res://assets/quiz_questions/geography_easy_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/geography_easy_questions.json")
 		elif g_questionDifficulty == "medium":
-			question_list = loadQuestions("res://assets/quiz_questions/geography_medium_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/geography_medium_questions.json")
 		elif g_questionDifficulty == "hard":
-			question_list = loadQuestions("res://assets/quiz_questions/geography_hard_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/geography_hard_questions.json")
 	elif g_questionTopic == "anime":
 		if g_questionDifficulty == "easy":
-			question_list = loadQuestions("res://assets/quiz_questions/anime_easy_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/anime_easy_questions.json")
 		elif g_questionDifficulty == "medium":
-			question_list = loadQuestions("res://assets/quiz_questions/anime_medium_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/anime_medium_questions.json")
 		elif g_questionDifficulty == "hard":
-			question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.json")
 	elif g_questionTopic == "biology":
 		if g_questionDifficulty == "easy":
-			question_list = loadQuestions("res://assets/quiz_questions/biology_easy_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/biology_easy_questions.json")
 		elif g_questionDifficulty == "medium":
-			question_list = loadQuestions("res://assets/quiz_questions/biology_medium_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/biology_medium_questions.json")
 		elif g_questionDifficulty == "hard":
-			question_list = loadQuestions("res://assets/quiz_questions/biology_hard_questions.jsonl")
+			question_list = loadQuestions("res://assets/quiz_questions/biology_hard_questions.json")
 	else:
-		question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.jsonl") # if something goes wrong, just load hard anime questions.
+		question_list = loadQuestions("res://assets/quiz_questions/anime_hard_questions.json") # if something goes wrong, just load hard anime questions.
 	
 	get_a_question_from_the_loaded_list()
 

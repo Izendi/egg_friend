@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://0m2uofpjmk1e"]
+
+[ext_resource type="FontFile" uid="uid://dyfmsdrnn3qa8" path="res://fonts/NotoSansJP-Medium.ttf" id="1_kh65n"]
+
+[resource]
+default_font = ExtResource("1_kh65n")
