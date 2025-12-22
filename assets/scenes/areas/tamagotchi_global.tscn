@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://214ce7ai1vg3"]
+[gd_scene load_steps=12 format=3 uid="uid://214ce7ai1vg3"]
 
 [ext_resource type="Script" uid="uid://bivcrv4c16j75" path="res://assets/scenes/areas/tamagotchi_global.gd" id="1_cxcdh"]
 [ext_resource type="Script" uid="uid://dqjsx45dg5ypi" path="res://assets/scenes/areas/menu_manager.gd" id="2_cxcdh"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="3_v4amd"]
 [ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="4_b1joo"]
 [ext_resource type="AudioStream" uid="uid://jse2fi02146e" path="res://assets/sounds/correct_sound.wav" id="4_pand0"]
+[ext_resource type="Theme" uid="uid://0m2uofpjmk1e" path="res://fonts/MainTheme.tres" id="5_pand0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxcdh"]
 bg_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -50,6 +51,7 @@ offset_top = 20.0
 offset_right = -20.0
 offset_bottom = 80.0
 grow_horizontal = 0
+theme = ExtResource("5_pand0")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Control_info"]
 layout_mode = 1
@@ -83,6 +85,7 @@ offset_right = -1406.0
 offset_bottom = -1066.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_pand0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 visible = false
@@ -90,6 +93,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.963
 anchor_bottom = 0.515
+theme = ExtResource("5_pand0")
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
@@ -138,12 +142,14 @@ offset_left = -0.112003
 offset_top = -0.18
 offset_right = -0.10202
 offset_bottom = -0.208008
+theme = ExtResource("5_pand0")
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="Button_actions" type="Button" parent="CanvasLayer/Control/Main_menu"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme = ExtResource("5_pand0")
 theme_override_font_sizes/font_size = 36
 text = "アクション"
 
@@ -175,6 +181,7 @@ anchor_right = 1.321
 anchor_bottom = 0.903668
 offset_right = -0.10202
 offset_bottom = -0.00802612
+theme = ExtResource("5_pand0")
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
@@ -215,6 +222,7 @@ offset_left = -0.112003
 offset_top = -0.18
 offset_right = -0.10199
 offset_bottom = -0.208008
+theme = ExtResource("5_pand0")
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
@@ -243,6 +251,7 @@ offset_left = -0.112003
 offset_top = -0.18
 offset_right = -0.10202
 offset_bottom = -0.208008
+theme = ExtResource("5_pand0")
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
@@ -283,6 +292,7 @@ offset_left = -0.112003
 offset_top = -0.18
 offset_right = -0.10199
 offset_bottom = -0.208008
+theme = ExtResource("5_pand0")
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
@@ -323,6 +333,7 @@ anchors_preset = 0
 offset_top = 834.0
 offset_right = 1668.0
 offset_bottom = 1668.0
+theme = ExtResource("5_pand0")
 
 [node name="PanelContainer_shop_button" type="PanelContainer" parent="CanvasLayer/Control_shop_and_quiz_menu"]
 layout_mode = 0
@@ -330,6 +341,7 @@ offset_left = 50.0
 offset_top = 474.0
 offset_right = 360.0
 offset_bottom = 784.0
+theme = ExtResource("5_pand0")
 theme_override_styles/panel = SubResource("StyleBoxFlat_i6i21")
 
 [node name="TextureButton_shop" type="TextureButton" parent="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_shop_button"]
@@ -344,6 +356,7 @@ offset_left = 1308.0
 offset_top = 474.0
 offset_right = 1618.0
 offset_bottom = 784.0
+theme = ExtResource("5_pand0")
 theme_override_styles/panel = SubResource("StyleBoxFlat_i6i21")
 
 [node name="TextureButton_quiz" type="TextureButton" parent="CanvasLayer/Control_shop_and_quiz_menu/PanelContainer_quiz_button"]

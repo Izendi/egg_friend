@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ctqcy2o31pdqx"]
+[gd_scene load_steps=19 format=3 uid="uid://ctqcy2o31pdqx"]
 
 [ext_resource type="Script" uid="uid://cwusy35w7w5q0" path="res://assets/scripts/node_quiz.gd" id="1_eij6y"]
 [ext_resource type="Texture2D" uid="uid://b2iav5sent5m7" path="res://assets/sprites/logos/quiz_nihongo-removebg-preview.png" id="2_eij6y"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://btb7fgupl22yn" path="res://assets/sounds/start_menu_button.wav" id="3_p67ri"]
 [ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="4_cx7hr"]
 [ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="7_djcjr"]
+[ext_resource type="Theme" uid="uid://0m2uofpjmk1e" path="res://fonts/MainTheme.tres" id="7_utm3t"]
 [ext_resource type="Texture2D" uid="uid://dt4476o3o3koc" path="res://assets/backgrounds/quiz_menu/quiz_menu.png" id="8_djcjr"]
 [ext_resource type="Texture2D" uid="uid://lmq3o0u8l1hj" path="res://assets/scenes/egg_friends/bunny/sprites/idle_1.png" id="10_pyjye"]
 
@@ -79,6 +80,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("7_utm3t")
 
 [node name="PanelContainer_question_control_menu" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -87,10 +89,12 @@ anchor_bottom = 1.0
 offset_left = 517.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_utm3t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_1x316")
 
 [node name="Control_question_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 layout_mode = 2
+theme = ExtResource("7_utm3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu"]
 texture_repeat = 2
@@ -216,6 +220,7 @@ autowrap_mode = 1
 [node name="Control_setup_difficulty_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 visible = false
 layout_mode = 2
+theme = ExtResource("7_utm3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_difficulty_options"]
 texture_repeat = 2
@@ -271,8 +276,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Control_setup_topic_options" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
-visible = false
 layout_mode = 2
+theme = ExtResource("7_utm3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
 texture_repeat = 2
@@ -313,16 +318,16 @@ text = "生物学"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options"]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 56.0
 offset_top = 100.0
-offset_right = 1032.0
+offset_right = 1096.0
 offset_bottom = 400.0
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer_question_control_menu/Control_setup_topic_options/Panel"]
 layout_mode = 0
-offset_right = 922.0
+offset_right = 1040.0
 offset_bottom = 300.0
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 55
 text = "クイズするテーマを選んでください"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -331,6 +336,7 @@ autowrap_mode = 2
 [node name="Control_correct_answer_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 visible = false
 layout_mode = 2
+theme = ExtResource("7_utm3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_correct_answer_menu"]
 texture_repeat = 2
@@ -378,6 +384,7 @@ text = "つづける"
 [node name="Control_incorrect_answer_menu" type="Control" parent="CanvasLayer/PanelContainer_question_control_menu"]
 visible = false
 layout_mode = 2
+theme = ExtResource("7_utm3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PanelContainer_question_control_menu/Control_incorrect_answer_menu"]
 texture_repeat = 2
@@ -425,6 +432,7 @@ text = "つづける"
 [node name="PanelContainer_persistent_menu_border" type="PanelContainer" parent="CanvasLayer"]
 offset_right = 517.0
 offset_bottom = 834.0
+theme = ExtResource("7_utm3t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_kf13m")
 
 [node name="Control_persistent_menu" type="Control" parent="CanvasLayer/PanelContainer_persistent_menu_border"]
@@ -454,6 +462,7 @@ offset_right = -1151.0
 offset_bottom = -317.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_utm3t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_1x8yr")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer_ef_display"]
@@ -478,6 +487,7 @@ offset_top = 1351.0
 offset_right = -1151.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_utm3t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control/Button_A" to="CanvasLayer" method="_on_button_a_pressed"]

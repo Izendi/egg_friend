@@ -102,12 +102,15 @@ func _on_button_new_egg_3_pressed():
 
 
 func _on_button_start_game_pressed():
-	print("you pressed start game with input name: " + name_input_text.text)
+	#print("you pressed start game with input name: " + name_input_text.text)
 	
 	#ensure there is no empty names, no spaces (in eng or japanese) and length is less than 11 characters!
 	if name_input_text.text == "" or " " in name_input_text.text or "　" in name_input_text.text or name_input_text.text.length() > 11:
-		play_bad_input_sound()
-		return
+		name_input_text.text = "NoName"
+		start_menu_stack.back().visible = false
+		start_menu_stack.append(new_game_choose_ef_type)
+		start_menu_stack.back().visible = true
+		play_regular_click_sound()
 	
 	start_menu_stack.back().visible = false
 	start_menu_stack.append(new_game_choose_ef_type)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2ywfvrj38hnv"]
+[gd_scene load_steps=19 format=3 uid="uid://2ywfvrj38hnv"]
 
 [ext_resource type="Script" uid="uid://2nacpueghkay" path="res://assets/scripts/node_start_menu.gd" id="1_vftgg"]
 [ext_resource type="Shader" uid="uid://c5m5rt8te47ee" path="res://assets/shader/node_start_menu.gdshader" id="2_3xagg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dj70fdjfy571y" path="res://assets/sprites/logos/egg_friend_logo-removebg-preview.png" id="5_xssu2"]
 [ext_resource type="AudioStream" uid="uid://btb7fgupl22yn" path="res://assets/sounds/start_menu_button.wav" id="5_y8jm2"]
 [ext_resource type="AudioStream" uid="uid://cymo6pia5cs1c" path="res://assets/sounds/bad_input.wav" id="6_034c4"]
+[ext_resource type="Theme" uid="uid://0m2uofpjmk1e" path="res://fonts/MainTheme.tres" id="7_ovfja"]
 [ext_resource type="Texture2D" uid="uid://j6v11dtkj8h2" path="res://assets/sprites/logos/choose_a_type_nihongo_nobg.png" id="8_0e0ms"]
 [ext_resource type="Texture2D" uid="uid://dr8cxic7svf2f" path="res://assets/sprites/mySprites/IMG_2318.JPG" id="9_2beq1"]
 [ext_resource type="Texture2D" uid="uid://cebmt4kwe2hsx" path="res://assets/sprites/mySprites/IMG_0257.JPG" id="10_ovfja"]
@@ -67,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ovfja")
 
 [node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_base_menu"]
 layout_mode = 1
@@ -140,6 +142,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ovfja")
 
 [node name="Button_NewGame" type="Button" parent="CanvasLayer/Control_options_menu"]
 layout_mode = 1
@@ -197,6 +200,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ovfja")
 
 [node name="Button_New_Egg_1" type="Button" parent="CanvasLayer/Control_new_game_menu"]
 layout_mode = 1
@@ -270,6 +274,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ovfja")
 
 [node name="Button_Load_file_1" type="Button" parent="CanvasLayer/Control_load_game_menu"]
 layout_mode = 1
@@ -344,6 +349,7 @@ offset_top = -0.143997
 offset_bottom = 0.815979
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ovfja")
 
 [node name="TextureRect_logo" type="TextureRect" parent="CanvasLayer/Control_logo"]
 layout_mode = 1
@@ -368,6 +374,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ovfja")
 
 [node name="LineEdit_name_input_box" type="LineEdit" parent="CanvasLayer/Control_new_game_enter_name_menu"]
 layout_mode = 1
@@ -425,6 +432,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_ovfja")
 
 [node name="Button_New_Egg_sai" type="Button" parent="CanvasLayer/Control_new_game_choose_ef_type"]
 layout_mode = 1
