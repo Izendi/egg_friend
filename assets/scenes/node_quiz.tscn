@@ -490,6 +490,24 @@ grow_vertical = 2
 theme = ExtResource("7_utm3t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_cpi5l")
 
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer_ef_info"]
+custom_minimum_size = Vector2(400, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label_money" type="Label" parent="CanvasLayer/PanelContainer_ef_info/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 36.0
+offset_top = 14.0
+offset_right = 142.0
+offset_bottom = 82.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 46
+text = "現金:"
+
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control/Button_A" to="CanvasLayer" method="_on_button_a_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control3/Button_B" to="CanvasLayer" method="_on_button_b_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer_question_control_menu/Control_question_menu/Control_abcd_options/Control2/Button_C" to="CanvasLayer" method="_on_button_c_pressed"]
