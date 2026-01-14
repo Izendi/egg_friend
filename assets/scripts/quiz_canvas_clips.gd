@@ -78,7 +78,18 @@ func display_correct_answer_menu(questionData: Quiz_Question_Data):
 	quiz_menu_stack.back().visible = false
 	quiz_menu_stack.append(correct_answer_menu)
 	
-	correct_answer_menu.get_node("Panel").get_node("Label").text = "正解!   :) \nよくできました。正しい答えは…\n\n" + questionData.correct_question_string  #正解！ よくできました。正しい答えは…
+	var reward_amount: int = 0
+	#var hard_question_prize_amount: int = 10 
+	#var medium_question_prize_amount: int = 5 
+	#var easy_question_prize_amount: int = 2 
+	if chosenQuestionDifficulty == "easy":
+		reward_amount = GLOBAL.easy_question_prize_amount
+	elif chosenQuestionDifficulty == "medium":
+		reward_amount = GLOBAL.medium_question_prize_amount
+	else:
+		reward_amount = GLOBAL.hard_question_prize_amount
+	
+	correct_answer_menu.get_node("Panel").get_node("Label").text = "正解!  +" + str(reward_amount) + "コイン！ \nよくできました。正しい答えは…\n\n" + questionData.correct_question_string  #正解！ よくできました。正しい答えは…
 	
 	quiz_menu_stack.back().visible = true
 

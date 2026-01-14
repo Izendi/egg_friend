@@ -139,4 +139,6 @@ func get_a_question_from_the_loaded_list():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var label_money = %Label_money
+	
+	label_money.text = "所持コイン: " + str(GLOBAL.current_loaded_game_data["Coins"])
